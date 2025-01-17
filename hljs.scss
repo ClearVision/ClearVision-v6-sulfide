@@ -1,8 +1,10 @@
 /*! HLJS Language Display by Zerthox */
 
-// IMPORTS
-@import 'src/mixins';
-@import 'lib/selectors/selectorPlaceholders';
+// SELECTORS
+@use 'classes/classes/classes' as *;
+
+// MIXINS
+@use 'backend/mixins' as *;
 
 // IMPORT CODE LANGUAGES
-@import 'src/messages/codeLanguages';
+@forward 'src/messages/codeLanguages';
