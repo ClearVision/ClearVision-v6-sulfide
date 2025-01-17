@@ -1,4 +1,4 @@
-@use "../../_classes" as *;
+@use "../../classes/_classes" as *;
 @use "../../backend/functions" as *;
 @use "../../backend/mixins" as *;
 @use "../../backend/variables" as *;
@@ -20,7 +20,7 @@
 // IMAGE MODAL
 #{c(modals mediaViewer actionButtons)} {
   background-color: rgba(0, 0, 0, 0.6);
-  border: 1px solid cv('color-main');
+  border: 1px solid cv('colors.main');
 }
 
 // MESSAGE DELETION CONFIRMATION

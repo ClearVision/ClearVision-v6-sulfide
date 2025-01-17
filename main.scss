@@ -2,22 +2,10 @@
 /* ### ClearVision v#{$version} by the ClearVision team ### */
 
 // SELECTORS
-@use 'classes/classes/classes' as *;
-
-// FUNCTIONS
-@use 'backend/functions' as *;
-
-// VARIABLES
-@use 'backend/variables' as *;
-
-// MIXINS
-@use 'backend/mixins' as *;
+@use 'backend' as *;
 
 // DEFAULT SETTINGS
 @forward 'src/defaultSettings';
-
-// SELECTORS
-@forward 'lib/selectors/selectorPlaceholders';
 
 // KEYFRAMES
 @forward 'src/keyframes';

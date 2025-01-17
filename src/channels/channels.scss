@@ -1,4 +1,4 @@
-@use "../../_classes" as *;
+@use "../../classes/_classes" as *;
 @use "../../backend/functions" as *;
 @use "../../backend/mixins" as *;
 @use "../../backend/variables" as *;
@@ -389,10 +389,10 @@
     background-color: transparent;
   }
   #{c(other cv streamPopoutWatchButton)} {
-    border-color: $main-color;
+    border-color: cv('colors.main');
     color: hsla(0, 0%, 100%, 0.8);
     &:not([disabled]):hover {
-      border-color: $hover-color;
+      border-color: cv('colors.hover');
       color: #fff;
     }
   }

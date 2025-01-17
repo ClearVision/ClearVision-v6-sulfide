@@ -1,4 +1,4 @@
-@use "../../_classes" as *;
+@use "../../classes/_classes" as *;
 @use "../../backend/functions" as *;
 @use "../../backend/mixins" as *;
 @use "../../backend/variables" as *;
@@ -20,7 +20,7 @@
   font-weight: 700;
   text-align: center;
   &:hover {
-    color: $main-color;
+    color: cv('colors.main');
   }
   &:before {
     content: '';
