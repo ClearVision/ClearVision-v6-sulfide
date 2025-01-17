@@ -1,5 +1,10 @@
+@use "../../../_classes" as *;
+@use "../../../backend/functions" as *;
+@use "../../../backend/mixins" as *;
+@use "../../../backend/variables" as *;
+
 /* Vencord SETTINGS SIDEBAR ICONS */
-%settingsSidebar {
+#{c(userSettings sidebar)} {
   // Vencord ICON MAP
   $ven: (
     // Settings
@@ -16,7 +21,7 @@
     'backup-restore': 'https://clearvision.github.io/icons/file_archive.svg'
   );
 
-  %tabBarItem {
+  #{c(tab item)} {
     @each $i, $u in $ven {
       &.vc-#{$i}:before {
         background-image: url(#{$u});

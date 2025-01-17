@@ -1,5 +1,10 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* APP DIRECTORY */
-%themeDark %directoryContainer {
+#{c(main dark)} #{c(other cv directoryContainer)} {
   background: transparent;
   &:before {
     content: '';
@@ -12,41 +17,41 @@
 }
 
 // HOME PAGE
-%directoryCategory {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(other cv directoryCategory)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
   &:hover {
-    background: $hover-color;
+    background: cv('colors.hover');
   }
 }
-%directoryCard,
-%directoryNewToApps {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(other cv directoryCard)},
+#{c(other cv directoryNewToApps)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
 }
-%directoryListCard {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.4));
-  &%directoryCardClickable:hover {
-    background-color: rgba(0, 0, 0, calc($bg-shading * 0.6));
+#{c(other cv directoryListCard)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
+  &#{c(other cv directoryCardClickable)}:hover {
+    background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
     color: #fff;
-    %textMediumNormal {
-      color: #fff;
-    }
+    // #{c(other cv textMediumNormal)} {
+    //   color: #fff;
+    // }
   }
 }
-%directoryFooter {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(other cv directoryFooter)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
 }
 
 // SEARCH
-%themeDark {
-  %directorySearchBar {
+#{c(main dark)} {
+  #{c(other cv directorySearchBar)} {
     background: hsla(0, 0%, 100%, 0.07) !important;
     border: none;
     box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
     &:focus-within {
-      box-shadow: 0 0 2px 2px $main-color;
+      box-shadow: 0 0 2px 2px cv('colors.main');
       transition: all 0.15s ease-in-out;
     }
-    %input {
+    #{c(other cv input)} {
       color: #fff;
       box-shadow: none;
       &::placeholder {
@@ -55,28 +60,28 @@
     }
   }
 }
-%directorySearchCategoryActive {
-  background: $main-color;
+#{c(other cv directorySearchCategoryActive)} {
+  background: cv('colors.main');
 }
 
 // APP PAGE
-%directoryAppCategory {
+#{c(other cv directoryAppCategory)} {
   background-color: hsla(0, 0%, 100%, 0.1);
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.15);
   }
 }
-%directoryAppSupportServer {
+#{c(other cv directoryAppSupportServer)} {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
-%directoryAppCommandList,
-%directoryAppPermissionList,
-%directoryAppIntentList,
-%directoryAppPremiumCardHeader,
-%directoryAppPremiumContainer {
+#{c(other cv directoryAppCommandList)},
+#{c(other cv directoryAppPermissionList)},
+#{c(other cv directoryAppIntentList)},
+#{c(other cv directoryAppPremiumCardHeader)},
+#{c(other cv directoryAppPremiumContainer)} {
   background: hsla(0, 0%, 0%, 0.4);
 }
-%directoryAppCommand {
+#{c(other cv directoryAppCommand)} {
   background: transparent;
-  border: 1px solid $main-color;
+  border: 1px solid cv('colors.main');
 }

@@ -1,14 +1,19 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* GUILDS */
-%layer {
-  %guildsWrapper {
+#{c(main appLayer)} {
+  #{c(serverList wrapper)} {
     background-color: transparent;
   }
 }
-%platformOSX {
-  %guildUnreadMentionsTop {
+#{c(os mac platform)} {
+  #{c(serverList unreadMentionsBarTop)} {
     top: 24px;
   }
-  %guildsWrapper {
+  #{c(serverList wrapper)} {
     margin-top: 0;
     padding-top: 48px;
     &:before {
@@ -18,12 +23,12 @@
     }
   }
 }
-%guildsWrapper {
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, calc($bg-shading * 0.3));
+#{c(serverList wrapper)} {
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
 }
 
 // HOME BUTTON
-%guildChildWrapper > svg {
+#{c(serverList iconChildWrapper)} > svg {
   width: 100%;
   height: 100%;
   background: cv('bg.home.icon') cv('bg.home.pos') / cv('bg.home.size') no-repeat;
@@ -33,36 +38,36 @@
 }
 
 // GUILD ICON
-%guildIcon {
+#{c(serverList serverIcon)} {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 // GUILD LIST
-%guildsTree {
+#{c(serverList tree)} {
   outline: none;
 }
 
 // HOME & ACRONYM
-%guildChildWrapper {
+#{c(serverList iconChildWrapper)} {
   background-color: rgba(0, 0, 0, 0.3);
   color: hsla(0, 0%, 100%, 0.7);
   transition: all 0.3s ease-in-out;
 }
-%guildNav {
+#{c(serverList iconWrapper)} {
   &:hover,
-  &%guildNavSelected {
-    %guildChildWrapper {
-      background-color: $main-color;
+  &#{c(serverList selected)} {
+    #{c(serverList iconChildWrapper)} {
+      background-color: cv('colors.main');
       color: #fff;
     }
   }
 }
 
 // PILL
-%guildPill {
+#{c(serverList pill)} {
   overflow: visible;
 }
-%guildPillItem {
+#{c(serverList pillItem)} {
   width: 12px;
   margin-left: -6px;
   border-radius: 20px;
@@ -74,59 +79,59 @@
 }
 
 // PLACEHOLDER
-%guildDragInner {
+#{c(serverList placeholderInner)} {
   background: hsla(0, 0%, 100%, 0.1);
 }
 
 // BADGE
-%guildBadge {
+#{c(serverList iconBadge)} {
   background: hsla(0, 0%, 0%, 0.7);
   box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.7);
-  %guildBadgeIcon {
+  #{c(other cv guildBadgeIcon)} {
     padding: 1px;
-    color: $main-color;
-    filter: drop-shadow(0 0 3px $main-color);
+    color: cv('colors.main');
+    filter: drop-shadow(0 0 3px cv('colors.main'));
   }
-  &%guildBadgeConnected {
-    background: $main-color;
-    box-shadow: 0 0 0 1px $main-color;
-    %guildBadgeIcon {
+  &#{c(serverList participating)} {
+    background: cv('colors.main');
+    box-shadow: 0 0 0 1px cv('colors.main');
+    #{c(other cv guildBadgeIcon)} {
       color: #fff;
     }
   }
 }
 
 // FOLDER
-%guildFolder {
+#{c(serverList folder)} {
   background-color: transparent;
   transition: all 0.3s ease-in-out;
-  &%guildFolderHover {
+  &#{c(serverList folderHover)} {
     background-color: hsla(0, 0%, 100%, 0.1);
   }
 }
-%guildFolderGuildNoIcon {
+#{c(other cv guildFolderGuildNoIcon)} {
   background: rgba(0, 0, 0, 0.4);
 }
-%guildExpandedFolderBackground {
+#{c(serverList expandedFolderBackground)} {
   background: hsla(0, 0%, 100%, 0.07);
   border-radius: 16px 16px 24px 24px;
   transition: background-color 0.3s ease-in-out;
 }
 
 // CIRCLE ICON BUTTON
-%circleIconButton {
+#{c(serverList addServer)} {
   background: rgba(0, 0, 0, 0.3);
   color: hsla(0, 0%, 100%, 0.7);
   transition: all 0.3s ease-in-out;
   &:hover,
-  &%circleIconButtonSelected {
-    background: $main-color;
+  &#{c(serverList addServerSelected)} {
+    background: cv('colors.main');
     color: #fff;
   }
 }
 
 // GUILDS ERROR
-%guildsError {
+#{c(other cv guildsError)} {
   background: rgba(0, 0, 0, 0.5);
   border: 2px solid cv('colors.danger');
   color: #fff;
@@ -138,11 +143,11 @@
 }
 
 // SEPARATOR
-%guildSeparator {
+#{c(serverList serverSeparator)} {
   background: hsla(0, 0%, 100%, 0.1);
 }
 
 // FOOTER
-%guildsFooter {
+#{c(other cv guildsFooter)} {
   background: transparent;
 }

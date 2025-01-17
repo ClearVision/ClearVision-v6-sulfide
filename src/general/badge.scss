@@ -1,52 +1,57 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 // NUMBER BADGE (AKA PINGS)
-%numberBadge,
-%textBadge {
-  background: $main-color !important;
-  box-shadow: 0 0 10px -3px $main-color, 0 0 0 1px $main-color;
+#{c(serverList numberBadge)},
+#{c(other cv textBadge)} {
+  background: cv('colors.main') !important;
+  box-shadow: 0 0 10px -3px cv('colors.main'), 0 0 0 1px cv('colors.main');
   color: #fff;
   font-weight: 600;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease-in-out;
 }
-%numberBadge {
+#{c(serverList numberBadge)} {
   font-size: 12px;
   line-height: 12px;
 }
-%channelWrapperSelected,
-%privateChannelInteractiveSelected,
-%tabBarItemSelected {
-  %numberBadge,
-  %textBadge {
+#{c(sidebar channelModeSelected)},
+#{c(sidebar privateChannelInteractiveSelected)},
+#{c(tab selected)} {
+  #{c(serverList numberBadge)},
+  #{c(other cv textBadge)} {
     background: #fff !important;
     box-shadow: none;
-    color: $main-color;
+    color: cv('colors.main');
     mix-blend-mode: screen;
   }
 }
 
 // FLOWER STAR BADGE
-%flowerStarContainer {
-  color: $main-color;
-  %flowerStarIcon {
+#{c(other cv flowerStarContainer)} {
+  color: cv('colors.main');
+  #{c(other cv flowerStarIcon)} {
     color: #fff;
   }
-  %flowerStarChild {
+  #{c(other cv flowerStarChild)} {
     > svg {
       color: #fff;
     }
   }
 }
 
-%gameVerifiedIcon > svg > path {
-  fill: $main-color;
+#{c(other cv gameVerifiedIcon)} > svg > path {
+  fill: cv('colors.main');
 }
 
 // COMMUNITY GUILD BADGE
-%guildIconChildContainer path[fill='var(--primary-500)'] {
+#{c(other cv guildIconChildContainer)} path[fill='var(--primary-500)'] {
   fill: hsla(0, 0%, 0%, 0.9);
 }
 
 // 1 MONTH FREE NITRO
-%nitroTrialBadge {
-  background-color: $main-color;
+#{c(other cv nitroTrialBadge)} {
+  background-color: cv('colors.main');
 }

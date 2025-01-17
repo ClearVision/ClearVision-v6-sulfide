@@ -1,11 +1,16 @@
-%messageReq, //main tab
-%messageReqSpam, //spam
-%messageReqActive%messageReqItem, 
-%messageReqItem:hover {
-  background: $hover-color;
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
+#{c(messageRequests selected)}, //main tab
+#{c(other cv messageReqSpam)}, //spam
+#{c(messageRequests active)}#{c(messageRequests item)}, 
+#{c(messageRequests item)}:hover {
+  background: cv('colors.hover');
   animation: cv-fade-to-8 0.3s ease-in-out;
 }
 /*was it spam*/
-%messageReqSpamCheck {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.3));
+#{c(other cv messageReqSpamCheck)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
 }

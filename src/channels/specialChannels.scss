@@ -1,86 +1,91 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /*CUSTOMIZE CHANNELS*/
 
-%customizeChannelsHeader {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.6)) !important;
+#{c(pages header header)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6)) !important;
 }
-%customizeChannels {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.5)) !important;
+#{c(pages header container)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.5)) !important;
 }
 
 /*header*/
-%customizeChannelsHeaderBar {
+#{c(pages header tabBar)} {
   border-bottom: none;
 }
 /*main section*/
-%customizeChannelsPrompt {
+#{c(pages customise prompt)} {
   background: var(--background-overlay);
 }
-%customizeChannelsPill {
+#{c(other cv customizeChannelsPill)} {
   background: rgba(0, 0, 0, 0.2);
-  border: 1px solid $main-color;
+  border: 1px solid cv('colors.main');
 }
 /*option buttons*/
-%customizeChannelsOption {
-  border: 2px solid $main-color;
+#{c(other cv customizeChannelsOption)} {
+  border: 2px solid cv('colors.main');
   &:hover {
-    border: 2px solid $hover-color;
+    border: 2px solid cv('colors.hover');
   }
-  &%customizeChannelsSelected {
+  &#{c(pages customiseOptions selected)} {
     border: 2px solid var(--success-color);
     background: rgba(0, 0, 0, 0.2);
   }
 }
 /*profile card*/
-%customizeChannelsProfile {
+#{c(pages customise profileCard)} {
   background: var(--background-overlay);
 }
-%customizeChannelsProfileRole {
+#{c(pages customise role)} {
   background: rgba(0, 0, 0, 0.2);
 }
 
 /*BROWSE CHANNELS*/
-%browseChannels {
+#{c(pages pageBody)} {
   background-color: transparent;
 }
-%browseChannelsTip {
+#{c(pages channelsDismissable container)} {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-%browseChannelsSelectAll {
-  %textExtraSmallMedium {
-    color: hsla(0, 0%, 100%, 0.5) !important;
-    transition: all 0.15s ease-in-out;
-  }
-}
+// #{c(pages channels selectAll)} {
+//   #{c(text text xs medium)} {
+//     color: hsla(0, 0%, 100%, 0.5) !important;
+//     transition: all 0.15s ease-in-out;
+//   }
+// }
 
-%browseChannelsRow {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(pages channels channelRow)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
   &:hover {
-    &:not(%browseChannelsDisabled) {
-      background-color: rgba(0, 0, 0, calc($bg-shading * 0.6));
+    &:not(#{c(pages channels disabled)}) {
+      background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
     }
   }
 }
 // MEMBERS LIST
 /*main container*/
-%membersChannelContainer {
+:is(#{c(membersPage mainTableContainer)},#{c(other cv membersChannelContainer)}) {
   background: var(--background-overlay);
-  border: 1px solid $main-color;
+  border: 1px solid cv('colors.main');
   box-shadow: none;
 }
 /*table border*/
-%membersChannelTable {
-  border-top: 1px solid $main-color;
+#{c(membersPage table)} {
+  border-top: 1px solid cv('colors.main');
 }
 /*user hover*/
-%membersChannelRowContainer:hover td {
-  background: $hover-color;
+#{c(other cv membersChannelRowContainer)}:hover td {
+  background: cv('colors.hover');
 }
 /*user option buttons*/
-%membersChannelButton {
-  background: $main-color;
+#{c(membersPage actionButton)} {
+  background: cv('colors.main');
   &:hover {
-    background: $hover-color;
+    background: cv('colors.hover');
   }
   &:nth-child(2) path ~ path,
   &:nth-child(1) path {
@@ -88,82 +93,82 @@
   }
 }
 /*roles*/
-%membersChannelRoleList {
+#{c(membersPage otherRoles)} {
   background: var(--background-overlay);
 }
 /*hover page button*/
-%membersChannelPage > span {
+#{c(search pageButton)} > span {
   color: #fff;
 }
 
 // NOT IN CHANNEL LIST
-%channelNotInList {
+#{c(other cv channelNotInList)} {
   background: transparent;
 }
 /* SERVER GUIDE */
-%homeContainer {
+#{c(other cv homeContainer)} {
   /*First msg*/
-  %serverGuideMessage {
+  #{c(other cv serverGuideMessage)} {
     background: transparent;
   }
-  %serverGuideMessageInner,
-  %serverGuideAvatar,
-  %serverGuideAction,
-  %serverGuideSidebarCard,
-  %serverGuideRow {
-    background: rgba(0, 0, 0, calc($bg-shading * 0.4));
+  #{c(other cv serverGuideMessageInner)},
+  #{c(other cv serverGuideAvatar)},
+  #{c(other cv serverGuideAction)},
+  #{c(other cv serverGuideSidebarCard)},
+  #{c(other cv serverGuideRow)} {
+    background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
   }
-  %serverGuideAction:hover {
-    background: $hover-color;
+  #{c(other cv serverGuideAction)}:hover {
+    background: cv('colors.hover');
   }
-  %serverGuideIcon {
-    background: $main-color;
+  #{c(other cv serverGuideIcon)} {
+    background: cv('colors.main');
     border: 4px solid transparent;
   }
-  %guildFolderIcon {
+  #{c(other cv guildFolderIcon)} {
     position: relative;
     background-clip: padding-box;
     background-color: none;
     background-position: center center;
     background-size: 100%100%;
   }
-  %serverGuideChannelIcon,
-  %serverGuideRulesIcon {
-    background: $main-color;
+  #{c(other cv serverGuideChannelIcon)},
+  #{c(other cv serverGuideRulesIcon)} {
+    background: cv('colors.main');
     & > svg > path {
       fill: #fff;
     }
   }
-  %serverGuideActionCompleted > path {
+  #{c(other cv serverGuideActionCompleted)} > path {
     fill: var(--success-color);
   }
 }
 /*Cases where we get taken to channels*/
-%serverGuideChannelHintBanner {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(other cv serverGuideChannelHintBanner)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
 }
-%serverGuideChannelHintIcon {
-  background: $main-color;
+#{c(other cv serverGuideChannelHintIcon)} {
+  background: cv('colors.main');
 }
 /* SERVER SUBSCRIPTIONS */
-%serverSubscription {
+#{c(other cv serverSubscription)} {
   background: var(--background-overlay);
 }
-%serverSubscriptionTier {
+#{c(other cv serverSubscriptionTier)} {
   background: rgba(0, 0, 0, 0.4);
 }
-%serverSubscriptionPerk,
-%serverSubscriptionPreview {
+#{c(other cv serverSubscriptionPerk)},
+#{c(other cv serverSubscriptionPreview)} {
   background: rgba(0, 0, 0, 0.2);
 }
 /* CUSTOMIZE YOUR EXPERIENCE */
-%serverExperienceNav {
+#{c(other cv serverExperienceNav)} {
   background: rgba(0, 0, 0, 0.4);
 }
-%serverExperiencePrompt,
-%serverExperienceTerms {
+#{c(other cv serverExperiencePrompt)},
+#{c(other cv serverExperienceTerms)} {
   background: rgba(0, 0, 0, 0.3);
 }
-%serverExperienceGradient {
+#{c(other cv serverExperienceGradient)} {
   display: none;
 }

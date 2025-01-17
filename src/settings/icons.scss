@@ -1,5 +1,10 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SETTINGS SIDEBAR ICONS */
-%settingsSidebar {
+#{c(userSettings sidebar)} {
   // ICON MAP
   $userSettingsIcons: (
     // MY ACCOUNT
@@ -143,7 +148,7 @@
   */
 
   // GENERAL STYLES
-  %tabBarItem {
+  #{c(tab item)} {
     &:before {
       content: '';
       position: absolute;
@@ -154,7 +159,7 @@
       z-index: 999;
       transition: all 0.15s ease-in-out;
     }
-    &%tabBarItemSelected {
+    &#{c(tab selected)} {
       &:before {
         width: 24px;
       }
@@ -163,21 +168,21 @@
 
   // USER SETTINGS
   @each $i, $u in $userSettingsIcons {
-    %tabBarItem[aria-controls='#{$i}-tab']:before {
+    #{c(tab item)}[aria-controls='#{$i}-tab']:before {
       background-image: url(#{$u});
     }
   }
 
   // SERVER SETTINGS
   @each $i, $u in $serverSettingsIcons {
-    %tabBarItem[aria-controls='#{$i}-tab']:before {
+    #{c(tab item)}[aria-controls='#{$i}-tab']:before {
       background-image: url(#{$u});
     }
   }
 
   // CHANNEL SETTINGS
   @each $i, $u in $channelSettingsIcons {
-    %tabBarItem[aria-controls='#{$i}-tab']:before {
+    #{c(tab item)}[aria-controls='#{$i}-tab']:before {
       background-image: url(#{$u});
     }
   }

@@ -1,42 +1,47 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* HEADER BAR SEARCH BARS */
 
-%chatSearchBar,
-%headerSearchBar {
+#{c(header searchBar)},
+#{c(other cv headerSearchBar)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   border-radius: 3px;
   transition: width 0.2s ease-in-out 0.1s;
   box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
   margin: 2px;
   &:focus-within {
-    box-shadow: 0 0 2px 2px $main-color;
+    box-shadow: 0 0 2px 2px cv('colors.main');
     transition: all 0.15s ease-in-out;
   }
 }
-%chatSearch {
-  %chatSearchFilter,
-  %chatSearchAnswer {
-    background: $main-color;
+#{c(header searchInner)} {
+  #{c(search searchFilter)},
+  #{c(search searchAnswer)} {
+    background: cv('colors.main');
     color: #fff;
   }
-  %chatSearchFilter {
+  #{c(search searchFilter)} {
     padding: 0 3px;
   }
-  %chatSearchAnswer {
+  #{c(search searchAnswer)} {
     margin: 0 2px 0 0;
     padding: 0 3px 0 0;
   }
 }
-%headerSearchInput {
-  color: #fff;
-  &::placeholder {
-    color: hsla(0, 0%, 100%, 0.3);
-  }
-}
-%headerSearchIcon {
+// #{c(other cv headerSearchInput)} {
+//   color: #fff;
+//   &::placeholder {
+//     color: hsla(0, 0%, 100%, 0.3);
+//   }
+// }
+#{c(friends searchIcon)} {
   color: hsla(0, 0%, 100%, 0.7);
   transition: all 0.15s ease-in-out;
 }
-%headerSearchBackButton {
+#{c(other cv headerSearchBackButton)} {
   color: hsla(0, 0%, 100%, 0.7);
   transition: all 0.15s ease-in-out;
   &:hover {
@@ -44,6 +49,6 @@
   }
 }
 
-%searchPopout %searchPopoutQueryContainer %searchPopoutKeyboardShortcut > span {
+#{c(modals search dropdown)} #{c(modals search queryHeader)} #{c(keybinds searchPopout)} > span {
   display: none;
 }

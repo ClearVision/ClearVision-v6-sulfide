@@ -1,5 +1,10 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* USER ROLE */
-%role {
+#{c(role role)} {
   position: relative;
   display: flex;
   flex-direction: row-reverse;
@@ -9,35 +14,35 @@
   border-color: transparent;
   cursor: default;
 
-  > %roleName {
+  > #{c(other cv roleName)} {
     margin-right: 0;
     margin-left: 4px;
     color: hsla(0, 0%, 100%, 0.9);
     transition: all 0.1s ease-in-out;
   }
   &:hover {
-    %roleCircle {
+    #{c(other cv roleCircle)} {
       &:before {
         opacity: 0.3;
       }
     }
-    > %roleName {
+    > #{c(other cv roleName)} {
       color: #fff;
     }
   }
 }
-%roleRemoveButton {
+#{c(other cv roleRemoveButton)} {
   position: static;
 }
-%roleRemoveIcon > path {
+#{c(other cv roleRemoveIcon)} > path {
   margin-left: 2px;
   fill: #fff;
 }
-%roleRemoveIcon {
+#{c(other cv roleRemoveIcon)} {
   left: calc(100% - 7px);
 }
-%roleCircle {
-  %role & {
+#{c(other cv roleCircle)} {
+  #{c(role role)} & {
     width: 0 !important;
     height: 0 !important;
     &:not(:empty) {
@@ -55,7 +60,7 @@
     }
   }
 }
-%roleAddButton {
+#{c(other cv roleAddButton)} {
   background: hsla(0, 0%, 100%, 0.1);
   transition: all 0.1s ease-in-out;
   cursor: pointer;
@@ -73,7 +78,7 @@
   }
 }
 /*assign roles popout*/
-%roleAssignPopout {
+#{c(modals searchPopup container)} {
   background-color: hsla(0, 0%, 0%, 0.8);
   border: none;
 }

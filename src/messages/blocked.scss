@@ -1,25 +1,30 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* BLOCKED MESSAGE */
-%messageBlockedAction {
-  color: $main-color;
-  %messageBlockedSystemMessage:hover & {
-    color: $hover-color;
+#{c(other cv messageBlockedAction)} {
+  color: cv('colors.main');
+  #{c(chat blockedSystemMessage)}:hover & {
+    color: cv('colors.hover');
   }
 }
-%messageGroupBlockedExpanded {
+#{c(other cv messageGroupBlockedExpanded)} {
   background: hsla(0, 0%, 100%, 0.1);
   border-radius: 7px;
   transition: all 0.15s ease-in-out;
-  + %divider {
+  + #{c(chat divider)} {
     margin-top: 25px;
   }
-  %divider + & {
+  #{c(chat divider)} + & {
     margin-top: 25px;
   }
 }
 // BLOCKED MESSAGE ACTION
-%messageGroupBlockedAction {
-  color: $main-color;
+#{c(other cv messageBlockedAction)} {
+  color: cv('colors.main');
 }
-%messageGroupBlockedSystemMessage:hover %messageGroupBlockedAction {
-  color: $hover-color;
+#{c(chat blockedSystemMessage)}:hover #{c(other cv messageBlockedAction)} {
+  color: cv('colors.hover');
 }

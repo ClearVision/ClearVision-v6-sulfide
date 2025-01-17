@@ -1,3 +1,8 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CODEBLOCK LANGUAGES */
 // LANGUAGE MAP
 // STRINGS GET PARSED TWICE; YOU'LL NEED TO DOUBLE THE AMOUNT OF BACK SLASHES.
@@ -226,18 +231,18 @@ $lang: (
 		--lang: "#{$ln}";
 	}
 }
+
 // big undo for embeded text files
-%textContainer %codeHLJS {
+#{c(embeds textContainer)} #{c(hljs hljs)} {
 	--lang: none;
 	transform: unset;
 }
-%codeHLJS::before {
+#{c(hljs hljs)}::before {
 	content: var(--lang);
-	position: absolute;
-	top: 0.25rem;
-	right: 0.25rem;
-	font-size: 0.625rem;
-	line-height: 0.875rem;
-	color: var(--text-muted);
-	font-style: italic;
+	display: block;
+    float: right;
+    text-align: right;
+    line-height: 100%;
+    opacity: 0.5;
+    pointer-events: none;
 }

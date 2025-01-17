@@ -1,9 +1,14 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* LOADING SCREEN */
-%loadingScreen {
+#{c(loading container)} {
   background: rgba(0, 0, 0, 0.9);
 }
-%loadingLinks {
-  color: $main-color;
+#{c(loading problems links)} {
+  color: cv('colors.main');
   opacity: 1 !important;
   @include hover-shadow;
 }

@@ -1,3 +1,7 @@
+@use "../_classes" as *;
+@use "../backend/functions" as *;
+@use "../backend/mixins" as *;
+@use "../backend/variables" as *;
 /* DEFAULT SETTINGS */
 :root {
   --main-color: #2780e6;

@@ -1,73 +1,78 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* HEADER BAR */
-%base {
-  %headerBar {
+#{c(main base)} {
+  #{c(header header)} {
     height: 48px;
-    background: rgba(0, 0, 0, calc($bg-shading * 0.6));
-    box-shadow: 0 0 10px rgba(0, 0, 0, calc($bg-shading * 0.6));
+    background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
+    box-shadow: 0 0 10px rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
     color: hsla(0, 0%, 100%, 0.5);
   }
-  %threadHeaderBar {
-    background: rgba(0, 0, 0, calc($bg-shading * 0.6));
-    box-shadow: 0 0 10px rgba(0, 0, 0, calc($bg-shading * 0.6));
+  #{c(threads header)} {
+    background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
+    box-shadow: 0 0 10px rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
     color: hsla(0, 0%, 100%, 0.5);
   }
 }
-%headerBar {
-  %headerBarChildren {
+#{c(header header)} {
+  #{c(header children)} {
     -webkit-mask: linear-gradient(to left, transparent, #000 20px);
     mask: linear-gradient(to left, transparent, #000 20px);
     &:after {
       display: none;
     }
-    %headerBarIcon {
-      color: $main-color;
+    #{c(header icon)} {
+      color: cv('colors.main');
       filter: drop-shadow(0 0 3px);
       width: 22px;
     }
   }
-  %headerBarTitle {
+  #{c(header title)} {
     margin-left: 0;
     color: #fff;
     text-shadow: 0 0 3px #000;
     font-family: cv('font.main');
   }
-  %headerBarTopic {
+  #{c(header topic)} {
     color: hsla(0, 0%, 100%, 0.5);
     a {
-      color: $main-color;
+      color: cv('colors.main');
       @include hover-shadow;
     }
   }
-  %headerBarAkaBadge {
+  #{c(header akaBadge)} {
     background: hsla(0, 0%, 100%, 0.1);
     color: #fff;
   }
-  %headerBarNicknames {
+  #{c(other cv headerBarNicknames)} {
     color: hsla(0, 0%, 100%, 0.5);
   }
-  %headerBarDivider {
+  #{c(header divider)} {
     background: hsla(0, 0%, 100%, 0.1);
   }
 }
-%headerBarIconWrapper {
+#{c(header iconWrapper)} {
   margin: 0 1px;
   padding: 2px 3px;
   box-sizing: content-box;
 }
-%headerBarIconWrapper > svg > foreignObject {
+#{c(header iconWrapper)} > svg > foreignObject {
   mask: none;
 }
 
 // MODAL POPOUT
-%headerBarModalContent {
+#{c(other cv headerBarModalContent)} {
   a {
-    color: $main-color;
+    color: cv('colors.main');
   }
 }
-%headerChannelNameInput:focus {
+#{c(header input)}:focus {
   background: transparent;
-  box-shadow: inset 0 0 0 1px $main-color;
+  box-shadow: inset 0 0 0 1px cv('colors.main');
 }
-%headerChannelNameOuter:hover %headerChannelNameInput {
-  box-shadow: inset 0 0 0 1px $main-color;
+#{c(other cv headerChannelNameOuter)}:hover #{c(header input)} {
+  box-shadow: inset 0 0 0 1px cv('colors.main');
 }

@@ -1,30 +1,35 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 // VC ACTIVITY STATUS POPOUT
-%vcActivityPopout,
-%vcSetActivityPopout {
+#{c(other cv vcActivityPopout)},
+#{c(other cv vcSetActivityPopout)} {
   background-color: cv('bg.general.popout');
 }
-%vcSetActivityPopoutIcon {
+#{c(other cv vcSetActivityPopoutIcon)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   border-color: hsla(0, 0%, 100%, 0.09);
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.07);
-    border-color: $hover-color;
+    border-color: cv('colors.hover');
   }
 }
-%vcSetActivityPopoutButton {
-  background-color: $main-color;
+#{c(other cv vcSetActivityPopoutButton)} {
+  background-color: cv('colors.main');
   border-color: transparent;
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
     border-color: transparent;
   }
 }
 
 // LEAVE SERVER REASON
-%serverLeave {
+#{c(modals problemInfo root)} {
   background-color: transparent;
 }
-%serverLeaveOption {
+#{c(modals problemInfo option)} {
   color: #fff;
   background: hsla(0, 0%, 100%, 0.03);
   border: 1px solid hsla(0, 0%, 100%, 0.05);
@@ -39,7 +44,7 @@
 
 // NITRO PROFILE PICTURE UPSELL
 /*right popout*/
-%sidebarPFPUpsell {
+#{c(other cv sidebarPFPUpsell)} {
   background: var(--background-overlay);
-  border-left: 5px solid $main-color;
+  border-left: 5px solid cv('colors.main');
 }

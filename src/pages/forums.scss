@@ -1,129 +1,134 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* FORUMS */
 // main container
-%themeDark %forumContainer {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.3));
+#{c(main dark)} #{c(forums container)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
 }
 // HEADER
-%forumHeader {
+#{c(forums header)} {
   background-color: transparent;
 }
 
 // SEARCH
-%forumSearch {
+#{c(forums title)} {
   font-family: var(--main-font);
   font-weight: 300;
   padding: 0 5px 0 5px;
   border-radius: 4px;
 }
-%forumSearchRow {
+#{c(forums matchingPostsRow)} {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
 // NEW POST
-%forumUploadButton {
-  background: $main-color;
+#{c(forums upload uploadInput)} {
+  background: cv('colors.main');
   transition: all 0.15s ease-in-out;
   &:hover {
-    background: $hover-color;
+    background: cv('colors.hover');
     transition: all 0.15s ease-in-out;
   }
 }
-%forumUploadIcon {
+#{c(forums upload uploadIcon)} {
   color: #fff;
 }
 
 // BE THE FIRST TO START A CONVERSATION
-%forumFirstIcon {
-  background: $main-color;
+#{c(other cv forumFirstIcon)} {
+  background: cv('colors.main');
   color: #fff;
 }
 
 // GET STARTED
-%forumSetupContainer {
+#{c(other cv forumSetupContainer)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%forumSetupStepContainer {
+#{c(other cv forumSetupStepContainer)} {
   background-color: hsla(0, 0%, 100%, 0.07);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.09);
-    border: 2px solid $hover-color;
+    border: 2px solid cv('colors.hover');
   }
 }
-%forumSetupStepStatus {
+#{c(other cv forumSetupStepStatus)} {
   background-color: transparent !important;
 }
 
 // GALLERY VIEW
-%forumCardContainer {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.3));
-  border: 2px solid $main-color;
+#{c(forums grid card)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
+  border: 2px solid cv('colors.main');
   &:hover {
-    background: rgba(0, 0, 0, calc($bg-shading * 0.3));
-    border: 2px solid $hover-color;
+    background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
+    border: 2px solid cv('colors.hover');
   }
-  &%forumOpen {
-    background-color: hsla(0, 0%, 100%, 0.1);
-    border-color: $main-color;
-  }
-  &%forumCardOpen {
+  // &#{c(other cv forumOpen)} {
+  //   background-color: hsla(0, 0%, 100%, 0.1);
+  //   border-color: cv('colors.main');
+  // }
+  &#{c(forums grid isOpen)} {
     background: hsla(0, 0%, 0%, 0.3);
     border: 2px solid var(--success-color);
   }
 }
-%forumContentPreview {
+#{c(forums grid contentPreview)} {
   background-color: hsla(0, 0%, 100%, 0.05);
   border-color: hsla(0, 0%, 100%, 0.09);
 }
 
 // LIST VIEW
-%themeDark {
-  %forumListContainer,
-  %forumIncreasedCard {
+#{c(main dark)} {
+  #{c(forums list card)},
+  #{c(other cv forumIncreasedCard)} {
     background: hsla(0, 0%, 0%, 0.3);
-    border: 2px solid $main-color;
+    border: 2px solid cv('colors.main');
     &:hover {
       background: hsla(0, 0%, 0%, 0.3);
-      border: 2px solid $hover-color;
+      border: 2px solid cv('colors.hover');
     }
-    &%forumListOpen {
+    &#{c(forums list isOpen)} {
       background: hsla(0, 0%, 0%, 0.3);
       border: 2px solid var(--success-color);
     }
   }
 }
 // fix the increased view's new reply feature
-%forumIncreasedReplyPreview {
+#{c(other cv forumIncreasedReplyPreview)} {
   background-color: hsla(0, 0%, 100%, 0.05);
-  border-color: 2px solid $main-color;
+  border-color: 2px solid cv('colors.main');
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.05);
-    border-color: 2px solid $hover-color;
+    border-color: 2px solid cv('colors.hover');
   }
 }
 
 // SHARED
-%forumPinIcon {
-  background-color: $main-color;
+#{c(other cv forumPinIcon)} {
+  background-color: cv('colors.main');
 }
-%forumLoading {
+#{c(forums loadingCard card)} {
   background: hsla(0, 0%, 0%, 0.3);
 }
 
 // TAGS
-%themeDark %forumTag,
-%themeDark %forumIncreasedTag {
+#{c(main dark)} #{c(pages tags pill)},
+#{c(main dark)} #{c(other cv forumIncreasedTag)} {
   background: rgba(0, 0, 0, 0.6);
-  border: 2px solid $main-color;
-  &%forumTagClickable:not(%forumTagDisabled):hover {
+  border: 2px solid cv('colors.main');
+  &#{c(pages tags clickable)}:not(#{c(pages tags disabled)}):hover {
     background: transparent;
-    border: 2px solid $hover-color;
+    border: 2px solid cv('colors.hover');
   }
-  &%forumTagSelected {
+  &#{c(pages tags selected)} {
     border: 2px solid var(--success-color);
   }
 }
-%themeDark %forumIncreasedTag {
+#{c(main dark)} #{c(other cv forumIncreasedTag)} {
   border-radius: 20px;
   height: 32px;
   width: fit-content;
@@ -132,101 +137,101 @@
 }
 // typing animation & message count
 /*icon*/
-%forumMessageCountIcon > svg {
+#{c(forums list messageCountIcon)} > svg {
   color: var(--channel-color);
 }
 /*post unread, message count, old*/
 /*important needed for inline*/
-%forumNewMessageCountText {
-  color: $main-color !important;
+#{c(forums list newMessageCount)} {
+  color: cv('colors.main') !important;
 }
 /* the !important is technically not needed but saves a rule
- in %forumListContainer%forumListOpen %Dots, 
+ in #{c(forums list card)}#{c(forums list isOpen)} [partial rule redaction bc comment],
  which creates an overriding inline rule*/
-%forumGalleryTypingDots, /*old forums*/
-%forumListTypingDots {
+#{c(forums grid dots)}, /*old forums*/
+#{c(forums list dots)} {
   /*new forums*/
   background-color: rgba(0, 0, 0, 0.6);
-  border: 2px solid $main-color !important;
+  border: 2px solid cv('colors.main') !important;
 }
 
 // tag box etc
-%forumTagBox {
+#{c(forums tags popout container)} {
   background: rgba(0, 0, 0, 0.7);
-  %forumTagBoxCount {
-    background-color: $main-color;
+  #{c(forums tags popout count)} {
+    background-color: cv('colors.main');
   }
-  %forumTagClear {
-    color: $main-color;
+  #{c(forums tags popout clear)} {
+    color: cv('colors.main');
     &:hover {
-      color: $hover-color;
+      color: cv('colors.hover');
     }
   }
 }
-%forumTagSelectedCount {
-  background: $main-color;
+#{c(other cv forumTagSelectedCount)} {
+  background: cv('colors.main');
 }
-%forumSortDropdownButton {
-  background-color: $main-color;
-  %forumSortDropdownButtonInner,
-  %forumSortDropdownButtonText {
+#{c(forums tags dropdown)} {
+  background-color: cv('colors.main');
+  #{c(forums tags dropdownInner)},
+  #{c(forums tags dropdownText)} {
     color: #fff !important;
   }
 }
-%forumSortDropdownContainer {
+#{c(forums tags dropdownPopoutContainer)} {
   background-color: transparent;
 }
-%forumTagButton {
+#{c(forums tags tagsButton)} {
   background-color: rgba(0, 0, 0, 0.3);
-  %forumTagButtonInner {
+  #{c(forums tags tagsButtonInner)} {
     color: #fff;
   }
 }
-%themeDark %forumContentFooter {
+#{c(main dark)} #{c(forums grid textContentFooter)} {
   background: transparent;
 }
 
 // GUIDELINES
-%forumRules {
+#{c(forums guidelines container)} {
   background: rgba(0, 0, 0, 0.3);
-  border: 2px solid $main-color;
-  %forumRulesDesc {
+  border: 2px solid cv('colors.main');
+  #{c(forums guidelines descriptionContainer)} {
     background: rgba(0, 0, 0, 0.3);
   }
-  %forumRulesGradient {
+  #{c(forums guidelines gradient)} {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), transparent);
   }
-  %forumRulesLinkContainer {
+  #{c(forums guidelines showMoreLinkContainer)} {
     background: rgba(0, 0, 0, 0.8);
   }
 }
-%forumRulesShowMore {
-  color: $main-color !important;
+#{c(forums guidelines showMoreText)} {
+  color: cv('colors.main') !important;
 }
 
 // CHAT
-%forumChat {
+#{c(threads container)} {
   background: transparent;
-  &%forumChatFloating {
+  &#{c(threads floating)} {
     background-color: hsla(0, 0%, 0%, 0.6);
     border-color: hsla(0, 0%, 100%, 0.07);
   }
 }
-%forumChatIconWrapper {
-  background: $main-color;
+#{c(forums open header iconWrapper)} {
+  background: cv('colors.main');
 }
-%forumChatIcon path {
+#{c(forums open header icon)} path {
   fill: #fff;
 }
-%forumChatHead,
-%forumChatDivider,
-%forumChatStartBox {
+#{c(forums open topBar container)},
+#{c(forums open topBarDividerSibling)},
+#{c(other cv forumChatStartBox)} {
   background-color: transparent;
 }
-%forumChatStartBox:after {
+#{c(other cv forumChatStartBox)}:after {
   border-color: transparent;
 }
-%forumMessageButton {
+#{c(forums open topBar buttonInner)} {
   background-color: hsla(0, 0%, 100%, 0.05);
   border-radius: 3px;
   transition: all 0.15s ease-in-out;
@@ -235,59 +240,59 @@
     border-color: hsla(0, 0%, 100%, 0.2);
     color: #fff;
   }
-  &%forumFollowActive {
-    color: $main-color;
+  &#{c(forums open topBar active)} {
+    color: cv('colors.main');
     &:hover {
-      color: $hover-color;
+      color: cv('colors.hover');
     }
   }
 }
 
 // admin/creation
-%themeDark %forumSettingsGuidelinesToolbar {
+#{c(main dark)} #{c(other cv forumSettingsGuidelinesToolbar)} {
   background: hsla(0, 0%, 0%, 0.6);
-  > %channelTextArea {
+  > #{c(chatForm channelTextAreaBase)} {
     border-radius: 0 0 8px 8px;
   }
 }
-%forumSettingsGuidelinesAddTags {
-  background: $main-color;
+#{c(other cv forumSettingsGuidelinesAddTags)} {
+  background: cv('colors.main');
 }
 
 // EMPTY FORUM
-%forumEmpty {
+#{c(other cv forumEmpty)} {
   background-color: transparent;
 }
-%forumEmptyCTA {
-  color: $main-color;
-  %themeDark &:hover {
-    color: $hover-color;
+#{c(other cv forumEmptyCTA)} {
+  color: cv('colors.main');
+  #{c(main dark)} &:hover {
+    color: cv('colors.hover');
   }
 }
 
 // EXAMPLE
-%forumExample,
-%forumExamplePreviewContainer {
+#{c(other cv forumExample)},
+#{c(other cv forumExamplePreviewContainer)} {
   background-color: transparent;
 }
-%forumExampleTag,
-%forumExamplePost,
-%forumExamplePreview {
+#{c(other cv forumExampleTag)},
+#{c(other cv forumExamplePost)},
+#{c(other cv forumExamplePreview)} {
   background-color: hsla(0, 0%, 100%, 0.09);
 }
-%forumExamplePreviewPostIcon,
-%forumExamplePreviewBottomSeparator {
+#{c(other cv forumExamplePreviewPostIcon)},
+#{c(other cv forumExamplePreviewBottomSeparator)} {
   background-color: transparent;
 }
-%forumExamplePreviewInput {
+#{c(other cv forumExamplePreviewInput)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
 
 // new posts button
-%forumNewPosts {
+#{c(other cv forumNewPosts)} {
   background: rgba(0, 0, 0, 0.4);
-  border: 2px solid $main-color;
-  %textMediumMedium {
-    color: $main-color !important;
-  }
+  border: 2px solid cv('colors.main');
+  // #{c(other cv textMediumMedium)} {
+  //   color: cv('colors.main') !important;
+  // }
 }

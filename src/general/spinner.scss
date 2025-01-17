@@ -1,14 +1,19 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SPINNER */
-%spinnerPopout {
+#{c(modals loadingPopout popout)} {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
-%spinnerWanderingCubes {
-  %spinnerWanderingCubesItem {
+#{c(main loadingSquare)} {
+  #{c(main loadingSquareItem)} {
     width: 100%;
     height: 100%;
     background: transparent;
     animation: none;
-    filter: drop-shadow(0 0 3px $main-color);
+    filter: drop-shadow(0 0 3px cv('colors.main'));
     &:before,
     &:after {
       content: '';
@@ -21,13 +26,13 @@
       animation: cv-spin 1s ease-in-out infinite;
     }
     &:after {
-      border-color: $main-color;
+      border-color: cv('colors.main');
       opacity: 0.1;
     }
     &:first-child {
       &:before {
-        border-left-color: $main-color;
-        border-right-color: $main-color;
+        border-left-color: cv('colors.main');
+        border-right-color: cv('colors.main');
       }
     }
     &:last-child {
@@ -35,24 +40,24 @@
       height: calc(100% - 10px);
       margin: 5px;
       &:before {
-        border-top-color: $main-color;
-        border-bottom-color: $main-color;
+        border-top-color: cv('colors.main');
+        border-bottom-color: cv('colors.main');
         animation-direction: reverse;
       }
     }
   }
 }
-%spinnerCircle {
-  %spinnerCirclePath {
-    stroke: $main-color;
-    %spinnerCirclePath3 {
+#{c(other cv spinnerCircle)} {
+  #{c(other cv spinnerCirclePath)} {
+    stroke: cv('colors.main');
+    #{c(other cv spinnerCirclePath3)} {
       opacity: 0.2;
     }
   }
 }
-%spinnerPulsingEllipsisPopout {
+#{c(other cv spinnerPulsingEllipsisPopout)} {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
-%spinnerPulsingEllipsis %spinnerPulsingEllipsisItem {
-  background-color: $main-color;
+#{c(other cv spinnerPulsingEllipsis)} #{c(main loadingSquareItem)} {
+  background-color: cv('colors.main');
 }

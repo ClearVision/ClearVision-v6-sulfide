@@ -1,9 +1,14 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* MESSAGE ATTACHMENT */
-%themeDark %attachment {
+#{c(main dark)} #{c(other cv attachment)} {
   background: hsla(0, 0%, 100%, 0.06);
   border-color: hsla(0, 0%, 100%, 0.08);
 }
-%attachmentIcon {
+#{c(other cv attachmentIcon)} {
   width: 30px;
   height: 30px;
   box-sizing: border-box;
@@ -13,7 +18,7 @@
   background-size: 100%;
   background-repeat: no-repeat;
   opacity: 0.5;
-  :not(%attachmentEmbedWrapper) > &[title='unknown'] {
+  :not(#{c(other cv attachmentEmbedWrapper)}) > &[title='unknown'] {
     background-image: url(https://clearvision.github.io/icons/file_upload.svg);
   }
   &[title='document'] {
@@ -44,35 +49,35 @@
     background-image: url(https://clearvision.github.io/icons/file_pdf.svg);
   }
 }
-%fileNameLink {
-  color: $main-color;
+#{c(other cv fileNameLink)} {
+  color: cv('colors.main');
   @include hover-shadow;
 }
-%attachmentButton {
+#{c(other cv attachmentButton)} {
   color: hsla(0, 0%, 100%, 0.3);
   transition: all 0.15s ease-in-out;
   &:hover {
     color: hsla(0, 0%, 100%, 0.5);
   }
 }
-%fileMetadata {
+#{c(other cv fileMetadata)} {
   color: hsla(0, 0%, 100%, 0.3);
 }
 
 // UPLOADING
-%fileUploading {
+#{c(embeds attachment)} {
   background: hsla(0, 0%, 100%, 0.06);
   border-color: hsla(0, 0%, 100%, 0.08);
 }
-%fileName {
+#{c(other cv fileName)} {
   color: hsla(0, 0%, 100%, 0.7);
 }
-%fileSize {
+#{c(other cv fileSize)} {
   color: hsla(0, 0%, 100%, 0.3);
 }
-%fileProgress {
+#{c(other cv fileProgress)} {
   background: hsla(0, 0%, 100%, 0.04) !important;
 }
-%fileProgressBar {
-  background: $main-color !important;
+#{c(embeds uploadProgressBar)} {
+  background: cv('colors.main') !important;
 }

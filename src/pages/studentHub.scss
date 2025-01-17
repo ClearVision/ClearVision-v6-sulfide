@@ -1,100 +1,105 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* STUDENT HUBS */
-%base {
-  %hubContainer {
-    background: rgba(0, 0, 0, calc($bg-shading * 0.5));
+#{c(main base)} {
+  #{c(other cv hubContainer)} {
+    background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.5));
   }
 }
 
 // HUB SIDEBAR
-%hubCategoryItem {
-  &%hubCategoryItemSelected {
-    %hubCategoryItemLayout {
-      background-color: $main-color;
+#{c(other cv hubCategoryItem)} {
+  &#{c(memberList selected)} {
+    #{c(memberList layout)} {
+      background-color: cv('colors.main');
     }
   }
 }
-%hubCategoryItemIcon > svg > path {
+#{c(other cv hubCategoryItemIcon)} > svg > path {
   fill: var(--interactive-active);
 }
 
 // SERVER LIST
-%hubTabBar {
+#{c(other cv hubTabBar)} {
   margin-bottom: 0;
 }
-%hubCard {
+#{c(other cv hubCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
   transition: all 0.15s ease-in-out;
   &:hover {
     background-color: hsla(0, 0%, 0%, 0.6);
   }
-  %hubCardIconMask {
+  #{c(other cv hubCardIconMask)} {
     background-color: rgba(0, 0, 0, 0.4);
     transition: all 0.15s ease-in-out;
   }
-  %hubCardIcon {
-    background-color: $main-color;
+  #{c(other cv hubCardIcon)} {
+    background-color: cv('colors.main');
     color: #fff;
   }
 }
-%hubSplash {
+#{c(other cv hubSplash)} {
   background: transparent;
 }
 
 // SEARCH BOX
-%hubHeader {
-  %searchBox {
-    background: hsl(247, 55%, 24%);
-    border: none;
-    box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
-    &:focus-within {
-      border: none;
-      box-shadow: 0 0 2px 2px $main-color;
-    }
-    %input {
-      border: none;
-      box-shadow: none;
-    }
-    %searchBoxInput {
-      color: $text-normal;
-      &::placeholder {
-        color: hsla(0, 0%, 100%, 0.3);
-      }
-    }
-    %searchBoxIconSearch {
-      color: $main-color;
-    }
-    %searchBoxCloseIcon {
-      color: $main-color;
-      &:hover {
-        color: $hover-color;
-      }
-    }
-  }
-}
-%searchHubHeader {
-  %searchPageBox {
-    background: hsla(0, 0%, 100%, 0.07);
-    border: none;
-    box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
-    &:focus-within {
-      border: none;
-      box-shadow: 0 0 2px 2px $main-color;
-    }
-    %input {
-      border: none;
-      box-shadow: none;
-    }
-    %searchBoxInput {
-      color: $text-normal;
-      &::placeholder {
-        color: hsla(0, 0%, 100%, 0.3);
-      }
-    }
-    %searchBoxCloseIcon {
-      color: $main-color;
-      &:hover {
-        color: $hover-color;
-      }
-    }
-  }
-}
+// #{c(other cv hubHeader)} {
+//   #{c(other cv searchBox)} {
+//     background: hsl(247, 55%, 24%);
+//     border: none;
+//     box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
+//     &:focus-within {
+//       border: none;
+//       box-shadow: 0 0 2px 2px cv('colors.main');
+//     }
+//     #{c(other cv input)} {
+//       border: none;
+//       box-shadow: none;
+//     }
+//     #{c(other cv searchBoxInput)} {
+//       color: cv('text.normal');
+//       &::placeholder {
+//         color: hsla(0, 0%, 100%, 0.3);
+//       }
+//     }
+//     #{c(other cv searchBoxIconSearch)} {
+//       color: cv('colors.main');
+//     }
+//     #{c(other cv searchBoxCloseIcon)} {
+//       color: cv('colors.main');
+//       &:hover {
+//         color: cv('colors.hover');
+//       }
+//     }
+//   }
+// }
+// #{c(other cv searchHubHeader)} {
+//   #{c(other cv searchPageBox)} {
+//     background: hsla(0, 0%, 100%, 0.07);
+//     border: none;
+//     box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
+//     &:focus-within {
+//       border: none;
+//       box-shadow: 0 0 2px 2px cv('colors.main');
+//     }
+//     #{c(other cv input)} {
+//       border: none;
+//       box-shadow: none;
+//     }
+//     #{c(other cv searchBoxInput)} {
+//       color: cv('text.normal');
+//       &::placeholder {
+//         color: hsla(0, 0%, 100%, 0.3);
+//       }
+//     }
+//     #{c(other cv searchBoxCloseIcon)} {
+//       color: cv('colors.main');
+//       &:hover {
+//         color: cv('colors.hover');
+//       }
+//     }
+//   }
+// }

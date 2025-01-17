@@ -1,42 +1,47 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SERVER SETTINGS */
 
 // OVERVIEW - server banner
-%guildFeatureAvailabilityIndicator {
-  background-color: $main-color;
+#{c(other cv guildFeatureAvailabilityIndicator)} {
+  background-color: cv('colors.main');
   color: #fff;
 }
 
 // ROLES
-%guildSettingsRoleDefaultPermissions {
-  background-color: $main-color;
+#{c(serverSettings roleEveryoneContainer)} {
+  background-color: cv('colors.main');
   color: #fff;
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
   }
 }
-%guildSettingsRoleSearch {
+#{c(serverSettings roleSearch)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
   margin: 2px;
   &:focus-within {
-    box-shadow: 0 0 2px 2px $main-color;
+    box-shadow: 0 0 2px 2px cv('colors.main');
   }
 }
-%guildSettingsRoleDefaultPermissionsIcon {
+#{c(serverSettings roleEveryoneIcon)} {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
-%guildSettingsRoleRow {
+#{c(serverSettings roleRow)} {
   &:before,
   &:last-child:after {
     background-color: hsla(0, 0%, 100%, 0.1);
   }
-  &:hover:not(%guildSettingsRoleRowDisabled) {
+  &:hover:not(#{c(serverSettings roleRowDisableHover)}) {
     background-color: rgba(255, 255, 255, 0.05);
-    %buttonCircle & {
+    #{c(modals inbox roundButton)} & {
       background-color: hsla(0, 0%, 0%, 0.6);
       color: #fff;
       &:hover {
-        background-color: $hover-color;
+        background-color: cv('colors.hover');
         color: #fff;
       }
     }
@@ -44,10 +49,10 @@
 }
 
 // ROLES - EDIT
-%guildSettingsRoleBackContainer {
+#{c(serverSettings roleTitleContainer)} {
   background-color: transparent;
 }
-%guildSettingsRoleHeader {
+#{c(serverSettings roleHeader)} {
   background-color: transparent;
   &:before {
     content: '';
@@ -65,21 +70,21 @@
     background: cv('bg.app.overlay');
   }
 }
-%guildSettingsRoleList {
-  %guildSettingsRoleListRow {
+#{c(other cv guildSettingsRoleList)} {
+  #{c(other cv guildSettingsRoleListRow)} {
     &:hover {
-      &:not(%tabBarItemDisabled) {
+      &:not(#{c(tab disabled)}) {
         background-color: hsla(0, 0%, 100%, 0.07);
       }
     }
-    %roleCircle {
+    #{c(other cv roleCircle)} {
       &::before {
         background-color: transparent;
       }
     }
-    &%tabBarItemSelected {
+    &#{c(tab selected)} {
       background-color: transparent;
-      %roleCircle {
+      #{c(other cv roleCircle)} {
         &::before {
           background-color: inherit;
         }
@@ -87,37 +92,37 @@
     }
   }
 }
-%guildSettingsRoleIconPreview {
+#{c(serverSettings rolePreviewContainer)} {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
 
 // View server as role selection bar
-%guildSettingsRoleViewAsDropdown {
+#{c(other cv guildSettingsRoleViewAsDropdown)} {
   background-color: hsla(0, 0%, 0%, 0.8);
 }
 
 // EMOJI
-%themeDark {
-  %guildSettingsEmojiCard:before,
-  %guildSettingsEmojiRemove {
+#{c(main dark)} {
+  #{c(serverSettings emojiRow)}:before,
+  #{c(other cv guildSettingsEmojiRemove)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
 }
-%guildSettingsEmojiRow {
+#{c(serverSettings emojiRow)} {
   &:hover {
-    %guildSettingsEmojiAliasPlaceholder {
+    #{c(serverSettings emojiAliasPlaceholder)} {
       visibility: hidden;
     }
   }
-  %guildSettingsEmojiAliasInput {
-    %guildSettingsEmojiInput {
-      color: $text-normal;
+  #{c(serverSettings emojiAliasInput)} {
+    #{c(serverSettings emojiInput)} {
+      color: cv('text.normal');
       background-color: hsla(0, 0%, 100%, 0.07);
       border: none;
       box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
     }
-    &:has(%guildSettingsEmojiInput:focus-within) {
-      + %guildSettingsEmojiAliasPlaceholder {
+    &:has(#{c(serverSettings emojiInput)}:focus-within) {
+      + #{c(serverSettings emojiAliasPlaceholder)} {
         visibility: hidden;
       }
     }
@@ -125,302 +130,302 @@
 }
 
 // STICKERS
-%guildSettingsStickersUploadCard {
+#{c(other cv guildSettingsStickersUploadCard)} {
   background-color: rgba(0, 0, 0, 0.4);
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
   }
 }
-%guildSettingsStickersTierLock {
+#{c(other cv guildSettingsStickersTierLock)} {
   color: #fff;
   opacity: 0.3;
 }
 
 // SAFETY SETUP
-%guildSettingsSafetyChangeLog,
-%guildSettingsSafetyChecklist {
+#{c(other cv guildSettingsSafetyChangeLog)},
+#{c(other cv guildSettingsSafetyChecklist)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%guildSettingsSafetyPill {
+#{c(other cv guildSettingsSafetyPill)} {
   background-color: transparent;
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
-%guildSettingsSafetyItemWrapper {
+#{c(other cv guildSettingsSafetyItemWrapper)} {
   background-color: transparent;
 }
 
 // AUTOMOD
-%automodBadge {
+#{c(other cv automodBadge)} {
   border: none;
   padding: 4px 6px;
 }
-%automodEditCard {
+#{c(other cv automodEditCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%automodRuleIconContainer {
-  background-color: $main-color;
+#{c(other cv automodRuleIconContainer)} {
+  background-color: cv('colors.main');
 }
-%automodRuleIcon {
+#{c(other cv automodRuleIcon)} {
   color: #fff;
 }
-%automodActionTag {
+#{c(other cv automodActionTag)} {
   background-color: transparent;
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
-%automodActionIcon,
-%automodActionText {
+#{c(other cv automodActionIcon)},
+#{c(other cv automodActionText)} {
   color: #fff !important;
 }
-%automodStepIcon {
+#{c(other cv automodStepIcon)} {
   background-color: hsla(0, 0%, 100%, 0.1);
 }
-%automodStepperCOntainer {
+#{c(other cv automodStepperCOntainer)} {
   background-color: hsla(0, 0%, 100%, 0.1);
-  %input {
+  #{c(other cv input)} {
     &:focus {
       box-shadow: none;
     }
   }
 }
-%automodContentCard {
+#{c(other cv automodContentCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%automodCollapseableCard {
+#{c(other cv automodCollapseableCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
   &:active {
     background-color: hsla(0, 0%, 0%, 0.6);
   }
-  &%automodCollapseableCardToggled:active {
+  &#{c(other cv automodCollapseableCardToggled)}:active {
     background-color: hsla(0, 0%, 0%, 0.6);
   }
 }
-%automodCollapseableHeaderContainer,
-%automodCollapseableHeaderClickable,
-%automodCollapseablePointer {
+#{c(other cv automodCollapseableHeaderContainer)},
+#{c(other cv automodCollapseableHeaderClickable)},
+#{c(other cv automodCollapseablePointer)} {
   background-color: transparent;
 }
-%automodCollapsedContainer {
+#{c(other cv automodCollapsedContainer)} {
   background-color: transparent;
   border: none;
 }
-%automodCollapseableRadioBackground {
-  &%automodCollapseableRadioSelected {
+#{c(other cv automodCollapseableRadioBackground)} {
+  &#{c(other cv automodCollapseableRadioSelected)} {
     background-color: hsla(0, 0%, 100%, 0.07);
   }
 }
-%automodKeywordsTextArea,
-%automodRegexTextArea {
-  color: $text-normal;
+#{c(other cv automodKeywordsTextArea)},
+#{c(other cv automodRegexTextArea)} {
+  color: cv('text.normal');
   background-color: hsla(0, 0%, 100%, 0.07);
   border: none;
   box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
   &:focus {
-    box-shadow: 0 0 2px 2px $main-color;
+    box-shadow: 0 0 2px 2px cv('colors.main');
   }
   &::placeholder {
     color: hsla(0, 0%, 100%, 0.3);
   }
 }
-%automodDropdown {
+#{c(other cv automodDropdown)} {
   background-color: hsla(0, 0%, 0%, 0.8);
   border: 1px solid hsla(0, 0%, 100%, 0.07);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-%automodDropdownRowLabel {
+#{c(other cv automodDropdownRowLabel)} {
   background-color: hsla(0, 0%, 100%, 0.1);
 }
-%automodDropdownChannelIcon {
+#{c(other cv automodDropdownChannelIcon)} {
   color: #fff;
 }
 
 // AUDIT LOG
-%themeDark {
-  %guildSettingsAuditLog {
+#{c(main dark)} {
+  #{c(other cv guildSettingsAuditLog)} {
     border-color: hsla(0, 0%, 100%, 0.07);
   }
-  %guildSettingsAuditHeader {
+  #{c(other cv guildSettingsAuditHeader)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
-  %guildSettingsAuditHeaderExpanded,
-  %guildSettingsAuditDivider,
-  %guildSettingsAuditChangeDetails {
+  #{c(other cv guildSettingsAuditHeaderExpanded)},
+  #{c(other cv guildSettingsAuditDivider)},
+  #{c(other cv guildSettingsAuditChangeDetails)} {
     background-color: hsla(0, 0%, 0%, 0.6);
   }
 }
 
 // BANS
-%guildSettingsBanContainer {
+#{c(other cv guildSettingsBanContainer)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%guildSettingsBannedUser {
+#{c(other cv guildSettingsBannedUser)} {
   background-color: hsla(0, 0%, 100%, 0.07);
 }
 
 // SERVER TEMPLATE
-%guildSettingsTemplateDescription {
+#{c(serverSettings templateDescriptionBox)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
 
 // COMMUNITY OVERVIEW
-%guildSettingsCommunityUpsell {
+#{c(other cv guildSettingsCommunityUpsell)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%guildSettingsCommunityUpsellFooter {
+#{c(other cv guildSettingsCommunityUpsellFooter)} {
   background-color: transparent;
 }
 // ONBOARDING
-%settingsContentRegion {
-  %guildSettingsOnboardingTestimonialContainer {
+#{c(userSettings contentRegion)} {
+  #{c(other cv guildSettingsOnboardingTestimonialContainer)} {
     background-color: transparent;
   }
-  %guildSettingsOnboardingTestimonialQuotes {
-    color: $main-color;
+  #{c(other cv guildSettingsOnboardingTestimonialQuotes)} {
+    color: cv('colors.main');
   }
-  %guildSettingsOnboardingTestimonial {
-    %textSmallMedium {
-      color: #fff !important;
-    }
-  }
-  %guildSettingsOnboardingUpsell {
+  // #{c(other cv guildSettingsOnboardingTestimonial)} {
+  //   #{c(other cv textSmallMedium)} {
+  //     color: #fff !important;
+  //   }
+  // }
+  #{c(other cv guildSettingsOnboardingUpsell)} {
     background-color: rgba(0, 0, 0, 0.4);
   }
-  %guildSettingsOnboardingUpsellList {
+  #{c(other cv guildSettingsOnboardingUpsellList)} {
     background-color: transparent;
-    &%guildSettingsOnboardingUpsellListSelected {
+    &#{c(other cv guildSettingsOnboardingUpsellListSelected)} {
       background-color: hsla(0, 0%, 100%, 0.07);
     }
   }
-  %guildSettingsOnboardingUpsellCheckboxCircle {
-    background-color: $main-color;
+  #{c(other cv guildSettingsOnboardingUpsellCheckboxCircle)} {
+    background-color: cv('colors.main');
   }
-  %guildSettingsOnboardingUpsellCheckbox {
-    &%guildSettingsOnboardingUpsellListSelected {
+  #{c(other cv guildSettingsOnboardingUpsellCheckbox)} {
+    &#{c(other cv guildSettingsOnboardingUpsellListSelected)} {
       background-color: transparent;
-      border-color: $main-color;
+      border-color: cv('colors.main');
     }
   }
-  %serverGuideMessageInner {
+  #{c(other cv serverGuideMessageInner)} {
     background-color: rgba(0, 0, 0, 0.4);
-    &%userPopoutInnerThemed {
-      background-color: transparent;
-    }
+    // &#{c(other cv userPopoutInnerThemed)} {
+    //   background-color: transparent;
+    // }
   }
-  %serverGuideAction {
+  #{c(other cv serverGuideAction)} {
     background-color: rgba(0, 0, 0, 0.4);
   }
-  %serverGuideChannelIcon {
-    background-color: $main-color;
+  #{c(other cv serverGuideChannelIcon)} {
+    background-color: cv('colors.main');
     svg {
       color: #fff;
     }
   }
 }
 // SERVER INSIGHTS
-%guildSettingsInsightsAnalyticsCard {
+#{c(other cv guildSettingsInsightsAnalyticsCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%guildSettingsInsightsDeveloperPortal {
+#{c(other developerPortalCtaWrapper)} {
   background-color: transparent;
 }
-%guildSettingsInsightsNotEnoughMembers {
+#{c(other cv guildSettingsInsightsNotEnoughMembers)} {
   background-color: var(--info-warning-background);
 }
-%guildSettingsInsightsMemberInsights {
+#{c(other cv guildSettingsInsightsMemberInsights)} {
   background-color: transparent;
 }
-%guildSettingsInsightsActions {
+#{c(other cv guildSettingsInsightsActions)} {
   background-color: transparent;
 }
 
 // ENABLE COMMUNITY
-%guildSettingsCommunityGuildDetails {
+#{c(serverSettings enableCommunityGuildDetails)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%guildSettingsCommunityFeatureCard,
-%guildSettingsCommunityFeatureIcon {
+#{c(serverSettings enableCommunityFeatureCard)},
+#{c(serverSettings enableCommunityFeatureIcon)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%checkboxWrapper%guildSettingsCommunityRow {
+#{c(checkbox wrapper)}#{c(checkbox row)} {
   background-color: transparent;
-  &%checkboxChecked {
+  &#{c(checkbox checked)} {
     background-color: transparent;
   }
 }
 
 // DISCOVERY
-%guildSettingsDiscoveryChecklist {
+#{c(other cv guildSettingsDiscoveryChecklist)} {
   background-color: hsla(0, 0%, 0%, 0.4);
-  %guildSettingsDiscoveryHeader {
+  #{c(other cv guildSettingsDiscoveryHeader)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
-  %guildSettingsDiscoverySeparator {
+  #{c(other cv guildSettingsDiscoverySeparator)} {
     background-color: hsla(0, 0%, 100%, 0.06);
   }
 }
 
 // WELCOME SCREEN
-%guildSettingsWelcomeEnable,
-%guildSettingsWelcomePreview {
+#{c(other cv guildSettingsWelcomeEnable)},
+#{c(other cv guildSettingsWelcomePreview)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%guildSettingsWelcomeEditCircle {
-  background-color: $main-color;
+#{c(other cv guildSettingsWelcomeEditCircle)} {
+  background-color: cv('colors.main');
   color: white;
 }
-%guildSettingsWelcomeChannel {
+#{c(other cv guildSettingsWelcomeChannel)} {
   background-color: hsla(0, 0%, 100%, 0.05);
 }
-%guildSettingsWelcomeChannelIcon {
+#{c(other cv guildSettingsWelcomeChannelIcon)} {
   background-color: transparent;
 }
 
 // SERVER SUBSCRIPTIONS
-%guildSettingsSubsCard {
+#{c(other cv guildSettingsSubsCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%guildSettingsSubsStepsContainer,
-%guildSettingsSubsStepsImageContainer {
+#{c(other cv guildSettingsSubsStepsContainer)},
+#{c(other cv guildSettingsSubsStepsImageContainer)} {
   background-color: transparent;
 }
-%guildSettingsSubsEarningsPreviewContainer,
-%guildSettingsSubsAvatarCard {
+#{c(other cv guildSettingsSubsEarningsPreviewContainer)},
+#{c(other cv guildSettingsSubsAvatarCard)} {
   background-color: hsla(0, 0%, 100%, 0.07) !important;
 }
-%guildSettingsSubsEmojisContainer {
+#{c(other cv guildSettingsSubsEmojisContainer)} {
   background-color: transparent;
 }
-%guildSettingsSubsViewServerButton {
-  background-color: $main-color;
+#{c(other cv guildSettingsSubsViewServerButton)} {
+  background-color: cv('colors.main');
 }
 
 // SERVER BOOST STATUS
-%themeDark {
-  %guildSettingsBoostBackground {
+#{c(main dark)} {
+  #{c(other cv guildSettingsBoostBackground)} {
     color: hsla(0, 0%, 0%, 0.4);
   }
-  %guildSettingsBoostTierInProgress {
+  #{c(other cv guildSettingsBoostTierInProgress)} {
     background-color: hsla(0, 0%, 0%, 0.4);
     border: 3px solid #f47fff;
   }
-  %guildSettingsBoostTierLocked,
-  %guildSettingsBoostTierUnlocked,
-  %guildSettingsBoostTierBody {
+  #{c(other cv guildSettingsBoostTierLocked)},
+  #{c(other cv guildSettingsBoostTierUnlocked)},
+  #{c(other cv guildSettingsBoostTierBody)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
 }
 
 // INVITES PAGE
-%serverInvitesCancel {
-  background-color: rgba(0, 0, 0, 0.4);
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-}
+// #{c(other cv serverInvitesCancel)} {
+//   background-color: rgba(0, 0, 0, 0.4);
+//   &:hover {
+//     background-color: rgba(0, 0, 0, 0.8);
+//   }
+// }
 
 // MEMBERS MANAGEMENT
-%guildSettingsMembersMoved {
+#{c(other cv guildSettingsMembersMoved)} {
   background-color: rgba(0, 0, 0, 0.6);
 }
-%guildSettingsShowMembersInChannelList {
+#{c(other cv guildSettingsShowMembersInChannelList)} {
   background: rgba(0, 0, 0, 0.4);
 }

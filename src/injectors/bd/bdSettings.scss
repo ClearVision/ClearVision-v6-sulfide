@@ -1,10 +1,15 @@
+@use "../../../_classes" as *;
+@use "../../../backend/functions" as *;
+@use "../../../backend/mixins" as *;
+@use "../../../backend/variables" as *;
+
 // SELECT
 .bd-select,
 .bd-select.menu-open {
   background-color: rgba(0, 0, 0, 0.5);
 }
 .bd-switch input:checked + .bd-switch-body {
-  --switch-color: $main-color;
+  --switch-color: cv('colors.main');
 }
 // TRANSPARENCY TRIGGER
 .bd-transparency {
@@ -25,7 +30,7 @@
       background-color: rgba(255, 255, 255, 0.1) !important;
     }
     &.selected {
-      background-color: $main-color !important;
+      background-color: cv('colors.main') !important;
     }
   }
 }
@@ -43,12 +48,12 @@
 // BUTTONS
 .bd-button-filled.bd-button-color-brand,
 .bd-button {
-  background-color: $main-color;
+  background-color: cv('colors.main');
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
   }
   &:active {
-    background-color: $main-color;
+    background-color: cv('colors.main');
   }
 }
 .bd-button.bd-button-icon svg {
@@ -56,27 +61,27 @@
 }
 .bd-addon-views {
   .bd-view-button.selected {
-    background-color: $main-color;
+    background-color: cv('colors.main');
   }
 }
 // SWITCH
 .bd-switch input:checked + .bd-switch-body {
-  background-color: $main-color !important;
+  background-color: cv('colors.main') !important;
 }
 .bd-switch-body {
   background-color: rgba(255, 255, 255, 0.15) !important;
 }
 .bd-switch-symbol {
-  color: $main-color !important;
+  color: cv('colors.main') !important;
 }
 // TOAST
 .bd-toast {
-  background-color: $main-color;
+  background-color: cv('colors.main');
   &.toast-info {
-    background-color: $main-color;
+    background-color: cv('colors.main');
   }
   &.toast-success {
-    background-color: $main-color;
+    background-color: cv('colors.main');
   }
 }
 // LINKS

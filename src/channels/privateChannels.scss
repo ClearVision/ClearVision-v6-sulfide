@@ -1,17 +1,22 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* PRIVATE CHANNELS */
-%privateChannels {
+#{c(sidebar privateChannels)} {
   background: transparent;
-  %privateChannelsScroller {
+  #{c(sidebar scroller)} {
     background: transparent;
   }
 }
 
 // HEADER
-%privateChannelsHeader {
+#{c(sidebar privateChannelsHeaderContainer)} {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $main-color;
+  color: cv('colors.main');
   font-weight: 700;
   text-align: center;
   &:hover {
@@ -22,7 +27,7 @@
     height: 2px;
     flex-grow: 1;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(to left, $main-color 50%, transparent);
+    background: linear-gradient(to left, cv('colors.main') 50%, transparent);
     margin-right: 5px;
   }
   &:after {
@@ -30,26 +35,26 @@
     height: 2px;
     flex-grow: 1;
     transition: all 0.3s ease-in-out;
-    background: linear-gradient(to right, $main-color 50%, transparent);
+    background: linear-gradient(to right, cv('colors.main') 50%, transparent);
     margin-left: 5px;
   }
-  %privateChannelsHeaderText {
+  #{c(sidebar privateChannelsHeader)} {
     overflow: visible;
   }
-  %privateChannelsInviteButton {
-    color: $main-color;
+  #{c(sidebar privateChannelRecipientsInviteButtonIcon)} {
+    color: cv('colors.main');
     transition: all 0.1s ease-in-out;
     &:hover {
-      color: $hover-color;
+      color: cv('colors.hover');
     }
   }
 }
 
 // PRIVATE CHANNEL
-%privateChannel {
+#{c(sidebar privateChannel)} {
   max-width: none;
 }
-%privateChannelInteractive {
+#{c(sidebar privateChannelInteractive2)} {
   position: relative;
   z-index: 1;
   &:before {
@@ -71,21 +76,21 @@
     z-index: -1;
     pointer-events: none;
   }
-  %privateChannelIcon,
-  %privateChannelName {
+  #{c(other cv privateChannelIcon)},
+  #{c(sidebar privateChannelName)} {
     color: rgba(255, 255, 255, 0.4);
     font-size: 14px;
     transition: all 0.15s ease-in-out;
     overflow: hidden;
   }
-  %privateChannelActivityText {
+  #{c(other cv privateChannelActivityText)} {
     strong {
-      color: $main-color;
+      color: cv('colors.main');
       font-weight: 700;
       transition: all 0.15s ease-in-out;
     }
   }
-  %privateChannelCloseButton {
+  #{c(other cv privateChannelCloseButton)} {
     color: #fff;
   }
 
@@ -95,11 +100,11 @@
     &:before {
       background: hsla(0, 0%, 100%, 0.1);
     }
-    %privateChannelIcon,
-    %privateChannelName {
+    #{c(other cv privateChannelIcon)},
+    #{c(sidebar privateChannelName)} {
       color: hsla(0, 0%, 100%, 0.7);
     }
-    %privateChannelCloseButton {
+    #{c(other cv privateChannelCloseButton)} {
       opacity: 0.3;
       &:hover {
         opacity: 0.7;
@@ -108,30 +113,30 @@
   }
 
   // SELECTED
-  &%privateChannelInteractiveSelected {
+  &#{c(sidebar privateChannelInteractiveSelected)} {
     background: transparent;
     &:before {
       background: hsla(0, 0%, 100%, 0.1);
     }
     &:after {
       right: 0;
-      background: $main-color;
+      background: cv('colors.main');
       animation: cv-channel-select 0.3s ease-in-out;
     }
-    %privateChannelIcon,
-    %privateChannelName {
+    #{c(other cv privateChannelIcon)},
+    #{c(sidebar privateChannelName)} {
       color: #fff;
     }
-    %privateChannelActivityEmoji,
-    %privateChannelActivityIcon {
+    #{c(other cv privateChannelActivityEmoji)},
+    #{c(other cv privateChannelActivityIcon)} {
       filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.7));
     }
-    %privateChannelActivityText {
+    #{c(other cv privateChannelActivityText)} {
       strong {
         color: #fff;
       }
     }
-    %privateChannelCloseButton {
+    #{c(other cv privateChannelCloseButton)} {
       opacity: 0.7;
       &:hover {
         opacity: 1;
@@ -140,26 +145,26 @@
   }
 
   // HIGHLIGHT
-  %privateChannelHighlighted {
-    %privateChannelName {
+  #{c(sidebar privateChannelHighlighted)} {
+    #{c(sidebar privateChannelName)} {
       color: #fff;
     }
   }
 }
 
 // Activities popout
-%privateChannelActivityContainer {
+#{c(other cv privateChannelActivityContainer)} {
   background: var(--background-overlay);
 }
 
 // EMPTY PRIVATE CHANNEL
-%privateChannelsEmpty {
+#{c(sidebar privateChannelLoadingEmpty)} {
   fill: hsla(0, 0%, 100%, 0.15);
 }
 
 // PRIVATE CHANNELS SEARCH BAR
-%privateChannelsSearchBar {
-  %privateChannelsSearchBarComponent {
+#{c(sidebar searchBar)} {
+  #{c(sidebar searchBarComponent)} {
     background: hsla(0, 0%, 100%, 0.1);
     color: hsla(0, 0%, 100%, 0.3);
   }

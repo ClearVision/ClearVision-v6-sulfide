@@ -1,19 +1,24 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SETTINGS CONTENT */
-%standardSidebarView {
-  > %settingsContentRegion {
+#{c(userSettings standardSidebarView)} {
+  > #{c(userSettings contentRegion)} {
     background: transparent;
   }
 }
-%settingsContentRegion {
-  %settingsContentScroller,
-  %settingsContentSidebarScroller {
+#{c(userSettings contentRegion)} {
+  #{c(userSettings contentRegionScroller)},
+  #{c(channelSettings roleScroller)} {
     background: transparent;
   }
 }
 
 // CLOSE BUTTON
-%themeDark {
-  %settingsCloseButton {
+#{c(main dark)} {
+  #{c(userSettings closeButton)} {
     border-color: hsla(0, 0%, 100%, 0.4);
     &:hover {
       border-color: hsla(0, 0%, 100%, 0.6);
@@ -23,22 +28,22 @@
       fill: hsla(0, 0%, 100%, 0.6);
     }
   }
-  %settingsCloseButtonKeybind {
+  #{c(userSettings closeButtonKeybind)} {
     color: hsla(0, 0%, 100%, 0.6);
   }
 }
 
 // UNSAVED CHANGES
-%settingsNoticeContainer {
+#{c(serverSettings noticeContainer)} {
   background-color: hsla(0, 0%, 0%, 0.8) !important;
 }
 
 // AVATAR UPLOADER
-%settingsImageUploaderInner {
+#{c(other cv settingsImageUploaderInner)} {
   background-color: hsla(0, 0%, 100%, 0.05);
 }
-%themeDark %settingsImageUploaderIcon {
-  background-color: $main-color;
+#{c(main dark)} #{c(other cv settingsImageUploaderIcon)} {
+  background-color: cv('colors.main');
   background-image: none;
   &:after {
     content: '';
@@ -56,10 +61,10 @@
 }
 
 // ITEM CARDS
-%themeDark {
-  %settingsCard {
-    &:not(%settingsCardOutline),
-    &%settingsCardOutline {
+#{c(main dark)} {
+  #{c(card card)} {
+    &:not(#{c(card outline)}),
+    &#{c(card outline)} {
       background-color: rgba(0, 0, 0, 0.4);
       border-color: hsla(0, 0%, 100%, 0.07);
     }
@@ -70,43 +75,43 @@
 }
 
 // COLOR PICKER
-%themeDark %settingsColorPickerCustom {
+#{c(main dark)} #{c(other cv settingsColorPickerCustom)} {
   background-color: hsla(0, 0%, 0%, 0.8);
   border-color: transparent;
   border-radius: 5px;
 }
 
 // WARNING SHAKE
-%shakeable[style*='transform'] {
+#{c(main appInner)}[style*='transform'] {
   transform: none !important;
-  %bg {
+  #{c(main bg)} {
     animation: cv-shake 0.5s ease-in;
   }
 }
 
 // DROP DOWN
-%settingsLookFilled%settingsDropdownSelect {
+#{c(modals dropdown filled)}#{c(modals dropdown select)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   border-color: hsla(0, 0%, 100%, 0.09);
 }
-%settingsDropdownPopout {
+#{c(modals dropdown popout)} {
   background-color: cv('bg.general.popout');
   border: none;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-%settingsDropdownOption {
+#{c(modals dropdown option)} {
   &:hover,
   &:focus,
-  &%settingsDropdownOptionFocused {
+  &#{c(modals dropdown focused)} {
     background-color: hsla(0, 0%, 100%, 0.05);
     border: hsla(0, 0%, 100%, 0.07);
   }
-  &[aria-selected='true']:not(%settingsDropdownOption%settingsDropdownMulti) {
-    background-color: $main-color;
-    %settingsDropdownOptionSelectedIcon {
+  &[aria-selected='true']:not(#{c(modals dropdown option)}#{c(modals dropdown multi)}) {
+    background-color: cv('colors.main');
+    #{c(modals dropdown selectedIcon)} {
       circle {
-        fill: $main-color;
+        fill: cv('colors.main');
       }
     }
     path {
@@ -116,7 +121,7 @@
 }
 
 // ohnyo
-%settingsAttendeeCTA:after {
+#{c(other cv settingsAttendeeCTA)}:after {
   content: 'ClearVision easter egg, please visit our server for a headpat :)';
   position: absolute;
   width: 100%;

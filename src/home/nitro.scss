@@ -1,66 +1,71 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* NITRO */
-%nitro {
+#{c(store store)} {
   background-color: transparent;
 }
-%nitroScroller,
-%nitroPremiumScroller {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.5));
+#{c(store scroller)},
+#{c(other cv nitroPremiumScroller)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.5));
   right: 0%;
   transition: all 0.5s ease-in-out;
-  &:has(+ %nitroPerksScroller%nitroPerksScrollerOpen) {
+  &:has(+ #{c(other cv nitroPerksScroller)}#{c(other cv nitroPerksScrollerOpen)}) {
     right: 100%;
   }
 }
-%nitroCard {
+#{c(other cv nitroCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
   &:hover {
     background-color: hsla(0, 0%, 0%, 0.6);
   }
 }
-%nitroSeePerksButton {
+#{c(other cv nitroSeePerksButton)} {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
-%nitroGiftContainer {
+#{c(other cv nitroGiftContainer)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%themeDark %nitroGiftTextContainer {
+#{c(main dark)} #{c(other cv nitroGiftTextContainer)} {
   background-image: none;
 }
-%nitroFooterInnerWrapper {
+#{c(other cv nitroFooterInnerWrapper)} {
   background-color: hsla(0, 0%, 0%, 0.8);
 }
 
 // PERKS PAGE
-%nitroPerksScroller {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.6));
+#{c(other cv nitroPerksScroller)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
   transition: all 0.5s ease-in-out;
 }
-%nitroPerksBackButton {
+#{c(other cv nitroPerksBackButton)} {
   background-color: hsla(0, 0%, 0%, 0.6);
   &:hover {
     background-color: hsla(0, 0%, 0%, 0.8);
   }
 }
-%themeDark {
-  %nitroPerksArrows {
+#{c(main dark)} {
+  #{c(other cv nitroPerksArrows)} {
     background-color: hsla(0, 0%, 0%, 0.6);
   }
 }
-%nitroPerksArrowIcon {
+#{c(other cv nitroPerksArrowIcon)} {
   fill: hsla(0, 0%, 100%, 0.7);
 }
-%themeDark %nitroPerksArrowInactive {
+#{c(main dark)} #{c(other cv nitroPerksArrowInactive)} {
   background-color: hsla(0, 0%, 0%, 0.4);
-  %nitroPerksArrowIcon {
+  #{c(other cv nitroPerksArrowIcon)} {
     fill: hsla(0, 0%, 100%, 0.3);
   }
 }
-%nitroPerksProgressBar {
+#{c(other cv nitroPerksProgressBar)} {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
-%nitroPerksProgressDot {
+#{c(other cv nitroPerksProgressDot)} {
   background-color: hsla(0, 0%, 100%, 0.5);
 }
-%nitroPerksProgressDotSelected {
+#{c(other cv nitroPerksProgressDotSelected)} {
   background-color: #fff;
 }

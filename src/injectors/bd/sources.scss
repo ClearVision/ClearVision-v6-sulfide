@@ -1,17 +1,22 @@
+@use "../../../_classes" as *;
+@use "../../../backend/functions" as *;
+@use "../../../backend/mixins" as *;
+@use "../../../backend/variables" as *;
+
 /* UNOFFICIAL SOURCES INDICATOR */
 // UNOFFICIAL SOURCES LIST
 $unofficial: ('betterdocs.us', 'discordsource.com');
 
-html[lang] body #app-mount%appMount {
-  %themeDark,
-  %themeLight {
-    %messageGroup %message %messageContent {
+html[lang] body #app-mount#{c(main appMount)} {
+  #{c(main dark)},
+  #{c(main light)} {
+    #{c(chat message)} #{c(chat messageContents)} {
       // LINKS
-      %markup %anchor%anchorUnderlineOnHover,
-      %embed %anchor%embedLink {
+      #{c(chat markup)} #{c(main anchorLink)}#{c(main anchorLinkUnderlineOnHover)},
+      #{c(other cv embed)} #{c(main anchorLink)}#{c(other cv embedLink)} {
         &[href] {
           height: auto !important;
-          color: $main-color !important;
+          color: cv('colors.main') !important;
           pointer-events: auto !important;
           cursor: pointer !important;
           &:before,
@@ -20,8 +25,8 @@ html[lang] body #app-mount%appMount {
           }
         }
       }
-      %markup %anchor%anchorUnderlineOnHover,
-      %embed %anchor%embedLink {
+      #{c(chat markup)} #{c(main anchorLink)}#{c(main anchorLinkUnderlineOnHover)},
+      #{c(other cv embed)} #{c(main anchorLink)}#{c(other cv embedLink)} {
         @each $e in $unofficial {
           &[href*='#{$e}' i] {
             position: relative;
@@ -53,7 +58,7 @@ html[lang] body #app-mount%appMount {
           }
         }
       }
-      %markup %anchor%anchorUnderlineOnHover {
+      #{c(chat markup)} #{c(main anchorLink)}#{c(main anchorLinkUnderlineOnHover)} {
         @each $e in $unofficial {
           &[href*='#{$e}' i] {
             &:before {
@@ -62,7 +67,7 @@ html[lang] body #app-mount%appMount {
           }
         }
       }
-      %embed %anchor%embedLink {
+      #{c(other cv embed)} #{c(main anchorLink)}#{c(other cv embedLink)} {
         @each $e in $unofficial {
           &[href*='#{$e}' i] {
             &:before {
@@ -73,7 +78,7 @@ html[lang] body #app-mount%appMount {
       }
 
       // EMBED THUMBNAIL
-      %embed %embedThumbnail {
+      #{c(other cv embed)} #{c(other cv embedThumbnail)} {
         display: block !important;
         @each $e in $unofficial {
           &[href*='#{$e}' i] {
@@ -110,11 +115,11 @@ html[lang] body #app-mount%appMount {
       }
 
       // INVITE LINK
-      %inviteGuildIcon {
+      #{c(embeds inviteServerIcon)} {
         &:after {
           display: none !important;
         }
-        ~ %inviteButton {
+        ~ #{c(other cv inviteButton)} {
           display: flex !important;
         }
         &[style*='icons/153708594091655168/'] {
@@ -157,8 +162,8 @@ html[lang] body #app-mount%appMount {
               opacity: 0;
             }
           }
-          ~ %inviteGuildInfo {
-            %inviteGuildName {
+          ~ #{c(other cv inviteGuildInfo)} {
+            #{c(other cv inviteGuildName)} {
               position: relative;
               color: transparent;
               cursor: not-allowed;
@@ -183,28 +188,28 @@ html[lang] body #app-mount%appMount {
                 }
               }
             }
-            %inviteStatusOnline {
+            #{c(other cv inviteStatusOnline)} {
               background: cv('colors.danger');
               color: cv('colors.danger');
             }
           }
-          ~ %inviteButton {
+          ~ #{c(other cv inviteButton)} {
             cursor: not-allowed;
-            &%inviteButtonAccept {
-              border-color: cv('colors.danger');
-              &:hover {
-                background: cv('colors.danger');
-              }
-              %buttonContents {
-                &:before {
-                  content: '\26A0';
-                  margin-right: 5px;
-                }
-              }
-            }
-            &%inviteButtonJoined {
-              background: cv('colors.danger');
-            }
+            // &#{c(other cv inviteButtonAccept)} {
+            //   border-color: cv('colors.danger');
+            //   &:hover {
+            //     background: cv('colors.danger');
+            //   }
+            //   #{c(button contents)} {
+            //     &:before {
+            //       content: '\26A0';
+            //       margin-right: 5px;
+            //     }
+            //   }
+            // }
+            // &#{c(other cv inviteButtonJoined)} {
+            //   background: cv('colors.danger');
+            // }
           }
         }
       }

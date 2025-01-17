@@ -1,11 +1,16 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* USER PROFILES */
 
 // NO CUSTOM PROFILE
-%userProfileOuter:not(%userProfileCustomTheme, %userSettingsProfilePreview) {
+#{c(profile outer)}:not(#{c(profile themed)}, #{c(other cv userSettingsProfilePreview)}) {
   background: transparent;
-  %userProfileInner {
+  #{c(profile inner)} {
     // POPOUT
-    &%userProfileSmall {
+    &#{c(profile biteSize)} {
       background: cv('bg.popout.overlay');
       &::before {
         content: '';
@@ -18,8 +23,8 @@
     }
 
     // MODAL
-    &%userProfileFull {
-      background: hsla(0, 0%, 0%, 0.4);
+    &#{c(profile fullSize)} {
+      background: transparent;
       &::before {
         content: '';
         position: absolute;
@@ -34,7 +39,7 @@
   }
 
   // STATUS
-  :is(%userProfileStatusBubbleOuter) {
+  #{c(other cv userProfileStatusBubbleOuter)} {
     background: hsla(0, 0%, 0%, 0.6);
     border-color: transparent;
     &::before {
@@ -48,33 +53,33 @@
       border-color: transparent;
     }
   }
-  :is(%userProfileStatusBubble) {
+  #{c(other cv userProfileStatusBubble)} {
     background: transparent;
   }
 
   // BANNER
-  %userProfileBanner {
+  #{c(profile banner banner)} {
     -webkit-mask: linear-gradient(to bottom, #000, transparent 93%);
     mask: linear-gradient(to bottom, #000, transparent 93%);
   }
 
   // CONTENT
-  %userProfileOverlay {
+  #{c(profile overlay)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
-  %userProfileBadgeList {
+  #{c(other cv userProfileBadgeList)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
 
   // CONNECTED ACCOUNTS
-  %userProfileConnectedAccountContainer {
+  #{c(profile modal connections container)} {
     background: hsla(0, 0%, 100%, 0.04);
     border-color: transparent;
     border-radius: 5px;
   }
 
   // LIST
-  %userProfileListRow {
+  #{c(profile modal listRow)} {
     transition: all 0.15s ease-in-out;
     &:hover {
       background: linear-gradient(to right, hsla(0, 0%, 100%, 0.04) 10%, hsla(0, 0%, 100%, 0.04) 90%, transparent);
@@ -82,7 +87,7 @@
   }
 
   // NOTES
-  %userProfileNote {
+  #{c(other cv userProfileNote)} {
     textarea:focus {
       background-color: hsla(0, 0%, 100%, 0.07);
     }
@@ -90,14 +95,14 @@
 }
 
 // CUSTOM PROFILE
-%userProfileCustomTheme {
-  %userProfileOverlayScroller {
+#{c(profile themed)} {
+  #{c(other cv userProfileOverlayScroller)} {
     &::-webkit-scrollbar-thumb {
       background: linear-gradient(var(--profile-gradient-primary-color),var(--profile-gradient-secondary-color))
     }
   }
-  %userProfileNote {
-    %input:focus {
+  #{c(other cv userProfileNote)} {
+    #{c(other cv input)}:focus {
       box-shadow: 0 0 2px 2px var(--profile-gradient-primary-color);
     }
   }
@@ -105,18 +110,18 @@
 
 // GENERAL
 // CONNECTED ACCOUNTS
-%userProfileConnectedAccountVerifiedIcon {
+#{c(profile modal connections verifiedIcon)} {
   background: url(https://clearvision.github.io/icons/verified.svg) center/18px no-repeat;
   opacity: 0.5;
   z-index: 1;
-  %flowerStar {
+  #{c(other cv flowerStar)} {
     opacity: 0;
   }
-  %flowerStarChild {
+  #{c(other cv flowerStarChild)} {
     display: none;
   }
 }
-%userProfileConnectedAccountOpenIcon {
+#{c(profile modal connections openIcon)} {
   background: url(https://clearvision.github.io/icons/popout.svg) center/18px no-repeat;
   opacity: 0.3;
   transition: all 0.15s ease-in-out;

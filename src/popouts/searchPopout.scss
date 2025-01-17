@@ -1,27 +1,32 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SEARCH POPOUT */
-%themeDark %searchPopout {
+#{c(main dark)} #{c(modals search dropdown)} {
   background-color: cv('bg.general.popout');
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   animation: cv-menu-fold-y 0.2s cubic-bezier(0.2, 0.6, 0.5, 1.1) 0.1s backwards;
   transform-origin: 50% 0;
 }
-%searchPopout {
+#{c(modals search dropdown)} {
   // SEARCH RESULTS GROUP
-  > %searchPopoutResultsGroup {
+  > #{c(modals search resultsGroup)} {
     &:after {
       border-top: 1px solid transparent;
     }
-    + %searchPopoutResultsGroup {
+    + #{c(modals search resultsGroup)} {
       &:after {
         border-top-color: hsla(0, 0%, 100%, 0.04);
       }
     }
-    > %searchPopoutHeader {
-      color: $main-color;
+    > #{c(other cv searchPopoutHeader)} {
+      color: cv('colors.main');
       font-weight: 700;
     }
-    > %searchPopoutLearnMore,
-    > %searchPopoutClearHistory {
+    > #{c(modals search learnMore)},
+    > #{c(other cv searchPopoutClearHistory)} {
       opacity: 0.5;
       transition: all 0.15s ease-in-out;
       &:hover {
@@ -34,32 +39,32 @@
   }
 
   // SEARCH OPTION
-  %searchPopoutOption {
+  #{c(modals search option)} {
     transition: all 0.15s ease-in-out;
     &:after {
       display: none;
     }
-    %searchPopoutPlusIcon {
+    #{c(header searchIconAdd)} {
       display: block;
       color: #fff;
       opacity: 0;
       transition: all 0.15s ease-in-out;
     }
     &:hover {
-      %searchPopoutPlusIcon {
+      #{c(header searchIconAdd)} {
         opacity: 0.7;
       }
     }
-    %searchPopoutFilter {
+    #{c(other cv searchPopoutFilter)} {
       color: hsla(0, 0%, 100%, 0.3);
       transition: all 0.15s ease-in-out;
     }
-    %searchPopoutAnswer {
+    #{c(other cv searchPopoutAnswer)} {
       color: hsla(0, 0%, 100%, 0.5);
       font-weight: 500;
       transition: all 0.15s ease-in-out;
     }
-    %searchPopoutNonText {
+    #{c(other cv searchPopoutNonText)} {
       color: hsla(0, 0%, 100%, 0.5);
       transition: all 0.15s ease-in-out;
     }
@@ -71,17 +76,17 @@
     // SELECTED
     &[aria-selected='true'] {
       background-color: hsla(0, 0%, 100%, 0.1);
-      %searchPopoutPlusIcon {
+      #{c(header searchIconAdd)} {
         opacity: 0.3;
         &:hover {
           opacity: 0.7;
         }
       }
-      %searchPopoutFilter {
+      #{c(other cv searchPopoutFilter)} {
         color: hsla(0, 0%, 100%, 0.5);
       }
-      %searchPopoutAnswer,
-      %searchPopoutNonText {
+      #{c(other cv searchPopoutAnswer)},
+      #{c(other cv searchPopoutNonText)} {
         color: hsla(0, 0%, 100%, 0.7);
       }
       > strong {
@@ -90,54 +95,54 @@
     }
 
     // OPTION USER
-    &%searchPopoutOptionUser {
-      %searchPopoutDisplayedNick {
+    &#{c(other cv searchPopoutOptionUser)} {
+      #{c(other cv searchPopoutDisplayedNick)} {
         color: hsla(0, 0%, 100%, 0.5);
         transition: all 0.15s ease-in-out;
       }
-      %searchPopoutDisplayUsername {
+      #{c(other cv searchPopoutDisplayUsername)} {
         color: hsla(0, 0%, 100%, 0.3);
         transition: all 0.15s ease-in-out;
       }
-      &%searchPopoutOptionSelected {
-        %searchPopoutDisplayedNick {
-          color: hsla(0, 0%, 100%, 0.7);
-        }
-        %searchPopoutDisplayUsername {
-          color: hsla(0, 0%, 100%, 0.5);
-        }
-      }
+      // &#{c(other cv searchPopoutOptionSelected)} {
+      //   #{c(other cv searchPopoutDisplayedNick)} {
+      //     color: hsla(0, 0%, 100%, 0.7);
+      //   }
+      //   #{c(other cv searchPopoutDisplayUsername)} {
+      //     color: hsla(0, 0%, 100%, 0.5);
+      //   }
+      // }
     }
 
     // OPTION CHANNEL
-    > %searchPopoutChannel {
+    > #{c(other cv searchPopoutChannel)} {
       > strong {
         color: hsla(0, 0%, 100%, 0.7);
         transition: all 0.15s ease-in-out;
       }
-      > %searchPopoutChannelIcon,
-      > %searchPopoutChannelCategory {
+      > #{c(other cv searchPopoutChannelIcon)},
+      > #{c(other cv searchPopoutChannelCategory)} {
         color: hsla(0, 0%, 100%, 0.3);
         transition: all 0.15s ease-in-out;
       }
     }
-    &%searchPopoutOptionSelected {
-      > %searchPopoutChannel {
-        > strong {
-          color: #fff;
-        }
-        > %searchPopoutChannelIcon,
-        > %searchPopoutChannelCategory {
-          color: hsla(0, 0%, 100%, 0.5);
-        }
-      }
-    }
+    // &#{c(other cv searchPopoutOptionSelected)} {
+    //   > #{c(other cv searchPopoutChannel)} {
+    //     > strong {
+    //       color: #fff;
+    //     }
+    //     > #{c(other cv searchPopoutChannelIcon)},
+    //     > #{c(other cv searchPopoutChannelCategory)} {
+    //       color: hsla(0, 0%, 100%, 0.5);
+    //     }
+    //   }
+    // }
   }
 
   // QUERY CONTAINER
-  %searchPopoutQueryContainer {
-    background-color: $main-color;
-    > %searchPopoutQueryText {
+  #{c(modals search queryHeader)} {
+    background-color: cv('colors.main');
+    > #{c(other cv searchPopoutQueryText)} {
       color: hsla(0, 0%, 100%, 0.7);
       > strong {
         color: #fff;
@@ -146,18 +151,18 @@
   }
 
   // SEARCH DATEPICKER
-  %searchPopoutDatePicker {
-    %searchPopoutDatePickerHint {
+  #{c(modals calendar datePicker)} {
+    #{c(modals calendar datePickerHint)} {
       border-top: 1px solid hsla(0, 0%, 100%, 0.04);
-      %searchPopoutHint {
+      #{c(other cv searchPopoutHint)} {
         color: hsla(0, 0%, 100%, 0.7);
       }
-      %searchPopoutHintValue {
-        background-color: $main-color;
+      #{c(modals calendar dateHintValue)} {
+        background-color: cv('colors.main');
         color: #fff;
         transition: all 0.15s ease-in-out;
         &:hover {
-          background-color: $hover-color;
+          background-color: cv('colors.hover');
         }
       }
     }
@@ -165,38 +170,38 @@
 }
 
 // DATEPICKER
-%themeDark %calendarPicker {
-  %datepicker,
-  %datepickerHeader {
-    background-color: rgba(0, 0, 0, calc($bg-shading * 0.8));
+#{c(main dark)} #{c(modals calendar picker)} {
+  #{c(modals calendar react datePicker)},
+  #{c(modals calendar react header)} {
+    background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.8));
   }
-  > %datepicker {
-    %datepickerNavigation {
+  > #{c(modals calendar react datePicker)} {
+    #{c(modals calendar react navigation)} {
       background-color: hsla(0, 0%, 100%, 0.1);
       border: 1px solid transparent;
       opacity: 0.7;
       transition: all 0.15s ease-in-out;
       &:hover {
-        background-color: $main-color;
+        background-color: cv('colors.main');
         opacity: 1;
       }
     }
   }
-  %datepickerCurrentMonth {
+  #{c(modals calendar react currnetMonth)} {
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.04);
-    color: $main-color;
+    color: cv('colors.main');
     font-weight: 600;
   }
-  %datepickerDayName {
+  #{c(modals calendar react day-name)} {
     color: hsla(0, 0%, 100%, 0.7);
   }
-  %datepickerWeek {
+  #{c(modals calendar react week)} {
     &:last-of-type {
-      > %datePickerDay {
+      > #{c(modals calendar react day)} {
         border-bottom: 1px solid hsla(0, 0%, 100%, 0.04);
       }
     }
-    > %datepickerDay {
+    > #{c(modals calendar react day)} {
       background-color: hsla(0, 0%, 100%, 0.1);
       border-left: 1px solid hsla(0, 0%, 100%, 0.04);
       border-top: 1px solid hsla(0, 0%, 100%, 0.04);
@@ -206,22 +211,22 @@
         border-right: 1px solid hsla(0, 0%, 100%, 0.04);
       }
       &:hover {
-        background-color: $main-color;
+        background-color: cv('colors.main');
         color: #fff;
       }
     }
-    > %datepickerDaySelected {
-      box-shadow: inset 0 -3px $main-color;
+    > #{c(modals calendar react daySelected)} {
+      box-shadow: inset 0 -3px cv('colors.main');
       &:after {
         display: none;
       }
     }
-    > %datepickerDayToday {
-      color: $main-color;
+    > #{c(other cv datepickerDayToday)} {
+      color: cv('colors.main');
       font-weight: 700;
     }
-    > %datepickerDayDisabled,
-    > %datepickerDayOutsideMonth {
+    > #{c(modals calendar react dayDisabled)},
+    > #{c(modals calendar react dayOutsideMonth)} {
       background-color: transparent;
       color: hsla(0, 0%, 100%, 0.1);
       &:hover {

@@ -1,17 +1,22 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHANNEL LIST PANELS */
-%panels {
+#{c(sidebar panels)} {
   background: transparent;
   > :first-child {
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, calc($bg-shading * 0.3));
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
   }
 }
-%themeDark %panel {
+#{c(main dark)} #{c(sidebar panelStreaming)} {
   background-color: transparent;
 }
 
 // ACCOUNT & CONNECTION PANELS
-%accountPanel {
-  > %flex {
+#{c(sidebar panelContainer)} {
+  > #{c(other cv flex)} {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     > :nth-child(n + 2) {
@@ -31,7 +36,7 @@
 }
 /* Account for account panel width scaling under
   new design */
-%themeDark %accountPanelAvatarWrapper {
+#{c(main dark)} #{c(sidebar panelAvatarWrapper)} {
   min-width: calc(var(--channels-width) - 120px);
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.1);
@@ -39,11 +44,11 @@
 }
 
 // BUTTONS
-button%panelButton {
+button#{c(sidebar panelButton)} {
   width: 32px;
   height: 32px;
   opacity: 1;
-  > %buttonContents > svg {
+  > #{c(button contents)} > svg {
     @include bg($rep: no-repeat, $pos: center, $size: 18px);
     color: #fff;
     opacity: 0.5;
@@ -53,33 +58,33 @@ button%panelButton {
     }
   }
   &:hover {
-    &%panelButtonEnabled {
+    &#{c(sidebar panelButtonEnabled)} {
       background: transparent;
     }
-    > %buttonContents > svg {
+    > #{c(button contents)} > svg {
       opacity: 0.7;
     }
   }
-  &%panelButtonDisabled {
-    > %buttonContents > svg {
+  &#{c(sidebar panelButtonDisabled)} {
+    > #{c(button contents)} > svg {
       opacity: 0.1;
     }
   }
 }
-%panelActionButtons {
+#{c(sidebar panelActionButtons)} {
   grid-gap: 6px;
 }
-%panelActionButton {
-  &%panelActionButtonColor {
+#{c(sidebar panelActionButton)} {
+  &#{c(sidebar panelButtonColor)} {
     padding: 0;
-    &%panelActionButtonActive {
+    &#{c(sidebar panelButtonActive)} {
       background-color: #fff;
-      color: $main-color;
+      color: cv('colors.main');
       &:hover {
         background: hsla(0, 0%, 100%, 0.95);
-        color: $hover-color;
+        color: cv('colors.hover');
       }
-      %panelActionButtonLottieIcon {
+      #{c(sidebar panelLottieIcon)} {
         --__lottieIconColor: currentcolor !important;
       }
     }
@@ -87,12 +92,12 @@ button%panelButton {
 }
 
 // ACCOUNT PANEL
-%themeDark %accountPanel {
+#{c(main dark)} #{c(sidebar panelContainer)} {
   position: relative;
   background: transparent;
   // SOME POSITIONING
-  %accountPanelTagButton,
-  %accountPanelTagless {
+  #{c(other cv accountPanelTagButton)},
+  #{c(other cv accountPanelTagless)} {
     min-width: calc(100% - 100px);
     width: auto;
     &:hover {
@@ -101,7 +106,7 @@ button%panelButton {
     }
   }
   // AVATAR
-  %accountPanelAvatar {
+  #{c(sidebar panelAvatar)} {
     width: 32px !important;
     height: 32px !important;
     transition: all 0.15s ease-in-out;
@@ -134,23 +139,23 @@ button%panelButton {
     }
   }
   // NAME TAG
-  %accountPanelUsername {
+  #{c(sidebar panelUsername)} {
     color: #fff;
   }
 }
 
 // CONNECTION PANEL
-%connectionPanel {
-  > %flex {
+#{c(sidebar panelVoiceContainer)} {
+  > #{c(other cv flex)} {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
     padding: 5px;
   }
   border-color: transparent;
   background: transparent;
-  %connectionPanelInner {
-    %rtcConnectionStatus {
-      %rtcConnectionPing {
+  #{c(sidebar panelInner)} {
+    #{c(other cv rtcConnectionStatus)} {
+      #{c(other cv rtcConnectionPing)} {
         width: 16px;
         height: 16px;
         margin-right: 3px;
@@ -158,7 +163,7 @@ button%panelButton {
       }
     }
   }
-  %connectionPanelChannel {
+  #{c(sidebar panelChannel)} {
     color: hsla(0, 0%, 100%, 0.3);
     opacity: 1;
     transition: all 0.15s ease-in-out;
@@ -170,9 +175,9 @@ button%panelButton {
 }
 
 // ACTIVITY PANEL
-%activityPanel {
+#{c(sidebar panelActivityContainer)} {
   border-color: transparent;
-  %activityPanelActions {
+  #{c(sidebar panelActivityActions)} {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     > :nth-child(n + 2) {
@@ -192,41 +197,41 @@ button%panelButton {
 }
 
 // VIDEO BADGE
-%panelLiveBadge {
-  background-color: $main-color;
+#{c(other cv panelLiveBadge)} {
+  background-color: cv('colors.main');
 }
 
 // NOISE CANCELLATION POPOUT
-%noiseCancellationPopout {
+#{c(sidebar noiseCancellationPopout)} {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
 // QUEST PANEL
-%themeDark %questPanel {
-  background: transparent;
+#{c(main dark)} #{c(other cv questPanel)} {
+  background-color: transparent;
 }
-%questPanelAccepted {
+#{c(other cv questPanelAccepted)} {
   background: transparent !important;
 }
-%questPanelAcceptedExpandedBackground {
+#{c(other cv questPanelAcceptedExpandedBackground)} {
   background: transparent !important;
   border-top: 2px solid hsla(0, 0%, 100%, 0.05);
 }
-%questPanelContentExpanded {
+#{c(other cv questPanelContentExpanded)} {
   background: rgba(0, 0, 0, 0.6);
   border-radius: 8px 8px 0 0;
 }
-%questPanelAcceptedExpandedContent {
+#{c(other cv questPanelAcceptedExpandedContent)} {
   visibility: hidden;
-  %questPanelExpanded & {
+  #{c(other cv questPanelExpanded)} & {
     visibility: visible;
   }
 }
 
 // SPOTIFY/YT MUSIC MAYBE?/IDK
-%listeningAlongPanel {
+#{c(other cv listeningAlongPanel)} {
   background: transparent;
-  %panelTitle {
-    color: $main-color;
+  #{c(sidebar panelUsername)} {
+    color: cv('colors.main');
   }
 }

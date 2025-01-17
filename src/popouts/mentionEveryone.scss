@@ -1,8 +1,13 @@
-%themeDark {
-  %everyoneWarningPopout {
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
+#{c(main dark)} {
+  #{c(modals mentionWarning popout)} {
     background-color: cv('bg.general.popout');
   }
-  %everyoneWarningFooter {
+  #{c(modals mentionWarning footer)} {
     background-color: transparent;
   }
 }

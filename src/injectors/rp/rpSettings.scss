@@ -1,8 +1,13 @@
+@use "../../../_classes" as *;
+@use "../../../backend/functions" as *;
+@use "../../../backend/mixins" as *;
+@use "../../../backend/variables" as *;
+
 .replugged-addon-card {
   background: var(--background-overlay);
 }
 /*Replugged install thing*/
-%repluggedInstallWrapper {
+#{c(other cv repluggedInstallWrapper)} {
   background: var(--background-overlay);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }

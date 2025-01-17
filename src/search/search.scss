@@ -1,16 +1,21 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SEARCH */
-%chatContentWrapper %searchResultsWrap {
+#{c(chat chatContent)} #{c(search wrap)} {
   background-color: rgba(0, 0, 0, 0.6);
 }
-%searchResultsWrap {
+#{c(search wrap)} {
   // HEADER
-  > %searchHeader {
+  > #{c(search header)} {
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
   // RESULT
-  %searchResult {
+  #{c(search result)} {
     padding-bottom: 10px;
     border-bottom: 1px solid hsla(0, 0%, 100%, 0.04);
     background-color: transparent;
@@ -18,25 +23,25 @@
     &:after {
       display: none;
     }
-    + %searchResult {
+    + #{c(search result)} {
       margin-top: -1px;
     }
   }
-  %searchResultJumpButton {
+  #{c(search button)} {
     background-color: hsla(0, 0%, 100%, 0.04);
     color: hsla(0, 0%, 100%, 0.5);
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
     &:hover {
-      background-color: $main-color;
+      background-color: cv('colors.main');
       color: #fff;
       transition-duration: 0.15s;
     }
   }
-  %searchResultHighlight {
+  #{c(other cv searchResultHighlight)} {
     position: relative;
     padding: 0 2px;
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
     border-radius: 3px;
     color: #fff;
     text-shadow: 0 0 3px;
@@ -44,7 +49,7 @@
 }
 
 // Search results, a blocked user was hidden from your results
-%searchResultBlocked {
+#{c(search blocked)} {
   background-color: transparent;
   border: none;
 }

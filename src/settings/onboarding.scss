@@ -1,74 +1,79 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* COMMUNITY SERVER ONBOARDING */
 
 // POPOUT
-%onboardingEduPopout {
+#{c(other cv onboardingEduPopout)} {
   background-color: cv('bg.general.popout');
 }
-%onboardingEduPopoutArrow {
+#{c(other cv onboardingEduPopoutArrow)} {
   border-bottom-color: rgba(0, 0, 0, 0.8);
 }
 
 // PROGRESS
-%onboardingProgressBarContainer {
-  %onboardingProgressBar {
+#{c(other cv onboardingProgressBarContainer)} {
+  #{c(other cv onboardingProgressBar)} {
     background-color: hsla(0, 0%, 100%, 0.3);
-    + %textExtraSmallMedium {
-      color: hsla(0, 0%, 100%, 0.3) !important;
-    }
+    // + #{c(text text xs medium)} {
+    //   color: hsla(0, 0%, 100%, 0.3) !important;
+    // }
   }
-  %onboardingProgressBarCurrent {
-    background-color: $main-color;
-    + %textExtraSmallMedium {
-      color: $main-color !important;
-    }
+  #{c(other cv onboardingProgressBarCurrent)} {
+    background-color: cv('colors.main');
+    // + #{c(text text xs medium)} {
+    //   color: cv('colors.main') !important;
+    // }
   }
   &:hover {
-    %onboardingProgressBar {
-      background-color: $hover-color;
+    #{c(other cv onboardingProgressBar)} {
+      background-color: cv('colors.hover');
     }
   }
 }
 
 // LINKS
-%anchor {
-  %textSmallMedium {
-    color: #fff !important;
-  }
-}
+// #{c(main anchorLink)} {
+//   #{c(other cv textSmallMedium)} {
+//     color: #fff !important;
+//   }
+// }
 
 // FOOTER
-%onboardingFooterContainer {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.4)) !important;
+#{c(other cv onboardingFooterContainer)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4)) !important;
   box-shadow: none;
 }
 
 // DEFAULT CHANNELS
-%onboardingChannelRow {
+#{c(other cv onboardingChannelRow)} {
   background-color: rgba(0, 0, 0, 0.4);
-  &:hover:not(%onboardingChannelRowDisabled) {
+  &:hover:not(#{c(other cv onboardingChannelRowDisabled)}) {
     background-color: hsla(0, 0%, 100%, 0.05);
   }
 }
-%onboardingChannelRowSeparator {
+#{c(other cv onboardingChannelRowSeparator)} {
   margin: -1px 0 0;
   background-color: hsla(0, 0%, 100%, 0.05);
 }
-%onboardingChannelListHeader,
-%onboardingChannelList {
+#{c(other cv onboardingChannelListHeader)},
+#{c(other cv onboardingChannelList)} {
   background-color: rgba(0, 0, 0, 0.4);
 }
-%onboardingChannelListHeaderContainer {
+#{c(other cv onboardingChannelListHeaderContainer)} {
   background-color: transparent;
 }
-%onboardingChannelListHeader {
-  %textExtraSmallBold {
-    color: $main-color !important ;
-  }
+// #{c(other cv onboardingChannelListHeader)} {
+//   #{c(other cv textExtraSmallBold)} {
+//     color: cv('colors.main') !important ;
+//   }
+// }
+#{c(other cv onboardingChannelListProgressBar)} {
+  background-color: cv('colors.main') !important;
 }
-%onboardingChannelListProgressBar {
-  background-color: $main-color !important;
-}
-%onboardingChannelListProgressIcon {
+#{c(other cv onboardingChannelListProgressIcon)} {
   path {
     &[fill='var(--background-accent)'] {
       fill: var(--danger-color);
@@ -78,133 +83,133 @@
     }
   }
 }
-%onboardingChannelChattableIndicator {
-  background-color: $main-color;
+#{c(other cv onboardingChannelChattableIndicator)} {
+  background-color: cv('colors.main');
 }
 
 // CUSTOMISATION QUESTIONS
-%onboardingChannelCoverage {
+#{c(other cv onboardingChannelCoverage)} {
   background-color: rgba(0, 0, 0, 0.4);
 }
-%onboardingChannelCoverageProgress {
-  background-color: $main-color !important;
+#{c(other cv onboardingChannelCoverageProgress)} {
+  background-color: cv('colors.main') !important;
 }
-%onboardingChannelCoverageDetails {
+#{c(other cv onboardingChannelCoverageDetails)} {
   background-color: transparent;
 }
-%onboardingChannelCoveragePill {
+#{c(other cv onboardingChannelCoveragePill)} {
   border-radius: 20px;
   background-color: rgba(0, 0, 0, 0.4);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
-%onboardingAddQuestion {
+#{c(other cv onboardingAddQuestion)} {
   border-color: hsla(0, 0%, 100%, 0.3);
-  %onboardingAddQuestionIcon {
-    color: $main-color;
+  #{c(other cv onboardingAddQuestionIcon)} {
+    color: cv('colors.main');
   }
-  %textMediumMedium {
-    color: $main-color !important;
-  }
+  // #{c(other cv textMediumMedium)} {
+  //   color: cv('colors.main') !important;
+  // }
   &:hover {
-    border-color: $hover-color;
-    %onboardingAddQuestionIcon {
-      color: $hover-color;
+    border-color: cv('colors.hover');
+    #{c(other cv onboardingAddQuestionIcon)} {
+      color: cv('colors.hover');
     }
-    %textMediumMedium {
-      color: $hover-color !important;
-    }
+    // #{c(other cv textMediumMedium)} {
+    //   color: cv('colors.hover') !important;
+    // }
   }
 }
-%onboardingQuestionContainer {
+#{c(other cv onboardingQuestionContainer)} {
   background-color: rgba(0, 0, 0, 0.4);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
-%onboardingQuestionExample {
+#{c(other cv onboardingQuestionExample)} {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 20px;
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
-%onboardingQuestionDropdown {
+#{c(other cv automodDropdown)} {
   background-color: cv('bg.general.popout');
   border: 1px solid hsla(0, 0%, 100%, 0.07);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 // SERVER GUIDE
-%onboardingActionExampleBadIcon {
-  background-color: $main-color;
+#{c(other cv onboardingActionExampleBadIcon)} {
+  background-color: cv('colors.main');
   color: #fff;
 }
-%onboardingActionItem,
-%onboardingResourceChannel {
+#{c(other cv onboardingActionItem)},
+#{c(other cv onboardingResourceChannel)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%onboardingActionItemIcon {
-  background-color: $main-color;
+#{c(other cv onboardingActionItemIcon)} {
+  background-color: cv('colors.main');
   color: #fff;
 }
-%onboardingActionAdd {
+#{c(other cv onboardingActionAdd)} {
   border-color: hsla(0, 0%, 100%, 0.3);
-  color: $main-color;
-  %textMediumNormal {
-    color: $main-color;
-  }
+  color: cv('colors.main');
+  // #{c(other cv textMediumNormal)} {
+  //   color: cv('colors.main');
+  // }
   &:hover {
     background-color: transparent;
-    border-color: $hover-color;
-    color: $hover-color;
-    %textMediumNormal {
-      color: $hover-color;
-    }
+    border-color: cv('colors.hover');
+    color: cv('colors.hover');
+    // #{c(other cv textMediumNormal)} {
+    //   color: cv('colors.hover');
+    // }
   }
 }
-%onboardingActionPreviewPill {
+#{c(other cv onboardingActionPreviewPill)} {
   background-color: rgba(0, 0, 0, 0.4);
-  %textSmallMedium {
-    color: #fff;
-  }
+  // #{c(other cv textSmallMedium)} {
+  //   color: #fff;
+  // }
 }
-%onboardingActionPreviewPillSelected {
-  background-color: $main-color;
+#{c(other cv onboardingActionPreviewPillSelected)} {
+  background-color: cv('colors.main');
 }
 
 // REVIEW
-%onboardingReviewHeader,
-%onboardingReviewStepContainer {
+#{c(other cv onboardingReviewHeader)},
+#{c(other cv onboardingReviewStepContainer)} {
   background-color: rgba(0, 0, 0, 0.4);
 }
-%onboardingReviewIconContainer {
-  background-color: $main-color;
+#{c(other cv onboardingReviewIconContainer)} {
+  background-color: cv('colors.main');
 }
-%onboardingReviewIcon {
+#{c(other cv onboardingReviewIcon)} {
   color: #fff;
 }
 
-%onboardingRecommendedDefaultChannels {
+#{c(other cv onboardingRecommendedDefaultChannels)} {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-%onboardingChannelPermissionsMenu {
+#{c(other cv onboardingChannelPermissionsMenu)} {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-%onboardingChannelPermissionsItems {
-  background-color: $hover-color;
+#{c(other cv onboardingChannelPermissionsItems)}:hover {
+  background-color: cv('colors.hover');
 }
 
-%onboardingRecommendedReadOnly {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(other cv onboardingRecommendedReadOnly)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
 }
 
-%onboardingPickAnEmoji {
+#{c(other cv onboardingPickAnEmoji)} {
   background-color: transparent;
   border: none;
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
   }
 }
 
-%onboardingEnterRoles {
+#{c(other cv automodDropdownRowLabel)} {
   background-color: rgba(0, 0, 0, 0.4);
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.05);

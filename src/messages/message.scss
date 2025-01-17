@@ -1,38 +1,43 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* MESSAGE */
-%messages {
-  %messageGroup {
-    transition: background 0.3s ease-in-out;
-    &:active {
-      background: hsla(0, 0%, 100%, 0.1);
-      transition-delay: 0.3s;
-    }
-  }
-}
-%message {
+// #{c(other cv messages)} {
+//   #{c(other cv messageGroup)} {
+//     transition: background 0.3s ease-in-out;
+//     &:active {
+//       background: hsla(0, 0%, 100%, 0.1);
+//       transition-delay: 0.3s;
+//     }
+//   }
+// }
+#{c(chat message)} {
   // HEADER
-  %avatarLarge {
+  #{c(chat chatAvatar)} {
     transition: all 0.3s ease-in-out, transform 0.1s ease-in-out;
     &:active {
       transform: scale(0.9);
     }
   }
-  %messageTimestamp,
-  %messageTimestampAlt {
+  #{c(chat chatTimestamp)},
+  #{c(chat chatTimestamp)}#{c(other cv messageTimestampAlt)} {
     text-align: center;
     color: hsla(0, 0%, 100%, 0.5);
   }
 
   // CONTENT
-  %messageContent {
-    color: $text-normal;
-  }
-  %messageSystemContainer {
+  // #{c(other cv messageContent)} {
+  //   color: cv('text.normal');
+  // }
+  #{c(chat chatWelcomeContainer)} {
     color: hsla(0, 0%, 100%, 0.5);
   }
 
   // BLOCKQUOTE
-  %markup {
-    %blockquoteDivider {
+  #{c(chat markup)} {
+    #{c(chat blockquoteDivider)} {
       background: hsla(0, 0%, 100%, 0.2);
       border-radius: 0;
     }
@@ -40,29 +45,29 @@
 }
 
 // GIFS/EMBEDS
-%messageInlineMediaEmbed {
+#{c(other cv messageInlineMediaEmbed)} {
   max-width: max-content;
 }
 
 // SPOILER
-%messageSpoiler {
+#{c(chat spoiler markdownContent)} {
   background-color: hsla(0, 0%, 0%, 0.8);
 }
 
 // LINKS
-%markup a,
-%anchor {
+#{c(chat markup)} a,
+#{c(main anchorLink)} {
   color: var(--url-color);
 }
-%messageSystemContent {
-  %anchorAction {
+#{c(chat blockedContent)} {
+  #{c(other cv anchorAction)} {
     color: var(--url-color);
   }
 }
 
 // INVALID GIFT
-%themeDark {
-  %messageInvalidGift {
+#{c(main dark)} {
+  #{c(embeds gift)} {
     background-color: hsla(0, 0%, 0%, 0.4);
     &:hover {
       background-color: hsla(0, 0%, 0%, 0.4);
@@ -71,76 +76,76 @@
 }
 
 // REPLY
-%messageReplied {
-  %messageRepliedSpine {
-    border-color: $main-color;
-    &%messageRepliedContentHovered {
-      border-color: $hover-color;
+#{c(chat repliedMessage)} {
+  #{c(other cv messageRepliedSpine)} {
+    border-color: cv('colors.main');
+    &#{c(other cv messageRepliedContentHovered)} {
+      border-color: cv('colors.hover');
     }
   }
-  %messageRepliedTextPreview {
+  #{c(chat repliedTextPreview)} {
     opacity: 0.7;
     max-height: unset;
-      color: #fff;
-    &%messageRepliedSpineHovered {
+    color: #fff;
+    &#{c(other cv messageRepliedSpineHovered)} {
       opacity: 1;
     }
-    %messageRepliedTextPlaceholder {
-      color: $main-color;
+    #{c(other cv messageRepliedTextPlaceholder)} {
+      color: cv('colors.main');
     }
   }
-  &%messageRepliedExecutedCommand {
-    %messageRepliedAppLauncherCommandName {
-      color: $main-color;
+  &#{c(other cv messageRepliedExecutedCommand)} {
+    #{c(other cv messageRepliedAppLauncherCommandName)} {
+      color: cv('colors.main');
       background: transparent;
       text-decoration: underline;
       &:hover {
-        color: $hover-color;
+        color: cv('colors.hover');
         background: transparent;
       }
     }
-    %messageRepliedCommandName {
-      color: $main-color;
+    #{c(other cv messageRepliedCommandName)} {
+      color: cv('colors.main');
     }
   }
 }
 
 // THREADS
-%threadChatIcon {
-  color: $main-color;
+#{c(other cv threadChatIcon)} {
+  color: cv('colors.main');
   filter: drop-shadow(0 0 3px);
   height: 22px;
   width: 22px;
 }
-%threadEmbed {
+#{c(embeds threadContainer)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%threadCTA {
-  color: $main-color;
+#{c(other cv threadCTA)} {
+  color: cv('colors.main');
 }
-%cozy {
-  &%messageHasThread {
+#{c(chat cozy)} {
+  &#{c(threads msgHasThread)} {
     &:after {
-      border-color: $main-color;
+      border-color: cv('colors.main');
     }
   }
 }
-%threadJumpButton {
-  background-color: $main-color;
+#{c(threads jump)} {
+  background-color: cv('colors.main');
   color: #fff;
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
     color: #fff;
   }
 }
 
 // BUTTONS
-%messageButtonWrapper {
+#{c(chat buttonWrapper)} {
   background-color: transparent;
-  %messageButton {
+  #{c(chat button)} {
     color: hsla(0, 0%, 100%, 0.7);
     &:hover,
-    &%messageButtonSelected {
+    &#{c(chat buttonSelected)} {
       background-color: hsla(0, 0%, 100%, 0.1);
       color: #fff;
     }
@@ -148,73 +153,73 @@
 }
 
 // EDITING
-%themeDark %operations {
+#{c(main dark)} #{c(other cv operations)} {
   color: hsla(0, 0%, 100%, 0.5);
   > a {
-    color: $main-color;
+    color: cv('colors.main');
   }
 }
 
-%replyingToIndicator {
+#{c(chat replying)} {
   background-color: hsla(0, 0%, 100%, 0.05);
-  %mouseModeFullMotion &:hover {
+  #{c(main mouseMode)}#{c(main options fullMotion)} &:hover {
     background-color: hsla(0, 0%, 100%, 0.08);
   }
   &:before {
-    background-color: $main-color;
+    background-color: cv('colors.main');
   }
 }
 
 // BEGINNING DM WAVE
-%waveButton,
-%waveButtonDisabled {
-  background-color: $main-color;
+#{c(chat compactButton)},
+#{c(other cv waveButtonDisabled)} {
+  background-color: cv('colors.main');
 }
 
-%waveButton:hover {
-  background-color: $hover-color;
+#{c(chat compactButton)}:hover {
+  background-color: cv('colors.hover');
 }
 
 // PUBLISH TO FOLLOWERS
-%messagePublishBumpBox {
+#{c(other cv messagePublishBumpBox)} {
   background: hsla(0, 0%, 0%, 0.4);
 }
-%messagePublishIcon,
-%messagePublishTagline {
+#{c(other cv messagePublishIcon)},
+#{c(other cv messagePublishTagline)} {
   color: #fff;
 }
-%messagePublishCloseIcon,
-%messagePublishPermanentHide {
+#{c(other cv messagePublishCloseIcon)},
+#{c(other cv messagePublishPermanentHide)} {
   color: hsla(0, 0%, 100%, 0.4) !important;
 }
 
 // AUTOMOD MESSAGE
-%messageAutomodCard,
-%messageAutomodFooterContainer {
+#{c(other cv messageAutomodCard)},
+#{c(other cv messageAutomodFooterContainer)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%messageAutomodCard {
-  &%messageAutomodCardSelected {
+#{c(other cv messageAutomodCard)} {
+  &#{c(other cv messageAutomodCardSelected)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
 }
-%messageAutomodFooterAction {
-  %textExtraSmallNormal,
-  %messageAutomodFooterIcon path {
+#{c(other cv messageAutomodFooterAction)} {
+  // #{c(other cv textExtraSmallNormal)},
+  #{c(other cv messageAutomodFooterIcon)} path {
     color: var(--url-color);
   }
 }
 
 // free nitro trial...idk where to put this - Snow
-%nitroTrial {
+#{c(other cv nitroTrial)} {
   background: rgba(0, 0, 0, 0.4);
   box-shadow: none;
-  border: 1px solid $main-color;
+  border: 1px solid cv('colors.main');
   &:hover {
-    border: 1px solid $hover-color;
+    border: 1px solid cv('colors.hover');
   }
 }
 
-%themeDark %nitroTrial:hover {
+#{c(main dark)} #{c(other cv nitroTrial)}:hover {
   background-color: rgba(0, 0, 0, 0.4);
 }

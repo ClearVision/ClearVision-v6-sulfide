@@ -1,16 +1,21 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* LOGIN PAGE */
-%themeDark %loginAuthBox {
+#{c(main dark)} #{c(login authBox)} {
   background-color: hsla(0, 0%, 0%, 0.8);
   a {
     color: var(--url-color);
   }
 }
-%loginAccountsList {
+#{c(other cv loginAccountsList)} {
   background-color: hsla(0, 0%, 100%, 0.07);
 }
-%loginStartOverButton {
+#{c(other cv loginStartOverButton)} {
   color: var(--url-color);
 }
-%loginVerificationContainer {
+#{c(other cv loginVerificationContainer)} {
   background-color: transparent;
 }

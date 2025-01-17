@@ -1,22 +1,27 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* HEADER BAR BREADCRUMBS */
-%breadcrumbs {
+#{c(other cv breadcrumbs)} {
   margin-left: 2px;
-  %breadcrumb {
+  #{c(other cv breadcrumb)} {
     margin: 0 3px;
     transition: all 0.15s ease-in-out;
   }
-  %breadcrumbArrow {
+  #{c(other cv breadcrumbArrow)} {
     transition: all 0.15s ease-in-out;
   }
-  %breadcrumbWrapper {
+  #{c(other cv breadcrumbWrapper)} {
     color: hsla(0, 0%, 100%, 0.3);
     &:hover {
-      %breadcrumb {
+      #{c(other cv breadcrumb)} {
         color: hsla(0, 0%, 100%, 0.7);
         text-decoration: none;
       }
-      %breadcrumbArrow {
-        &%directionRight {
+      #{c(other cv breadcrumbArrow)} {
+        &#{c(other cv directionRight)} {
           color: hsla(0, 0%, 100%, 0.7);
           transform: rotateY(180deg) rotateZ(-90deg) translateY(3px);
         }

@@ -1,3 +1,8 @@
+@use "../_classes" as *;
+@use "../backend/functions" as *;
+@use "../backend/mixins" as *;
+@use "../backend/variables" as *;
+
 /* KEYFRAMES */
 @keyframes cv-fade-in {
   from {
@@ -34,7 +39,7 @@
   }
   to {
     right: 0;
-    background-color: $main-color;
+    background-color: cv('colors.main');
   }
 }
 @keyframes cv-message-jump {
@@ -76,10 +81,10 @@
 }
 @keyframes cv-spinner-glow {
   from {
-    filter: drop-shadow(0 0 3px $main-color);
+    filter: drop-shadow(0 0 3px cv('colors.main'));
   }
   to {
-    filter: drop-shadow(0 0 3px $main-color) drop-shadow(0 0 15px $main-color);
+    filter: drop-shadow(0 0 3px cv('colors.main')) drop-shadow(0 0 15px cv('colors.main'));
   }
 }
 @keyframes cv-spinner-pulse {
@@ -154,13 +159,13 @@
 }
 @keyframes cv-shadow-pulse {
   0% {
-    box-shadow: 0 0 6px 2px $main-color;
+    box-shadow: 0 0 6px 2px cv('colors.main');
   }
   50% {
-    box-shadow: 0 0 10px 2px $main-color;
+    box-shadow: 0 0 10px 2px cv('colors.main');
   }
   100% {
-    box-shadow: 0 0 6px 2px $main-color;
+    box-shadow: 0 0 6px 2px cv('colors.main');
   }
 }
 @keyframes cv-shake {

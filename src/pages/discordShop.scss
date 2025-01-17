@@ -1,108 +1,113 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* DISCORD SHOP */
-%shopPreview {
+#{c(other cv shopPreview)} {
   background: rgba(0, 0, 0, 0.6);
 }
-%popularPicksShopAll {
-  background: $main-color;
+#{c(other cv popularPicksShopAll)} {
+  background: cv('colors.main');
   &:hover {
-    background: $hover-color;
+    background: cv('colors.hover');
   }
 }
-%shopAll {
+#{c(other cv shopAll)} {
   background-color: transparent;
 }
-%shopBackground {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(other cv shopBackground)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
 }
-%shopPageWrapper {
+#{c(other cv shopPageWrapper)} {
   background-color: transparent;
 }
-%shopHeader {
+#{c(other cv shopHeader)} {
   background-color: transparent !important;
 }
 
 // LOADING
-%shopLoadingSkeleton {
+#{c(other cv shopLoadingSkeleton)} {
   background-color: hsla(0, 0%, 100%, 0.07);
 }
-%shopLoadingBanner,
-%shopLoadingCard {
+#{c(other cv shopLoadingBanner)},
+#{c(other cv shopLoadingCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%shopLoadingCardContent {
+#{c(other cv shopLoadingCardContent)} {
   background-color: hsla(0, 0%, 100%, 0.07);
 }
 
 // CARD
-%shopCardNitro,
-%shopCard {
+#{c(other cv shopCardNitro)},
+#{c(other cv shopCard)} {
   background-color: rgba(0, 0, 0, 0.4) !important;
-  border-color: $main-color !important;
+  border-color: cv('colors.main') !important;
   &:hover {
     background-color: rgba(0, 0, 0, 0.6) !important;
-    border-color: $hover-color !important;
+    border-color: cv('colors.hover') !important;
   }
 }
-%shopCardDarkBackgroundNitro,
-%shopCardDarkBackground {
+#{c(other cv shopCardDarkBackgroundNitro)},
+#{c(other cv shopCardDarkBackground)} {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
 // PREVIEW
-%shopPreviewInfo {
+#{c(other cv shopPreviewInfo)} {
   background-color: transparent;
 }
-%shopChatPreview {
+#{c(other cv shopChatPreview)} {
   left: 0;
   bottom: 0;
   margin: 10px auto 0 auto;
 }
-%shopMockInput {
+#{c(other cv shopMockInput)} {
   background-color: hsla(0, 0%, 100%, 0.07);
 }
 
 // SERVER SHOP
 /* intro container */
-%serverShopIntro {
+#{c(other cv serverShopIntro)} {
   background: var(--background-overlay);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
   &:hover {
     background: var(--background-overlay);
-    border: 2px solid $hover-color;
+    border: 2px solid cv('colors.hover');
   }
 }
 /* support the server perks */
-%serverShopSelected {
-  background: $main-color;
+#{c(other cv serverShopSelected)} {
+  background: cv('colors.main');
 }
 
 // Buy Nitro
-%nitroShopGiftNitro {
-  color: $text-normal !important;
-  background-color: $main-color !important;
+#{c(other cv nitroShopGiftNitro)} {
+  color: cv('text.normal') !important;
+  background-color: cv('colors.main') !important;
   border-color: transparent !important;
   &:hover {
-    background-color: $hover-color !important;
-    color: $text-normal !important;
+    background-color: cv('colors.hover') !important;
+    color: cv('text.normal') !important;
   }
 }
 
-// Subscribe button
-%buttonInverted%buttonColorBrand {
-  background: $main-color;
-  color: $text-normal;
-  &:hover {
-    background: $hover-color;
-    color: $text-normal;
-  }
-}
+// // Subscribe button
+// #{c(other cv buttonInverted)}#{c(button colorBrand)} {
+//   background: cv('colors.main');
+//   color: cv('text.normal');
+//   &:hover {
+//     background: cv('colors.hover');
+//     color: cv('text.normal');
+//   }
+// }
 
 // Shop new pill
-%shopNewPill {
-  background: radial-gradient(ellipse at 120%200%, $main-color 10%, transparent 70%);
+#{c(other cv shopNewPill)} {
+  background: radial-gradient(ellipse at 120%200%, cv('colors.main') 10%, transparent 70%);
 }
 
 // Shop what's new
-%shopWhatsNew {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.8));
+#{c(other cv shopWhatsNew)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.8));
 }

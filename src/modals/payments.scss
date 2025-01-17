@@ -1,99 +1,76 @@
-/* PAYMENTS */
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
 
 // SELECT NITRO TIER
-%nitroPaymentSelectTierHeader,
-%nitroPaymentSelectTier {
+#{c(other cv giftModalSelectTierHeader)},
+#{c(other cv giftModalSelectTier)} {
   background: transparent;
 }
 
-// PURCHASE NITRO
-%nitroPaymentHeader,
-%nitroPaymentBreadcrumb,
-%nitroPaymentBody {
-  background: transparent;
-}
-%nitroPaymentDiscount {
-  background-color: $main-color;
-}
-%nitroPaymentUpdateTable {
-  background-color: hsla(0, 0%, 100%, 0.07);
-}
-%nitroPaymentUpdateTableDivider {
+// DISCORD NITRO PAYMENT
+#{c(other cv nitroPaymentNote)},
+#{c(other cv nitroPaymentWrapper)},
+#{c(other cv nitroPaymentBody)} {
   background-color: transparent;
 }
-%nitroPaymentDowngrade {
-  background-color: transparent;
+#{c(other cv nitroPaymentTable)} {
+  background-color: hsla(0, 0%, 0%, 0.4);
 }
-%nitroPaymentDowngradeCard {
-  background-color: hsla(0, 0%, 100%, 0.07);
+#{c(other cv nitroPaymentDiscount)} {
+  background-color: cv('colors.main');
 }
-
-// GIFT MODAL
-%giftSpinner {
-  background: transparent;
-}
-%giftBoxSelected {
-  border: 2px solid $main-color;
-}
-
-// GIFT NITRO
-%giftNitroHeader {
-  background: none;
-}
-%giftNitroPlanSelected {
-  outline: 2px solid $main-color;
-}
-%giftNitroShopIcon {
-  background-color: $main-color;
-}
-
-// GIFT SHOP ITEMS
-%giftShopHeader {
-  background: none;
-}
-%giftShopItemSelected {
-  border: 2px solid $main-color;
-}
-%giftShopNaviButton {
-  background-color: $main-color;
-  border-color: transparent;
-  %headingSmallMedium {
-    color: hsla(0, 0%, 100%, 0.9) !important;
-  }
-}
-
-// SERVER BOOST PAYMENT MODAL
-%boostPaymentContent {
-  background: transparent;
-}
-%themeDark %boostPaymentQuantityIconWrapper {
-  background: hsla(0, 0%, 0%, 0.4);
-  &:hover {
-    background-color: $hover-color;
-  }
-}
-%serverBoostPaymentQuantityIcon {
-  color: #fff;
-  &:hover {
-    background-color: transparent;
-    color: #fff;    
-  }
-}
-%boostPaymentUpsellFooter {
-  background: hsla(0, 0%, 0%, 0.4);
-}
-%boostPaymentPerksList {
-  background: hsla(0, 0%, 100%, 0.07);
-}
-
-// CARD INFO
-%paymentCardInputWrapper {
+#{c(other cv nitroPaymentCardInputWrapper)} {
   padding: 2px;
 }
-%paymentCardInput {
+#{c(other cv nitroPaymentCardInput)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
 }
-%paymentCardInputFocused {
-  box-shadow: 0 0 2px 2px $main-color;
+#{c(other cv nitroPaymentCardInputFocused)} {
+  box-shadow: 0 0 2px 2px cv('colors.main');
+}
+
+// SERVER BOOST PAYMENT MODAL
+#{c(main dark)} #{c(other cv serverBoostPaymentQuantityIconWrapper)} {
+  background: hsla(0, 0%, 0%, 0.4);
+}
+#{c(other cv serverBoostPaymentQuantityIcon)} {
+  color: #fff;
+  &:hover {
+    color: #fff;
+    background-color: cv('colors.hover');
+  }
+}
+#{c(other cv serverBoostPaymentActions)} #{c(other cv input)} {
+  box-shadow: none;
+}
+/*Boost this server button in serverboost page*/
+#{c(other cv serverBoostPerkContent)} {
+  background: transparent;
+  #{c(other cv serverBoostPaymentUpsellFooter)} {
+    background: hsla(0, 0%, 0%, 0.4);
+  }
+}
+#{c(other cv serverBoostPaymentPerksList)} {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+// GIFT MODAL
+#{c(other cv giftModalHeader)} {
+  background: none;
+}
+#{c(other cv giftModalGiftBoxSelected)} {
+  border: 2px solid cv('colors.main');
+}
+#{c(other cv giftModalPlanSelected)} {
+  outline: 2px solid cv('colors.main');
+}
+#{c(other cv giftModalShopIcon)} {
+  background: cv('colors.main');
+}
+/*loading screen*/
+#{c(other cv giftModalSpinner)} {
+  background: rgba(0, 0, 0, 0.4);
 }

@@ -1,5 +1,10 @@
-/* TAGGED USERS */
 // prettier-ignore
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
+/* TAGGED USERS */
 $tagged: (
 	// Admins
 	"CV Admin": (
@@ -27,6 +32,7 @@ $tagged: (
 		"310468127534350347",	// Miyu
 		"384167892012498944",	// Randymations
 		"1141445806386319370",	// J-Emil-P
+		"427114049487241227",	// NeoNyaa
 	),
 
 	// Legacy Donators
@@ -93,25 +99,25 @@ $tagged: (
 
 	// Former CV Team Members
 	"Former CV Team": (
-  		"335677038830682112",	// Snow
+		"335677038830682112",	// Snow
 	)
-
 );
 
 // OUTPUT
-%messageContent > img {
-  & ~ %messageHeader %messageUsername::after {
-    content: var(--tag, none);
-    color: currentcolor;
-    text-shadow: 0 0 2px currentcolor;
-    border: 1px solid;
-    border-radius: 6px;
-    margin-left: 8px;
-    background-color: rgba(255, 255, 255, 0.07);
-    font-size: 10px;
-    padding: 0 5px;
-  }
+#{c(chat messageContents)} > img {
+	& ~ #{c(chat chatHeaderUsername)} #{c(chat chatUsername)}::after {
+		content: var(--tag,none);
+		color: currentcolor;
+		text-shadow: 0 0 2px currentcolor;
+		border: 1px solid;
+		border-radius: 6px;
+		margin-left: 8px;
+		background-color: rgba(255, 255, 255, 0.07);
+		font-size: 10px;
+		padding: 0 5px;
+	}
 }
+
 // group = what tag will be used, will be used for content: #{$group}
 // user = string list for what user(s) will have that tag
 // itm = an item in alias when it's a list
@@ -134,7 +140,7 @@ $tagged: (
 	// and for single strings
 		$k: "[src*=\"#{$user}\"]";
 	}
-	%avatarLarge#{$k} ~ %messageHeader {
+	#{c(chat chatAvatar)}#{$k} ~ #{c(chat chatHeaderUsername)} {
 		--tag: "#{$group}";
 	}
 }

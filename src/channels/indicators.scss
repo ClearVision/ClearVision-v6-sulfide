@@ -1,13 +1,18 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHANNEL INDICATORS */
-%channelsUnreadIndicator,
-%channelsMentionIndicator {
+#{c(serverList unreadMention)},
+#{c(serverList mentionBar)} {
   position: relative;
   background: transparent;
   &:after {
     content: '';
     position: absolute;
     @include stretch;
-    background: $main-color;
+    background: cv('colors.main');
     border-radius: 3px;
     opacity: 0.9;
     z-index: -1;

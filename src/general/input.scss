@@ -1,9 +1,14 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* INPUT */
-%inputWrapper {
+#{c(forums inputWrapper)} {
   padding: 2px;
 }
-%input {
-  color: $text-normal;
+#{c(other cv input)} {
+  color: cv('text.normal');
   background-color: hsla(0, 0%, 100%, 0.07);
   border: none;
   box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
@@ -14,19 +19,19 @@
     border: none;
   }
   &:focus,
-  &%inputFocused {
-    box-shadow: 0 0 2px 2px $main-color;
+  &#{c(other cv inputFocused)} {
+    box-shadow: 0 0 2px 2px cv('colors.main');
   }
-  &%inputField {
+  &#{c(login inputField)} {
     border: none;
     box-shadow: none;
     background: none;
   }
-  %inputMultiField {
+  #{c(other cv inputMultiField)} {
     background-color: transparent;
     box-shadow: none;
   }
-  %inputCopy & {
+  #{c(other cv inputCopy)} & {
     background-color: transparent;
     box-shadow: none;
   }

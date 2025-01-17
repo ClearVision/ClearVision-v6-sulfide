@@ -1,10 +1,14 @@
-/* CHECKBOX */
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
 
-%checkbox {
+/* CHECKBOX */
+#{c(main dark)} #{c(checkbox checkbox)} {
   border-color: hsla(0, 0%, 100%, 0.5);
-  &%checkboxChecked {
+  &#{c(checkbox checked)} {
     background-color: transparent !important;
-    border-color: $main-color !important;
+    border-color: cv('colors.main') !important;
     > svg {
       > path {
         fill: #fff;

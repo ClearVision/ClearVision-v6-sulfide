@@ -1,73 +1,78 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* EVENT MODAL */
-%eventHeader {
+#{c(modals eventsList header)} {
   background-color: transparent;
 }
-%eventIconCircle {
-  background-color: $main-color;
+#{c(other cv eventIconCircle)} {
+  background-color: cv('colors.main');
 }
-%eventCard {
+#{c(modals eventCard card)} {
   &:hover {
     background-color: hsla(0, 0%, 0%, 0.4);
-    border: 2px solid $hover-color;
+    border: 2px solid cv('colors.hover');
   }
   background-color: hsla(0, 0%, 0%, 0.4);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
-%eventNewBadgeText {
+#{c(other cv eventNewBadgeText)} {
   color: #fff;
 }
-%eventIconContainer svg path {
-  fill: $main-color;
+#{c(other cv eventIconContainer)} svg path {
+  fill: cv('colors.main');
 }
-%eventRSVPCount {
-  background-color: $main-color;
-  %eventRSVPIcon {
+#{c(modals eventCard rsvpCount)} {
+  background-color: cv('colors.main');
+  #{c(other cv eventRSVPIcon)} {
     color: #fff;
   }
 }
 
 // EVENT INFO
-%eventInfoHeader {
-  %tabBarItem {
+#{c(modals eventCard header)} {
+  #{c(tab item)} {
     &:hover {
-      border-bottom-color: $hover-color;
+      border-bottom-color: cv('colors.hover');
     }
-    &%tabBarItemSelected,
+    &#{c(tab selected)},
     &:active {
-      border-bottom-color: $main-color;
+      border-bottom-color: cv('colors.main');
     }
   }
 }
-%eventInfoContentContainer {
+#{c(modals eventFull contentContainer)} {
   background: transparent;
 }
-%eventInfoIconCircle {
-  background-color: $main-color;
+#{c(other cv eventInfoIconCircle)} {
+  background-color: cv('colors.main');
 }
 
 // CREATE EVENT
-%createEventProgressBar {
+#{c(other cv createEventProgressBar)} {
   background-color: hsla(0, 0%, 100%, 0.3);
-  &%createEventProgressBarSelected {
-    background-color: $main-color;
+  &#{c(other cv createEventProgressBarSelected)} {
+    background-color: cv('colors.main');
   }
-  + %createEventColorMuted {
+  + #{c(other cv createEventColorMuted)} {
     color: hsla(0, 0%, 100%, 0.3);
   }
-  + %createEventColorBrand {
-    color: $main-color;
+  + #{c(other cv createEventColorBrand)} {
+    color: cv('colors.main');
   }
 }
-%createEventCreateStageContainer {
+#{c(other cv createEventCreateStageContainer)} {
   background-color: transparent;
 }
-%createEventTextInput {
+#{c(modals createEvent textInput)} {
   background: transparent;
 }
-%themeDark %createEventPreviewCard {
+#{c(main dark)} #{c(modals createEvent previewCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
-%createEventIconContainer {
-  background-color: $main-color;
-}
+// #{c(other cv createEventIconContainer)} {
+//   background-color: cv('colors.main');
+// }

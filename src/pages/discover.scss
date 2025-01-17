@@ -1,21 +1,26 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* DISCOVER */
-%discover {
+#{c(other cv discoverQuest)} {
   background-color: transparent;
 }
-%discoverHeaderBackdrop {
+#{c(other cv discoverQuestHeaderBackdrop)} {
   background-color: rgba($color: #0c1522, $alpha: 0.7);
   backdrop-filter: blur(5px);
 }
-%discoverTabSelected {
-  border-bottom-color: $main-color !important;
+#{c(other cv discoverQuestTabSelected)} {
+  border-bottom-color: cv('colors.main') !important;
 }
 
 
 // SIDEBAR
-%discoverCategory {
+#{c(other cv discoverCategory)} {
   background-color: transparent;
 }
-%discoverCategoryItem {
+#{c(other cv discoverCategoryItem)} {
   position: relative;
   z-index: 1;
   &:before {
@@ -42,119 +47,131 @@
       background: hsla(0, 0%, 100%, 0.1);
     }
   }
-  &%discoverCategoryItemSelected {
+  &#{c(other cv discoverCategoryItemSelected)} {
     &:before {
       background: hsla(0, 0%, 100%, 0.1);
     }
     &:after {
       right: 0;
-      background: $main-color;
+      background: cv('colors.main');
       animation: cv-channel-select 0.3s ease-in-out;
     }
   }
-  &:is(%discoverCategoryItemSelected, :hover, :active) {
+  &:is(#{c(other cv discoverCategoryItemSelected)}, :hover, :active) {
     background-color: transparent;
   }
 }
 
+// SEARCH BOX
+#{c(discover search)} {
+  #{c(other cv discoverSearchBox)} {
+    background: hsla(0, 0%, 0%, 0.6);
+    border: none;
+    box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
+    &:focus-within {
+      border: none;
+      box-shadow: 0 0 2px 2px cv('colors.main');
+    }
+    #{c(other cv input)} {
+      border: none;
+      box-shadow: none;
+    }
+    #{c(other cv discoverSearchBoxInput)} {
+      color: cv('text.normal');
+      &::placeholder {
+        color: hsla(0, 0%, 100%, 0.3);
+      }
+    }
+    #{c(other cv discoverSearchBoxIconSearch)} {
+      color: cv('colors.main');
+    }
+  }
+  #{c(discover searchPage)} & {
+    #{c(other cv discoverSearchBox)} {
+      background: hsla(0, 0%, 100%, 0.07);
+      border: none;
+      box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
+      &:focus-within {
+        border: none;
+        box-shadow: 0 0 2px 2px cv('colors.main');
+      }
+      #{c(other cv input)} {
+        border: none;
+        box-shadow: none;
+      }
+      #{c(other cv discoverSearchBoxInput)} {
+        color: cv('text.normal');
+        &::placeholder {
+          color: hsla(0, 0%, 100%, 0.3);
+        }
+      }
+    }
+  }
+}
+
 // GUILD LIST
-%themeDark {
-  %discoverGuildCard,
-  %discoverHubCard,
-  %discoverGuildCardIcon {
+#{c(main dark)} {
+  #{c(other cv discoverGuildCard)},
+  #{c(discover studentCard)},
+  #{c(other cv discoverGuildCardIcon)} {
     background-color: hsla(0, 0%, 0%, 0.4);
     transition: all 0.15s ease-in-out;
     &:hover,
-    &:hover %discoverGuildCardIcon {
+    &:hover #{c(other cv discoverGuildCardIcon)} {
       background-color: hsla(0, 0%, 0%, 0.6);
     }
   }
 }
-%discoverGuildCardLoading {
+#{c(other cv discoverGuildCardLoading)} {
   background-color: transparent;
 }
-%discoverGuildList {
-  %spinner {
+#{c(discover cardList)} {
+  #{c(other cv spinner)} {
     background-color: hsla(0, 0%, 0%, 0.8);
   }
 }
-%discoverGuildStatusOnline {
+#{c(other cv discoverGuildStatusOnline)} {
   background-color: cv('colors.online');
 }
-%discoverGuildStatusOffline {
+#{c(other cv discoverGuildStatusOffline)} {
   background-color: cv('colors.offline');
 }
-%discoverGuildLoading {
+#{c(other cv spinner)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
 
+// SEARCH CATEGORY
+#{c(discover searchCategoryPill)} {
+  &#{c(discover searchCategorySelected)} {
+    background-color: cv('colors.main');
+  }
+}
 
-// SEARCH RESULTS
-%discoverSearchHeader {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.6));
-  box-shadow: 0 0 10px rgba(0, 0, 0, calc($bg-shading * 0.6));
-}
-%discoverSearch {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.5));
-}
-%discoverSearchBackButton {
-  background-color: $main-color;
-}
-%discoverSearchEmpty {
-  background-color: transparent;
-}
-%discoverSearchCategory {
-  position: relative;
-  z-index: 1;
-  &:before {
-    content: '';
-    position: absolute;
-    @include stretch;
-    transition: all 0.15s ease-in-out;
-    z-index: -1;
-    pointer-events: none;
-    border-radius: 4px;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    @include pos(0, 100%, 0, 0);
-    opacity: 0.9;
-    transition: all 0.3s ease-in-out;
-    z-index: -1;
-    pointer-events: none;
-    border-radius: 4px;
-  }
-  &:hover {
-    &:before {
-      background: hsla(0, 0%, 100%, 0.1);
-    }
-  }
-  &%discoverSearchCategorySelected {
-    &:before {
-      background: hsla(0, 0%, 100%, 0.1);
-    }
-    &:after {
-      right: 0;
-      background: $main-color;
-      animation: cv-channel-select 0.3s ease-in-out;
-    }
-  }
-  %textSmallNormal {
-    color: hsla(0,0%,100%,.7) !important;
-  }
+// EMPTY RESULTS
+#{c(discover searchEmptyContainer)} {
+  background-color: hsla(0, 0%, 0%, 0.6);
 }
 
 // QUESTS
-%discoverQuestItem {
-  background-color: hsla(0, 0%, 0%, 0.4);
+#{c(other cv discoverQuestHeaderBackdrop)} {
+  background-color: rgba($color: #0c1522, $alpha: 0.7);
+  backdrop-filter: blur(5px);
 }
-%discoverQuestItemGradient {
-  background: linear-gradient(0deg, hsla(0, 0%, 0%, 0.9) 10%, hsla(0, 0%, 0%, 0.6) 25%, transparent 35%);
-}
-%discoverQuestItemDescription {
+#{c(other cv discoverQuest)} {
   background-color: transparent;
 }
-%discoverQuestItemName {
-  color: $main-color !important;
+#{c(other cv discoverQuestTabSelected)} {
+  border-bottom-color: cv('colors.main') !important;
+}
+#{c(other cv discoverQuestItem)} {
+  background-color: hsla(0, 0%, 0%, 0.4);
+}
+#{c(other cv discoverQuestItemGradient)} {
+  background: linear-gradient(0deg, hsla(0, 0%, 0%, 0.9) 10%, hsla(0, 0%, 0%, 0.6) 25%, transparent 35%);
+}
+#{c(other cv discoverQuestItemDescription)} {
+  background-color: transparent;
+}
+#{c(other cv discoverQuestItemName)} {
+  color: cv('colors.main') !important;
 }

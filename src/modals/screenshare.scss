@@ -1,92 +1,97 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SCREEN SHARE */
-%screenshareSegmentControlOption {
+#{c(other cv screenshareSegmentControlOption)} {
   color: hsla(0, 0%, 100%, 0.7);
-  %themeDark &%screenshareSegmentControlSelected {
-    color: $main-color;
-    border-bottom: 2px solid $main-color;
+  #{c(main dark)} &#{c(other cv screenshareSegmentControlSelected)} {
+    color: cv('colors.main');
+    border-bottom: 2px solid cv('colors.main');
   }
 }
-%screenshareTile {
+#{c(other cv screenshareTile)} {
   &:hover {
-    %screenshareSourceThumbnail {
-      box-shadow: inset 0 0 0 2px $hover-color;
+    #{c(other cv screenshareSourceThumbnail)} {
+      box-shadow: inset 0 0 0 2px cv('colors.hover');
     }
   }
-  %screenshareSourceThumbnail {
-    &%screenshareSourceSelected {
-      box-shadow: inset 0 0 0 2px $main-color;
+  #{c(other cv screenshareSourceThumbnail)} {
+    &#{c(other cv screenshareSourceSelected)} {
+      box-shadow: inset 0 0 0 2px cv('colors.main');
     }
   }
 }
-%screenshareCard {
+#{c(other cv screenshareCard)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   border: 2px solid hsla(0, 0%, 100%, 0.09);
 }
-%themeDark {
-  %screenshareSettingsSelector {
+#{c(main dark)} {
+  #{c(other cv screenshareSettingsSelector)} {
     background-color: hsla(0, 0%, 100%, 0.07);
     border-color: hsla(0, 0%, 100%, 0.09);
     &:before {
       background-color: transparent;
     }
     &:hover {
-      background-color: $hover-color;
+      background-color: cv('colors.hover');
     }
-    &%screenshareSettingsSelected {
-      background-color: $main-color;
+    &#{c(other cv screenshareSettingsSelected)} {
+      background-color: cv('colors.main');
     }
-    &%screenshareSettingsUpsell {
+    &#{c(other cv screenshareSettingsUpsell)} {
       &:hover {
         background-color: #c269c3;
-        %screenshareSettingsUpsellText {
+        #{c(other cv screenshareSettingsUpsellText)} {
           color: #fff;
         }
       }
     }
   }
 }
-%screenshareUpsell {
+#{c(other cv screenshareUpsell)} {
   background: transparent;
 }
 
 // CLIPS
-%clipsShareTo {
+#{c(other cv clipsShareTo)} {
   background: rgba(0, 0, 0, 0.4);
   &:hover {
-    background: $hover-color;
+    background: cv('colors.hover');
     opacity: 0.8;
   }
 }
-%clipsUploadModal {
+#{c(chatForm inlineUpload)}#{c(other cv clipsUploadModal)} {
   background-color: transparent;
 }
-%clipsUploadGame {
-  color: $main-color;
+#{c(other cv clipsUploadGame)} {
+  color: cv('colors.main');
 }
-%clipsUploadTitle {
+#{c(other cv clipsUploadTitle)} {
   color: #fff !important; //Important needed because discord used element style - Snow
 }
-%clipsInterfaceOptionsModal {
+#{c(other cv clipsInterfaceOptionsModal)} {
   background: transparent;
 }
-%clipsInterfaceGeneralInfo {
+#{c(other cv clipsInterfaceGeneralInfo)} {
   background: transparent;
 }
-%clipsInterfaceParticipants {
+#{c(other cv clipsInterfaceParticipants)} {
   background: transparent;
 }
-%clipsInterfaceParticipantsCounter {
+#{c(other cv clipsInterfaceParticipantsCounter)} {
   background-color: rgba(0, 0, 0, 0.8);
 }
-%clipsInterfaceTimeScroller {
-  background-color: $main-color;
+#{c(other cv clipsInterfaceTimeScroller)} {
+  background-color: cv('colors.main');
 }
-%clipsInterfacePlayPause {
+#{c(other cv clipsInterfacePlayPause)} {
   background-color: rgba(0, 0, 0, 0.8);
 }
-%clipsInterfaceDragHandles {
-  background-color: $main-color;
+#{c(other cv clipsInterfaceDragHandles)} {
+  background-color: cv('colors.main');
 }
-%clipInChatFooter {
+#{c(other cv clipInChatFooter)} {
   background: rgba(0, 0, 0, 0.8);
 }

@@ -1,66 +1,71 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* FRIENDS */
-%themeDark {
-  %friends {
+#{c(main dark)} {
+  #{c(friends container)} {
     background-color: transparent;
   }
 }
 
 // FRIENDS COLUMN
-%friendsColumn {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(friends peopleColumn)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
 }
-%friendsSearch {
+#{c(serverSettings roleSearchBar)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.09);
   border: none;
   &:focus-within {
-    box-shadow: 0 0 2px 2px $main-color;
+    box-shadow: 0 0 2px 2px cv('colors.main');
   }
 }
-%friendsItem {
+#{c(friends peopleListItem)} {
   border-top: 1px solid hsla(0, 0%, 100%, 0.1);
   &:hover,
-  &%friendsItemActive {
+  &#{c(friends peopleListItemActive)} {
     background-color: hsla(0, 0%, 100%, 0.05);
   }
 }
 
-%friendActivity {
+#{c(other cv friendActivity)} {
   color: hsla(0, 0%, 100%, 0.5);
   strong {
-    color: $main-color;
+    color: cv('colors.main');
   }
 }
 
-%friendsDiscoverHint {
+#{c(friends explorePublicContainer)} {
   background: hsla(0, 0%, 0%, 0.2);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
   &:hover {
     background: hsla(0, 0%, 0%, 0.4);
-    border: 2px solid $hover-color;
+    border: 2px solid cv('colors.hover');
   }
 }
 
 // ACTION BUTTON
-%friendActionButton {
+#{c(friends actionButton)} {
   background-color: hsla(0, 0%, 0%, 0.6);
   color: #fff;
-  &%friendActionButtonHighlight {
+  &#{c(friends highlight)} {
     background-color: hsla(0, 0%, 0%, 0.6);
     color: #fff;
   }
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
     color: #fff;
   }
-  &%friendActionAcceptButton {
+  &#{c(friends actionButtonAccept)} {
     color: cv('colors.success');
     &:hover {
       background-color: cv('colors.success');
       color: #fff !important;
     }
   }
-  &%friendActionDenyButton {
+  &#{c(friends actionButtonDeny)} {
     color: cv('colors.danger');
     &:hover {
       background-color: cv('colors.danger');
@@ -70,16 +75,16 @@
 }
 
 // ADD FRIENDS BUTTON
-%tabBarItem[aria-controls='add_friend-tab'][aria-selected='false'] {
+#{c(tab item)}[aria-controls='add_friend-tab'][aria-selected='false'] {
   background-color: cv('colors.success') !important;
   color: #fff !important;
 }
-%tabBarItem[aria-controls='add_friend-tab'][aria-selected='true'] {
+#{c(tab item)}[aria-controls='add_friend-tab'][aria-selected='true'] {
   background-color: transparent !important;
   color: cv('colors.success') !important;
   box-shadow: 0 0 0 1px var(--success-color) inset;
 }
-%tabBarItem[aria-controls='add_friend-tab'][aria-selected='true']:before {
+#{c(tab item)}[aria-controls='add_friend-tab'][aria-selected='true']:before {
   content: '';
   position: absolute;
   background-color: var(--success-color);
@@ -90,94 +95,94 @@
 }
 
 // ADD FRIENDS PAGE
-%friendsAddFriendInputWrapper {
+#{c(friends addFriendInputWrapper)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.09);
   border: none;
   &:focus-within {
-    box-shadow: 0 0 2px 2px $main-color;
+    box-shadow: 0 0 2px 2px cv('colors.main');
   }
-  %input {
+  #{c(other cv input)} {
     background-color: transparent;
     box-shadow: none;
     &:focus,
-    &%inputFocused {
+    &#{c(other cv inputFocused)} {
       box-shadow: none;
     }
   }
 }
-%friendsAddFriendInput {
+#{c(other cv friendsAddFriendInput)} {
   &::placeholder {
     color: hsla(0, 0%, 100%, 0.3);
   }
 }
-%friendsAddFriendHint {
+#{c(other cv friendsAddFriendHint)} {
   color: hsla(0, 0%, 100%, 0.3);
 }
 
 // NOW PLAYING
-%nowPlayingColumn {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.6));
+#{c(friends nowPlayingColumn)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
 }
-%nowPlayingColumnContainer {
+#{c(friends nowPlayingContainer)} {
   background-color: transparent;
 }
-%nowPlayingColumnScroller {
+#{c(friends nowPlayingScroller)} {
   border-left: none;
 }
-%consentCard {
+#{c(other cv consentCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
 
 // ACTIVE NOW
-%themeDark {
-  %activeNowOuterCard {
+#{c(main dark)} {
+  #{c(friends itemCardOuter)} {
     background-color: hsla(0, 0%, 0%, 0.4);
     border: 1px solid transparent;
-    &%activeNowCardInteractive:hover,
-    &%activeNowCardActive {
+    &#{c(friends itemCardInteractive)}:hover,
+    &#{c(friends itemCardActive)} {
       background-color: hsla(0, 0%, 0%, 0.6);
     }
   }
-  %activeNowCardInset {
+  #{c(friends itemCardBodyInset)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
-  %activeNowPartyOverflow {
+  #{c(friends partyMemberOverflow)} {
     background-color: var(--background-overlay);
   }
 }
-%activeNowCardSection {
+#{c(friends itemCardBodySection)} {
   background-color: transparent;
 }
-%themeDark %activeNowPreviewWrapper {
+#{c(main dark)} #{c(other cv activeNowPreviewWrapper)} {
   background-color: transparent;
 }
 
 // IT'S QUIET FOR NOW...
-%emptyActiveNowCard {
+#{c(friends emptyCard)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%emptyActiveNowText {
+#{c(other cv emptyActiveNowText)} {
   color: hsla(0, 0%, 100%, 0.3);
 }
 
 // PROMOTED QUEST
-%promotedQuestActivity {
+#{c(other cv promotedQuestActivity)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%promotedQuestPill {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.8));
-  color: $text-normal;
+#{c(other cv promotedQuestPill)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.8));
+  color: cv('text.normal');
 }
 
-// DM USER PROFILE
-%userProfileOuterUnthemed {
-  background-color: hsla(0, 0%, 0%, 0.4);
-  %userProfileDMInnerThemed {
-    background: transparent;
-  }
-  %userModalDMBadgeList,
-  %userProfileDMOverlayBackground {
-    background: hsla(0, 0%, 0%, 0.4);
-  }
-}
+// // DM USER PROFILE
+// #{c(other cv userProfileOuterUnthemed)} {
+//   background-color: hsla(0, 0%, 0%, 0.4);
+//   #{c(other cv userProfileDMInnerThemed)} {
+//     background: transparent;
+//   }
+//   #{c(other cv userModalDMBadgeList)},
+//   #{c(other cv userProfileDMOverlayBackground)} {
+//     background: hsla(0, 0%, 0%, 0.4);
+//   }
+// }

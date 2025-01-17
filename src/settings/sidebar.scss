@@ -1,9 +1,14 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SETTINGS SIDEBAR */
-%standardSidebarView {
+#{c(userSettings standardSidebarView)} {
   background: transparent;
 }
-%settingsSidebarRegion {
-  %settingsSidebarScroller {
+#{c(userSettings sidebarRegion)} {
+  #{c(userSettings sidebarRegionScroller)} {
     margin: 30px 8px 30px 0;
     background: transparent;
     -webkit-mask-image: linear-gradient(to bottom, transparent, #000 5%, #000 95%, transparent);
@@ -13,17 +18,17 @@
     }
   }
 }
-%settingsSidebar {
+#{c(userSettings sidebar)} {
   height: 100%;
   width: 260px;
   padding: 0px 6px 0px 20px;
-  %tabBarSide {
+  #{c(tab side)} {
     padding: 30px 0;
   }
 }
-%settingsSidebar {
-  %settingsHeader {
-    color: $main-color;
+#{c(userSettings sidebar)} {
+  #{c(tab header)} {
+    color: cv('colors.main');
     font-weight: 700;
     padding-top: 20px;
     display: flex;
@@ -33,14 +38,14 @@
       content: '';
       height: 2px;
       flex-grow: 1;
-      background: linear-gradient(to left, $main-color 50%, transparent);
+      background: linear-gradient(to left, cv('colors.main') 50%, transparent);
       margin-right: 5px;
     }
     &:after {
       content: '';
       height: 2px;
       flex-grow: 1;
-      background: linear-gradient(to right, $main-color 50%, transparent);
+      background: linear-gradient(to right, cv('colors.main') 50%, transparent);
       margin-left: 5px;
     }
     > span {
@@ -50,16 +55,16 @@
     }
   }
 }
-%settingsSeparator {
+#{c(tab separator)} {
   background: hsla(0, 0%, 100%, 0.07);
-  &:has(+ %settingsHeader) {
+  &:has(+ #{c(tab header)}) {
     display: none;
   }
 }
-%standardSidebarView {
-  %settingsSidebar {
-    %tabBarSide {
-      %tabBarItem {
+#{c(userSettings standardSidebarView)} {
+  #{c(userSettings sidebar)} {
+    #{c(tab side)} {
+      #{c(tab item)} {
         position: relative;
         padding: 8px 20px;
         color: var(--channel-color);
@@ -92,12 +97,12 @@
         }
 
         // SELECTED
-        &%tabBarItemSelected {
+        &#{c(tab selected)} {
           background: transparent;
           color: #fff;
           transition: all 0.15s ease-in-out, background 0.3s 0.2s;
           padding-left: 50px;
-          %settingsSidebarNitroSelected {
+          #{c(userSettings nitroSelectedBackground)} {
             background-color: transparent;
           }
           &:before {
@@ -105,23 +110,23 @@
           }
           &:after {
             right: 0;
-            background: $main-color;
+            background: cv('colors.main');
             animation: cv-channel-select 0.3s ease-in-out;
           }
         }
 
-        // ONBOARDING STEP COUNTER
-        %textMediumNormal {
-          color: #fff !important;
-        }
+        // // ONBOARDING STEP COUNTER
+        // #{c(other cv textMediumNormal)} {
+        //   color: #fff !important;
+        // }
       }
     }
   }
 }
 
 // SOCIAL LINKS
-%settingsSocialLinks {
-  %settingsSocialLink {
+#{c(userSettings sidebarSocialLinks)} {
+  #{c(other cv settingsSocialLink)} {
     color: hsla(0, 0%, 100%, 0.4);
     &:hover {
       color: hsla(0, 0%, 100%, 0.7);

@@ -1,13 +1,18 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CONNECTION INFO POPOUT */
-%connectionDebugPopout {
+#{c(other cv connectionDebugPopout)} {
   background-color: cv('bg.general.popout');
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-%connectionDebugText {
+#{c(other cv connectionDebugText)} {
   > strong {
-    color: $main-color;
+    color: cv('colors.main');
   }
-  &%connectionDebugTextDetails {
+  &#{c(other cv connectionDebugTextDetails)} {
     color: hsla(0, 0%, 100%, 0.5);
   }
 }

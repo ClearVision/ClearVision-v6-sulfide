@@ -1,38 +1,43 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* ADD SERVER MODAL */
 
 // MAIN PAGE
-%themeLight {
-  %addServerContainer {
-    %defaultColor {
+#{c(main light)} {
+  #{c(modals addServer modal)} {
+    #{c(other cv defaultColor)} {
       color: #fff;
     }
-    %input {
+    #{c(other cv input)} {
       color: rgb(220, 221, 222);
     }
   }
 }
-%addServerOption {
-  background-color: $main-color;
+#{c(modals addServer templateButton)} {
+  background-color: cv('colors.main');
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
   }
-  %addServerOptionText {
+  #{c(modals addServer templateButtonText)} {
     color: #fff;
   }
-  %addServerOptionArrow {
+  #{c(modals addServer templateArrow)} {
     filter: brightness(0) invert(1);
   }
 }
-%addServerOptionHeader {
+#{c(other cv addServerOptionHeader)} {
   color: hsla(0, 0%, 100%, 0.7) !important;
 }
 // CREATE SERVER
-%createServerIconContainer > svg > circle {
-  fill: $main-color;
+#{c(other cv createServerIconContainer)} > svg > circle {
+  fill: cv('colors.main');
 }
-%createServerOtherBackButton,
-%createServerBackButton {
-  %buttonContents {
+#{c(other cv createServerOtherBackButton)},
+#{c(modals addServer tellUsMoreBackButton)} {
+  #{c(button contents)} {
     color: hsla(0, 0%, 100%, 0.7);
     &:hover {
       color: #fff;
@@ -42,22 +47,22 @@
 }
 
 // JOIN SERVER
-%joinServerInput {
+#{c(modals addServer joinAServerInput)} {
   background-color: transparent;
 }
-%joinServerExample {
-  color: $main-color;
+#{c(other cv joinServerExample)} {
+  color: cv('colors.main');
   font-weight: 500;
 }
-%joinServerRow {
-  background-color: $main-color;
+#{c(modals addServer joinAServerRowContainer)} {
+  background-color: cv('colors.main');
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
   }
-  %joinServerRowText {
+  #{c(other cv joinServerRowText)} {
     color: #fff;
   }
-  %joinServerRowArrow {
+  #{c(other cv joinServerRowArrow)} {
     filter: brightness(0) invert(1);
   }
 }

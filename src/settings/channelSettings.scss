@@ -1,9 +1,14 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHANNEL SETTINGS */
 
 // HEADER
-%settingsSidebar {
-  %settingsHeader {
-    &:has(%channelSettingsCategory) {
+#{c(userSettings sidebar)} {
+  #{c(tab header)} {
+    &:has(#{c(other cv channelSettingsCategory)}) {
       display: grid;
       grid-template-columns: 1fr auto 1fr;
       grid-template-rows: 0.5fr 0.5fr;
@@ -19,8 +24,8 @@
     }
   }
 }
-%settingsHeaderText {
-  &:has(%channelSettingsCategory) {
+#{c(tab headerText)} {
+  &:has(#{c(other cv channelSettingsCategory)}) {
     grid-column: 2 / 3;
     grid-row: 1 / 3;
     display: grid;
@@ -30,8 +35,8 @@
     justify-items: center;
   }
 }
-%channelSettingsCategory {
-  color: $main-color !important;
+#{c(other cv channelSettingsCategory)} {
+  color: cv('colors.main') !important;
   margin: 0;
   grid-column: 1 / 3;
   grid-row: 1 / 2;
@@ -44,47 +49,47 @@
 }
 
 // PERMISSIONS
-%channelSettingsPermissionsGroup {
+#{c(channelSettings permGroup)} {
   border: 1px solid hsla(0, 0%, 100%, 0.07);
 }
-%channelSettingsPermissionsItem {
+#{c(channelSettings permItem)} {
   background-color: hsla(0, 0%, 0%, 0.4);
   border-color: hsla(0, 0%, 100%, 0.07);
   cursor: pointer;
-  &%channelSettingsPermissionsSelected {
-    &%channelSettingsPermissionsDeny {
+  &#{c(channelSettings permSelected)} {
+    &#{c(channelSettings permDeny)} {
       background-color: rgba($color: #f04747, $alpha: 0.6);
       border-color: #f04747;
     }
-    &%channelSettingsPermissionsPassthrough {
+    &#{c(channelSettings permNoop)} {
       background-color: rgba($color: #faa61a, $alpha: 0.6);
       border-color: #faa61a;
     }
-    &%channelSettingsPermissionsAllow {
+    &#{c(channelSettings permAllow)} {
       background-color: rgba($color: #43b581, $alpha: 0.6);
       border-color: #43b581;
     }
   }
 }
-%channelSettingsCard {
+#{c(channelSettings settingsCard)} {
   background-color: rgba(0, 0, 0, 0.4);
-  &%channelSettingsCardActive {
+  &#{c(channelSettings settingsCardActive)} {
     background-color: rgba(0, 0, 0, 0.4);
   }
 }
-%channelSettingsCardPanel {
+#{c(channelSettings cardFolder)} {
   background-color: transparent;
 }
 
-%integrationsIconWrapper {
+#{c(channelSettings integrationIconWrapper)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
 
 // ROLES/MEMBERS DROPDOWN
-%themeDark %channelSettingsRoleDropdownHeader,
-%themeDark %channelSettingsRoleDropdownContainer %channelSettingsRoleDropdownTag {
+#{c(main dark)} #{c(other cv channelSettingsRoleDropdownHeader)},
+#{c(main dark)} #{c(other cv channelSettingsRoleDropdownContainer)} #{c(other cv channelSettingsRoleDropdownTag)} {
   background-color: cv('bg.general.popout');
 }
-%channelSettingsRoleDropdownRow%channelSettingsRoleDropdownSelected %channelSettingsRoleDropdownRowInner {
+#{c(other cv channelSettingsRoleDropdownRow)}#{c(other cv channelSettingsRoleDropdownSelected)} #{c(other cv channelSettingsRoleDropdownRowInner)} {
   background-color: hsla(0, 0%, 100%, 0.1);
 }

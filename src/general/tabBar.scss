@@ -1,36 +1,41 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* TAB BAR */
-%tabBarTop {
-  %tabBarBrand {
-    &%tabBarItem {
+#{c(tab top)} {
+  #{c(tab brand)} {
+    &#{c(tab item)} {
       &:hover {
-        border-bottom-color: $hover-color;
+        border-bottom-color: cv('colors.hover');
       }
-      &%tabBarItemSelected,
+      &#{c(tab selected)},
       &:active {
-        border-bottom-color: $main-color;
+        border-bottom-color: cv('colors.main');
       }
     }
   }
 }
 
 // PILL
-%tabBarTopPill,
-%tabBarSide {
-  %tabBarThemed {
-    &%tabBarItem {
+#{c(tab topPill)},
+#{c(tab side)} {
+  #{c(tab themed)} {
+    &#{c(tab item)} {
       color: hsla(0, 0%, 100%, 0.5);
       transition: all 0.3s ease-in-out;
-      &:hover:not(%tabBarItemDisabled) {
+      &:hover:not(#{c(tab disabled)}) {
         background-color: hsla(0, 0%, 100%, 0.1);
         color: hsla(0, 0%, 100%, 0.7);
       }
     }
-    &%tabBarItemSelected {
-      &%tabBarItem {
-        background-color: $main-color;
+    &#{c(tab selected)} {
+      &#{c(tab item)} {
+        background-color: cv('colors.main');
         color: #fff;
-        &:hover:not(%tabBarItemDisabled) {
-          background-color: $main-color;
+        &:hover:not(#{c(tab disabled)}) {
+          background-color: cv('colors.main');
           color: #fff;
         }
       }

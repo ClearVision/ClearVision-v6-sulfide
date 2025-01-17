@@ -1,6 +1,11 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* STATUS */
 /*status picker*/
-%statusPickerIcon {
+#{c(modals menus status)} {
   &[style*='rgb(128, 132, 142)'] {
     background-color: var(--offline-color) !important;
   }
@@ -19,7 +24,7 @@
 }
 
 /*member list, profile*/
-:is(%avatarCursorDefault, %avatarMask, %userSettingsProfilesPreviewStatus) rect {
+:is(#{c(other cv avatarCursorDefault)}, #{c(memberList avatarMask)}, #{c(other cv userSettingsProfilesPreviewStatus)}) rect {
   &[fill*='#80848e'] {
     fill: var(--offline-color);
   }

@@ -1,23 +1,26 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SCROLLBAR */
 // Chrome version fix
-%scrollbarAuto,
-%scrollbarChatAuto,
-%scrollbarThin,
-%scrollbarSettingsThin {
+#{c(scroller auto)},
+#{c(scroller thin)} {
   scrollbar-width: unset !important;
   scrollbar-color: unset !important;
 }
 // NORMAL SCROLLBAR
-%scrollbarAuto::-webkit-scrollbar {
+#{c(scroller auto)}::-webkit-scrollbar {
   width: 14px;
 }
 // THIN SCROLLBAR
-%scrollbarThin::-webkit-scrollbar {
+#{c(scroller thin)}::-webkit-scrollbar {
   width: 10px;
 }
 
 // NO SCROLLBAR
-%scrollbarNone::-webkit-scrollbar {
+#{c(scroller none)}::-webkit-scrollbar {
   width: 0px;
 }
 
@@ -30,19 +33,17 @@
   background-clip: padding-box !important;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: $main-color !important;
+  background-color: cv('colors.main') !important;
   &:active {
-    background-color: $hover-color !important;
+    background-color: cv('colors.hover') !important;
   }
 }
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track-piece {
   background-color: transparent !important;
 }
-%channels,
-%membersWrap,
-%channelsPrivate {
-  %scroller {
+#{c(memberList wrap)} {
+  #{c(scroller base)} {
     &::-webkit-scrollbar-thumb,
     &::-webkit-scrollbar-track-piece {
       visibility: hidden;
@@ -55,14 +56,11 @@
     }
   }
 }
-%channels,
-%chat,
-%membersWrap,
-%channelsPrivate,
-%friendsTable {
-  %scroller {
+#{c(chat chat)},
+#{c(memberList wrap)} {
+  #{c(scroller base)} {
     &::-webkit-scrollbar-track-piece {
-      background-color: rgba(0, 0, 0, calc($bg-shading * 0.3)) !important;
+      background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3)) !important;
     }
   }
 }
@@ -71,7 +69,7 @@ textarea {
     display: none;
   }
 }
-%shopModal {
+#{c(other cv shopModal)} {
   &::-webkit-scrollbar {
     width: 0;
   }

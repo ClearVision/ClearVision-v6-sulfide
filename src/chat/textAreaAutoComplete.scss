@@ -1,75 +1,80 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHAT CHANNEL TEXT AREA AUTOCOMPLETE */
-%themeDark {
-  %autocomplete {
+#{c(main dark)} {
+  #{c(modals autocomplete modal)} {
     background: transparent;
     overflow: hidden;
   }
 }
-%autocomplete {
-  %autocompleteInner {
+#{c(modals autocomplete modal)} {
+  #{c(modals autocomplete inner)} {
     background: cv('bg.general.popout');
     animation: cv-menu-slide-bottom 0.2s ease-in-out;
     transform-origin: 50% 100%;
   }
-  %autocompleteTitle {
+  #{c(modals autocomplete contentTitle)} {
     color: hsla(0, 0%, 100%, 0.5);
   }
-  %autocompleteContent {
-    color: hsla(0, 0%, 100%, 0.6);
+  // #{c(other cv autocompleteContent)} {
+  //   color: hsla(0, 0%, 100%, 0.6);
+  // }
+  // #{c(other cv autocompleteDescription)},
+  // #{c(other cv autocompleteDescriptionUsername)} {
+  //   color: hsla(0, 0%, 100%, 0.3);
+  // }
+  // #{c(other cv autocompleteDescriptionDiscriminator)} {
+  //   color: hsla(0, 0%, 100%, 0.15);
+  // }
+  #{c(modals autocomplete clickable)}[aria-selected='true'] #{c(modals autocomplete base)},
+  #{c(modals autocomplete clickable)}[aria-disabled='false'] #{c(modals autocomplete base)}:hover {
+    background: cv('colors.main');
   }
-  %autocompleteDescription,
-  %autocompleteDescriptionUsername {
-    color: hsla(0, 0%, 100%, 0.3);
-  }
-  %autocompleteDescriptionDiscriminator {
-    color: hsla(0, 0%, 100%, 0.15);
-  }
-  %autocompleteSelectorSelected[aria-selected='true'] %autocompleteBase,
-  %autocompleteSelectorSelected[aria-disabled='false'] %autocompleteBase:hover {
-    background: $main-color;
-  }
-  %autocompleteBase {
-    %textExtraSmallMedium,
-    %textExtraSmallNormal {
-      color: #fff !important;
-    }
-  }
-  %autocompleteIconForeground {
+  // #{c(modals autocomplete base)} {
+  //   // #{c(text text xs medium)},
+  //   // #{c(other cv textExtraSmallNormal)} {
+  //   //   color: #fff !important;
+  //   // }
+  // }
+  #{c(other cv autocompleteIconForeground)} {
     fill: hsla(0, 0%, 100%, 0.7);
   }
-  %autocompleteContentSecondary,
-  %autocompleteRowSubheading {
+  #{c(other cv autocompleteContentSecondary)},
+  #{c(other cv autocompleteRowSubheading)} {
     color: #fff;
   }
 }
 // SLASH COMMANDS AUTOCOMPLETE
-%autocompleteListWrapper,
-%autocompleteList,
-%autocompleteCategoryHeader {
+#{c(modals autocomplete railWrapper)},
+#{c(modals sidebarList list)},
+#{c(modals autocomplete categoryHeader)} {
   background-color: transparent;
 }
-%autocompleteListItemSelected {
-  background-color: $main-color;
+#{c(modals autocomplete categorySelected)} {
+  background-color: cv('colors.main');
   &:hover {
-    background-color: $main-color;
+    background-color: cv('colors.main');
   }
 }
-%themeDark %autocompleteOption {
+#{c(main dark)} #{c(modals autocomplete option)} {
   background-color: hsla(0, 0%, 0%, 0.5);
 }
-%autocompleteOptionals {
+#{c(modals autocomplete option)} {
   border: none;
 }
-%autocompleteOptionalCount {
+#{c(other cv autocompleteOptionalCount)} {
   color: hsla(0, 0%, 100%, 0.7);
 }
 // REMOVE AUTOCOMPLETE NITRO AD
-%autocompleteUpsellDividerContainer,
-%autocompleteUpsellEmoji,
-%autocompleteUpsellHeader {
+#{c(other cv autocompleteUpsellDividerContainer)},
+#{c(other cv autocompleteUpsellEmoji)},
+#{c(other cv autocompleteUpsellHeader)} {
   display: none;
 }
 // REMOVE ENTIRE BOX IF ONLY CONTAINS NITRO AD
-%autocomplete:has(%autocompleteBase + %autocompleteUpsellDividerContainer) {
+#{c(modals autocomplete modal)}:has(#{c(modals autocomplete base)} + #{c(other cv autocompleteUpsellDividerContainer)}) {
   display: none;
 }

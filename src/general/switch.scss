@@ -1,5 +1,10 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SWITCH */
-%switchContainer {
+#{c(slider container)} {
   background-color: transparent !important;
   &:before {
     background-color: hsla(0, 0%, 100%, 0.15);
@@ -10,10 +15,10 @@
     border-radius: inherit;
     transition: all 0.1s ease-in-out;
   }
-  &%switchChecked:before {
-    background-color: $main-color;
+  &#{c(slider checked)}:before {
+    background-color: cv('colors.main');
   }
   path {
-    fill: $main-color;
+    fill: cv('colors.main');
   }
 }

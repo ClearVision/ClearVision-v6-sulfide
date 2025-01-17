@@ -1,56 +1,61 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* MOD VIEW */
-%modView %themeDark {
+#{c(other cv modView)} #{c(main dark)} {
   // HEADER
-  %modViewHeader {
+  #{c(other cv modViewHeader)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
-  %modViewHeaderTop,
-  %modViewHeaderBottomAction {
+  #{c(other cv modViewHeaderTop)},
+  #{c(other cv modViewHeaderBottomAction)} {
     background-color: transparent !important;
   }
-  %modViewHeaderBottomAction {
-    &:not(%modViewHeaderBottomActionDisabled) {
-      %modViewHeaderBottomActionInner {
+  #{c(other cv modViewHeaderBottomAction)} {
+    &:not(#{c(other cv modViewHeaderBottomActionDisabled)}) {
+      #{c(other cv modViewHeaderBottomActionInner)} {
         background-color: hsla(0, 0%, 100%, 0.05);
       }
     }
   }
 
   // BODY
-  %modViewBody {
+  #{c(other cv modViewBody)} {
     background-color: hsla(0, 0%, 0%, 0.4) !important;
   }
-  %modViewBodyHeader {
+  #{c(other cv modViewBodyHeader)} {
     background-color: transparent !important;
     box-shadow: none;
   }
-  %modViewBodyItem {
+  #{c(other cv modViewBodyItem)} {
     background-color: hsla(0, 0%, 0%, 0.4);
   }
-  %modViewBodyAction {
+  #{c(other cv modViewBodyAction)} {
     &:hover {
       background-color: hsla(0, 0%, 100%, 0.05);
     }
   }
-  %modViewPermissionChiplet {
+  #{c(other cv modViewPermissionChiplet)} {
     background-color: hsla(0, 0%, 100%, 0.07);
   }
-  %modViewElevatedPermissionChiplet {
+  #{c(other cv modViewElevatedPermissionChiplet)} {
     background-color: hsla(0, 0%, 100%, 0.07);
     color: var(--danger-color) !important;
   }
 
   // SERVER ACTIVITY
-  %modViewActivity {
+  #{c(other cv modViewActivity)} {
     li > div {
       background-color: hsla(0, 0%, 0%, 0.4) !important;
     }
   }
 
   // MOD PERMISSIONS
-  %modViewPermissionItem {
+  #{c(other cv modViewPermissionItem)} {
     background-color: hsla(0, 0%, 0%, 0.4);
-    &%modViewElevatedPermissionItem {
+    &#{c(other cv modViewElevatedPermissionItem)} {
       background-color: hsla(0, 0%, 0%, 0.6);
       border: 1px solid hsla(0, 0%, 100%, 0.05);
     }

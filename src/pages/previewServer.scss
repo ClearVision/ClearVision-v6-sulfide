@@ -1,96 +1,101 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* PREVIEW SERVER */
 
 // WELCOME MODAL
-%previewServerOptionContainer {
-  background-color: $main-color;
+#{c(modals welcome optionContainer)} {
+  background-color: cv('colors.main');
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
   }
-  %previewServerChannelOptionArrow {
+  #{c(other cv previewServerChannelOptionArrow)} {
     color: #fff;
   }
   span {
     color: #fff;
   }
 }
-%previewServerChannelIcon,
-%previewServerChannelTitleIcon {
+#{c(other cv previewServerChannelIcon)},
+#{c(other cv previewServerChannelTitleIcon)} {
   color: #fff;
 }
 
-%themeDark %previewServerNotice {
+#{c(main dark)} #{c(notice previewServerNotice)} {
   background-color: transparent;
 }
-%notice__99c03 %previewServerHeader::before {
+%notice__99c03 #{c(other cv previewServerHeader)}::before {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
-  background-color: $main-color;
+  background-color: cv('colors.main');
   opacity: 0.6;
   pointer-events: none;
   z-index: -1;
   border-radius: 3px;
 }
 
-%previewServerContainer {
+#{c(other cv previewServerContainer)} {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
 // TOP BAR JOIN AND BACK BUTTON
-%previewServerBackButton:hover {
-  background-color: $hover-color;
+#{c(other cv previewServerBackButton)}:hover {
+  background-color: cv('colors.hover');
 }
 
 // WELCOME TO SERVER CARDS
-%serverWelcomeCards {
+#{c(other cv serverWelcomeCards)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%serverInviteTick {
-  background-color: $main-color;
+#{c(other cv serverInviteTick)} {
+  background-color: cv('colors.main');
 }
 
 // SERVER STATUS (E.G. PUBLIC OR PRIVATE)
-%previewServerStatus {
+#{c(sidebar communityInfoPill)} {
   background: rgba(0, 0, 0, 0.6);
 }
 
 // Nyx's fixes
-%previewServerHomeContainer,
-%previewServerHomeContainerInner {
+#{c(other cv previewServerHomeContainer)},
+#{c(other cv previewServerHomeContainerInner)} {
   background: transparent;
 }
-%previewServerHomeIcon {
+#{c(other cv previewServerHomeIcon)} {
   border: 4px solid transparent;
 }
-%previewServerHomeInteractiveCard {
-  &%previewServerHomeInteractiveCardSelected {
-    border: 1px solid $main-color;
+#{c(other cv previewServerHomeInteractiveCard)} {
+  &#{c(other cv previewServerHomeInteractiveCardSelected)} {
+    border: 1px solid cv('colors.main');
   }
   &:hover {
-    border: 1px solid $hover-color;
+    border: 1px solid cv('colors.hover');
   }
   &:active {
-    border: 1px solid $hover-color;
+    border: 1px solid cv('colors.hover');
   }
 }
-%previewServerHomeCard {
+#{c(other cv previewServerHomeCard)} {
   background: rgba(0, 0, 0, 0.4);
 }
-%previewServerIconContainer {
-  background: $main-color;
+#{c(other cv previewServerIconContainer)} {
+  background: cv('colors.main');
   color: #fff;
 }
-%previewServerConversation:hover {
-  background: $hover-color;
+#{c(other cv previewServerConversation)}:hover {
+  background: cv('colors.hover');
 }
-%previewServerConversationRoot:after,
-%previewServerConversationReply {
-  border-left: 2px solid $main-color;
+#{c(other cv previewServerConversationRoot)}:after,
+#{c(other cv previewServerConversationReply)} {
+  border-left: 2px solid cv('colors.main');
 }
-%previewServerConversationMessage:after {
-  border-left: 2px solid $main-color;
-  border-bottom: 2px solid $main-color;
+#{c(other cv previewServerConversationMessage)}:after {
+  border-left: 2px solid cv('colors.main');
+  border-bottom: 2px solid cv('colors.main');
 }

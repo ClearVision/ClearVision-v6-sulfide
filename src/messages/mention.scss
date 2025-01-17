@@ -1,44 +1,49 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* MENTIONS */
-%mentionWrapper {
+#{c(chat channelLinkUserMentionWrapper)} {
   padding: 1px 4px;
   border-radius: 5px;
   line-height: 22px;
   white-space: nowrap;
   transition: all 0.15s ease-in-out;
-  background-color: $main-color;
+  background-color: cv('colors.main');
   color: #fff;
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
   }
-  &%mentionIcon {
+  &#{c(other cv mentionIcon)} {
     padding-left: 1.2rem;
   }
 }
 // PINGED
-%mentioned {
-  %mention%mentionedInteractive {
+#{c(chat mentioned)} {
+  #{c(other cv mention)}#{c(other cv mentionedInteractive)} {
     background-color: hsla(0, 0%, 100%, 0.1);
-    color: $main-color;
+    color: cv('colors.main');
     &:hover {
       background-color: hsla(0, 0%, 100%, 0.07);
-      color: $hover-color;
+      color: cv('colors.hover');
       text-decoration: none;
     }
   }
 }
 // BACKGROUND
-%message%mentioned {
+#{c(chat message)}#{c(chat mentioned)} {
   background-color: hsla(0, 0%, 100%, 0.05);
-  &%messageSelected,
-  %mouseModeFullMotion &:hover {
+  &#{c(chat messageSelected)},
+  #{c(main mouseMode)}#{c(main options fullMotion)} &:hover {
     background-color: hsla(0, 0%, 100%, 0.08);
   }
   &::before {
-    background-color: $main-color;
+    background-color: cv('colors.main');
   }
 }
 
 // ICON
-%mentionIcon path {
+#{c(other cv mentionIcon)} path {
   fill: #fff;
 }

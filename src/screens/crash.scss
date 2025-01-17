@@ -1,8 +1,13 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CRASH SCREEN */
-%errorPage {
+#{c(error page)} {
   background: transparent;
   box-shadow: inset 0 0 50vmin 10px cv('colors.danger');
-  %buttonContents {
+  #{c(button contents)} {
     height: 16px;
     font-size: 0;
     &:after {
@@ -11,10 +16,10 @@
     }
   }
 }
-%errorPageImage {
+#{c(error image)} {
   display: none;
 }
-%errorPageText {
+#{c(error text)} {
   width: auto;
   color: hsla(0, 0%, 100%, 0.7);
   h4 {
@@ -32,12 +37,12 @@
       font-size: 150px;
     }
   }
-  %errorPageNote {
+  #{c(error note)} {
     font-size: 0;
     white-space: pre-line;
   }
 }
-%errorPageNote {
+#{c(error note)} {
   > div {
     > p {
       margin: 0;

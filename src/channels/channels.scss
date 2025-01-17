@@ -1,17 +1,24 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHANNELS */
-html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
-  width: cv('channels-width') !important;
-  background: rgba(0, 0, 0, calc($bg-shading * 0.3));
+#{c(sidebar sidebar)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
+  &:not(#{c(other cv channelsSidebarHidden)}) {
+    width: cv('channels-width') !important;
+  }
+  #{c(os win platform)} & {
+    border-radius: 0;
+  }
 }
-%platformWin %channelsSidebar {
-  border-radius: 0;
-}
-%themeDark %channelsContainer {
+#{c(main dark)} #{c(sidebar channelsContainer)} {
   background: transparent;
 }
 
 // CHANNELS HEADER
-%channelsHeader {
+#{c(sidebar channelsHeader)} {
   height: 48px;
   color: #fff;
   font-family: cv('font.main');
@@ -23,35 +30,32 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
 }
 
 // GUILD BANNER
-%channelBannerAnimatedContainer {
+#{c(sidebar animatedContainer)} {
   background: transparent;
   box-shadow: none;
 }
-%channelBanner {
+#{c(sidebar bannerImage)} {
   width: cv('channels-width');
   -webkit-mask: linear-gradient(to bottom, #000, transparent);
   mask: linear-gradient(to bottom, #000, transparent);
 }
-%channelBannerImage {
-  width: cv('channels-width');
+#{c(sidebar threadsSpine)} {
+  color: cv('colors.main');
 }
-%threadChannelConnector {
-  color: $main-color;
-}
-%threadChannelSpine {
-  background: $main-color;
+#{c(other cv threadChannelSpine)} {
+  background: cv('colors.main');
 }
 
 // SERVER BOOST
-%themeDark %serverBoostProgressBar {
+#{c(main dark)} #{c(sidebar boostProgressBarContainer)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
 
 // CHANNEL CONTENT
-%channelLink {
+#{c(sidebar channelLink)} {
   transition: all 0.15s ease-in-out;
 }
-%channelLink {
+#{c(sidebar channelLink)} {
   position: relative;
   background: transparent !important;
   &:before {
@@ -73,7 +77,7 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
     pointer-events: none;
     border-radius: 4px;
   }
-  %channelIcon {
+  #{c(sidebar channelIcon)} {
     width: 18px;
     height: 18px;
     margin-right: 3px;
@@ -87,16 +91,16 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
       opacity: 1;
     }
   }
-  %channelName {
+  #{c(sidebar channelName)} {
     color: var(--channel-color);
     transition: all 0.15s ease-in-out;
   }
 }
-%channelButtons {
+#{c(sidebar channelChildren)} {
   margin-left: 1px;
   animation: cv-fade-to-3 0.15s ease-in-out;
 }
-%channelActionIcon {
+#{c(sidebar channelActionIcon)} {
   color: #fff;
   opacity: 0.3;
   transition: all 0.15s ease-in-out;
@@ -107,26 +111,26 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
     opacity: 0.7;
   }
 }
-%channelStatusText,
-%channelStatusPencilIcon {
+#{c(sidebar channelStatusText)},
+#{c(sidebar channelStatusPencilIcon)} {
   color: hsla(0, 0%, 100%, 0.7);
 }
-%channelWrapper {
+#{c(sidebar channelWrapper)} {
   // HOVER
   &:hover {
-    %channelName,
-    %channelIcon {
+    #{c(sidebar channelName)},
+    #{c(sidebar channelIcon)} {
       color: #fff;
     }
-    %channelLink {
+    #{c(sidebar channelLink)} {
       background: var(--bg-overlay-hover, var(--background-modifier-hover));
       &:before {
         background: hsla(0, 0%, 100%, 0.1);
       }
-      %channelLinkTop {
-        %channelContainerDefault & {
-          %channelIcon,
-          %channelName {
+      #{c(sidebar channelLinkTop)} {
+        #{c(sidebar channelContainerDefault)} & {
+          #{c(sidebar channelIcon)},
+          #{c(sidebar channelName)} {
             color: hsla(0, 0%, 100%, 0.7);
           }
         }
@@ -134,14 +138,14 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
     }
   }
   // UNREAD
-  &%channelWrapperUnread {
-    %channelLink {
-      %channelLinkTop {
-        %channelName {
+  &#{c(sidebar channelModeUnreadImportant)} {
+    #{c(sidebar channelLink)} {
+      #{c(sidebar channelLinkTop)} {
+        #{c(sidebar channelName)} {
           color: var(--channel-unread);
           text-shadow: 0 0 3px;
         }
-        %channelIcon {
+        #{c(sidebar channelIcon)} {
           color: var(--channel-unread);
           filter: drop-shadow(0 0 3px);
           opacity: 1;
@@ -149,12 +153,12 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
       }
     }
     &:hover {
-      %channelLink {
-        %channelLinkTop {
-          %channelName {
+      #{c(sidebar channelLink)} {
+        #{c(sidebar channelLinkTop)} {
+          #{c(sidebar channelName)} {
             color: var(--channel-text-selected);
           }
-          %channelIcon {
+          #{c(sidebar channelIcon)} {
             color: var(--channel-text-selected);
           }
         }
@@ -162,76 +166,76 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
     }
   }
   // SELECTED
-  &%channelWrapperSelected {
-    %channelName,
-    %channelIcon {
+  &#{c(sidebar channelModeSelected)} {
+    #{c(sidebar channelName)},
+    #{c(sidebar channelIcon)} {
       color: #fff;
     }
-    %channelLink {
+    #{c(sidebar channelLink)} {
       &:before {
         background: hsla(0, 0%, 100%, 0.1);
       }
       &:after {
         right: 0;
-        background: $main-color;
+        background: cv('colors.main');
         animation: cv-channel-select 0.3s ease-in-out;
       }
-      %channelContainerDefault & {
-        %channelIcon,
-        %channelName {
+      #{c(sidebar channelContainerDefault)} & {
+        #{c(sidebar channelIcon)},
+        #{c(sidebar channelName)} {
           color: var(--channel-text-selected);
         }
-        %channelIconLive {
+        #{c(friends live)} {
           color: var(--channel-text-selected) !important;
         }
       }
-      %channelActionIcon {
+      #{c(sidebar channelActionIcon)} {
         opacity: 0.7;
         &:hover {
           opacity: 1;
         }
       }
     }
-    %textExtraSmallMedium,
-    %textExtraSmallNormal {
-      color: #fff !important;
-    }
+    // #{c(text text xs medium)},
+    // #{c(other cv textExtraSmallNormal)} {
+    //   color: #fff !important;
+    // }
   }
 
   // CONNECTED
-  &%channelWrapperConnected {
-    %channelLink {
-      %channelLinkTop {
-        %channelName {
-          color: $main-color;
+  &#{c(sidebar channelModeConnected)} {
+    #{c(sidebar channelLink)} {
+      #{c(sidebar channelLinkTop)} {
+        #{c(sidebar channelName)} {
+          color: cv('colors.main');
           text-shadow: 0 0 3px;
         }
-        %channelIcon {
-          color: $main-color;
+        #{c(sidebar channelIcon)} {
+          color: cv('colors.main');
           filter: drop-shadow(0 0 3px);
         }
       }
     }
   }
   // MUTED
-  &%channelWrapperMuted {
-    %channelLink {
-      %channelLinkTop {
-        %channelIcon,
-        %channelName {
+  &#{c(sidebar channelModeMuted)} {
+    #{c(sidebar channelLink)} {
+      #{c(sidebar channelLinkTop)} {
+        #{c(sidebar channelIcon)},
+        #{c(sidebar channelName)} {
           color: var(--muted-color);
         }
       }
     }
     &:hover {
-      %channelLink {
-        %channelLinkTop {
+      #{c(sidebar channelLink)} {
+        #{c(sidebar channelLinkTop)} {
           &:before {
             background: hsla(0, 0%, 100%, 0.07);
           }
-          %channelContainerDefault & {
-            %channelIcon,
-            %channelName {
+          #{c(sidebar channelContainerDefault)} & {
+            #{c(sidebar channelIcon)},
+            #{c(sidebar channelName)} {
               color: var(--channel-color);
             }
           }
@@ -242,29 +246,29 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
 }
 
 // UNREAD & MENTIONS INDICATION
-%channelUnreadPill {
+#{c(sidebar channelUnreadBlob)} {
   display: none;
 }
 
 // ICONS
-%channelIconLive {
-  background-color: $main-color !important;
+#{c(friends live)} {
+  background-color: cv('colors.main') !important;
 }
 
 // USER LIMIT
-%channelUserLimitUsers,
-%channelUserLimitTotal {
+#{c(sidebar channelUsers)},
+#{c(sidebar channelTotal)} {
   width: 24px;
   color: hsla(0, 0%, 100%, 0.3);
   font-weight: 600;
   text-align: right;
   transition: all 0.15s ease-in-out;
 }
-%channelUserLimitUsers {
+#{c(sidebar channelUsers)} {
   padding: 0 4px 0 6px;
   background: rgba(0, 0, 0, 0.15);
 }
-%channelUserLimitTotal {
+#{c(sidebar channelTotal)} {
   padding: 0 6px 0 4px;
   background: hsla(0, 0%, 100%, 0.04);
   box-shadow: inset 1px 0 hsla(0, 0%, 100%, 0.07);
@@ -272,47 +276,47 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
     display: none;
   }
 }
-%channelWrapperConnected {
-  %channelUserLimitUsers {
-    color: $main-color;
+#{c(sidebar channelModeConnected)} {
+  #{c(sidebar channelUsers)} {
+    color: cv('colors.main');
     text-shadow: 0 0 1px;
   }
 }
 
 // VOICE USER LIST
-%voiceUserList {
+#{c(sidebar voiceListDefault)} {
   padding-left: 24px;
-  %voiceUserClickable:hover %voiceUserContent {
+  #{c(sidebar voiceUserClickable)}:hover #{c(sidebar voiceUserContent)} {
     background: rgba(0, 0, 0, 0.04);
   }
 }
 
-%voiceUser {
+#{c(sidebar voiceUser)} {
   z-index: 1;
-  %voiceUserContent {
+  #{c(sidebar voiceUserContent)} {
     border-radius: 3px;
     transition: all 0.15s ease-in-out;
   }
   &:hover,
   &:active,
-  &%voiceUserSelected {
-    %channels %voiceUserList & {
-      %voiceUserContent {
+  &#{c(sidebar voiceUserSelected)} {
+    #{c(sidebar voiceListDefault)} & {
+      #{c(sidebar voiceUserContent)} {
         background: hsla(0, 0%, 100%, 0.04);
       }
-      %voiceUserName {
+      #{c(sidebar voiceUsername)} {
         color: hsla(0, 0%, 100%, 0.7);
       }
     }
   }
-  %voiceUserAvatarSpeaking {
+  #{c(sidebar voiceSpeaking)} {
     position: relative;
     transition: all 0.1s ease-in-out;
     &:after {
       content: '';
       position: absolute;
       height: 1.7em;
-      background: linear-gradient(to right, $main-color 10%, transparent);
+      background: linear-gradient(to right, cv('colors.main') 10%, transparent);
       opacity: 0.5;
       transition: all 0.1s ease-in-out, width 0.15s ease-in-out;
       pointer-events: none;
@@ -322,69 +326,69 @@ html %appMount %channelsSidebar:not(%channelsSidebarHidden) {
       border-bottom-right-radius: 0;
     }
   }
-  %voiceUserAvatarSpeaking {
-    box-shadow: 0 0 0 2px $main-color, inset 0 0 3px rgba(0, 0, 0, 0.5);
+  #{c(sidebar voiceSpeaking)} {
+    box-shadow: 0 0 0 2px cv('colors.main'), inset 0 0 3px rgba(0, 0, 0, 0.5);
     &:after {
       @include pos($top: -2px, $bottom: -2px);
       width: 150px;
     }
   }
-  %voiceUserName {
+  #{c(sidebar voiceUsername)} {
     color: hsla(0, 0%, 100%, 0.5);
     transition: all 0.1s ease-in-out;
   }
-  %voiceUserNameSpeaking {
+  #{c(sidebar voiceUsernameSpeaking)} {
     color: #fff !important;
   }
 }
-%voiceChannelsButton {
-  border: 1px solid $main-color;
+#{c(other cv voiceChannelsButton)} {
+  border: 1px solid cv('colors.main');
   &:hover {
-    background: $hover-color;
-    border: 1px solid $hover-color;
+    background: cv('colors.hover');
+    border: 1px solid cv('colors.hover');
     transition: ease-in-out 0.15s;
   }
 }
 
 // USER SUMMARY
-%userSummaryIcon {
+#{c(other cv userSummaryIcon)} {
   width: 18px;
   height: 18px;
   margin-right: 3px;
   color: hsla(0, 0%, 100%, 0.3);
 }
-%userSummaryMoreUsers {
+#{c(other cv userSummaryMoreUsers)} {
   padding: 0 4px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
 }
 
 // DRAG INDICATORS
-%categoryContainerDrag,
-%channelContainerDrag {
+:is(#{c(sidebar containerDragAfter)}, #{c(sidebar containerDragBefore)}),
+:is(#{c(sidebar channelDragBefore)},#{c(sidebar channelDragAfter)}) {
   &:before,
   &:after {
-    background: $main-color;
+    background: cv('colors.main');
     border-radius: 0;
   }
 }
-%channelContainerUserOver {
+#{c(sidebar channelDragOver)} {
   &:after {
-    background: $main-color;
+    background: cv('colors.main');
     border-color: transparent;
     opacity: 0.1;
   }
 }
 
 // VC STREAM POPOUT
-%themeDark {
-  %streamPopoutPreview {
+#{c(main dark)} {
+  #{c(other cv streamPopoutPreview)} {
     background-color: cv('bg.general.popout');
   }
-  %streamPopoutPreviewContainer {
+  #{c(other cv streamPopoutPreviewContainer)} {
     background-color: transparent;
   }
-  %streamPopoutWatchButton {
+  #{c(other cv streamPopoutWatchButton)} {
     border-color: $main-color;
     color: hsla(0, 0%, 100%, 0.8);
     &:not([disabled]):hover {

@@ -1,5 +1,10 @@
+@use "../../../_classes" as *;
+@use "../../../backend/functions" as *;
+@use "../../../backend/mixins" as *;
+@use "../../../backend/variables" as *;
+
 /* BD SETTINGS SIDEBAR ICONS */
-%settingsSidebar {
+#{c(userSettings sidebar)} {
   // BD ICON MAP
   $bd: (
     // Settings
@@ -15,7 +20,7 @@
   );
 
   // BD ICON STYLES
-  %tabBarItem {
+  #{c(tab item)} {
     @each $i, $u in $bd {
       &.bd-#{$i}-tab:before {
         background-image: url(#{$u});

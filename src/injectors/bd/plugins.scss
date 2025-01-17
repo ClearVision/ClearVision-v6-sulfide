@@ -1,6 +1,11 @@
+@use "../../../_classes" as *;
+@use "../../../backend/functions" as *;
+@use "../../../backend/mixins" as *;
+@use "../../../backend/variables" as *;
+
 // MAGANE
 div#magane div.stickerWindow {
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
 div#magane div.stickerWindow div.stickers h3.getStarted {
   color: #fff;
@@ -15,10 +20,10 @@ div#magane .stickersModal .modal-card {
 }
 div#magane .stickersModal .inputQuery {
   background: rgba(0, 0, 0, 0.2);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
 div#magane .button {
-  background: $main-color;
+  background: cv('colors.main');
   color: #fff;
 }
 div#magane div.stickerWindow:before {
@@ -42,26 +47,26 @@ div#magane div.stickerWindow div.packs-toolbar {
   border-radius: 3px;
   transition: background-color 0.3s ease-in-out;
   &:hover {
-    background-color: $main-color !important;
+    background-color: cv('colors.main') !important;
   }
-  %messageGroup:not(:hover) & {
-    visibility: visible;
-    opacity: 0;
-  }
+  // #{c(other cv messageGroup)}:not(:hover) & {
+  //   visibility: visible;
+  //   opacity: 0;
+  // }
 }
-%messageGroup:hover {
-  .replyer {
-    opacity: 1;
-    animation: cv-fade-in 0.3s ease-in-out;
-  }
-  .btn-quote {
-    opacity: 1;
-  }
-  .citar-btn {
-    opacity: 0.8;
-    animation: cv-fade-to-8 0.3s ease-in-out;
-  }
-}
+// #{c(other cv messageGroup)}:hover {
+//   .replyer {
+//     opacity: 1;
+//     animation: cv-fade-in 0.3s ease-in-out;
+//   }
+//   .btn-quote {
+//     opacity: 1;
+//   }
+//   .citar-btn {
+//     opacity: 0.8;
+//     animation: cv-fade-to-8 0.3s ease-in-out;
+//   }
+// }
 // PLUGIN NOTICE
 #pluginNotice {
   #outdatedPlugins {
@@ -75,14 +80,14 @@ div#magane div.stickerWindow div.packs-toolbar {
 #MemberCount {
   background: transparent;
   h3 {
-    color: $text-normal;
+    color: cv('text.normal');
     padding: 12px 0;
     flex-direction: column;
     font-size: 11px;
     font-weight: 600;
     text-align: center;
   }
-  %membersGroup {
+  #{c(memberList group)} {
     &:before,
     &:after {
       display: none;
@@ -92,16 +97,16 @@ div#magane div.stickerWindow div.packs-toolbar {
     width: var(--members-width);
   }
 }
-%membersWrap.hasCounter %members {
+#{c(memberList wrap)}.hasCounter #{c(memberList members)} {
   padding-top: 30px;
   margin-top: 0;
 }
-%members %membersGroup:has(.membercount-row) {
+#{c(memberList members)} #{c(memberList group)}:has(.membercount-row) {
   opacity: 1;
 }
 // COPY CODE - FINICALMIST
 // COPYBUTTON
-%codeHLJS {
+#{c(hljs hljs)} {
   .copybutton {
     background: hsla(0, 0%, 100%, 0.1) !important;
     color: hsla(0, 0%, 100%, 0.7) !important;
@@ -114,7 +119,7 @@ div#magane div.stickerWindow div.packs-toolbar {
       color: #fff !important;
     }
     &:active {
-      color: $main-color !important;
+      color: cv('colors.main') !important;
     }
   }
   &:hover {
@@ -125,7 +130,7 @@ div#magane div.stickerWindow div.packs-toolbar {
 }
 // LINE NUMBERS - NOODLEBOX
 // LINE NUMBERS
-%codeHLJS > .kawaii-linenumbers {
+#{c(hljs hljs)} > .kawaii-linenumbers {
   list-style: none;
   counter-reset: linenumbers;
   border-left: 2.6ch solid hsla(0, 0%, 100%, 0.04);
@@ -164,7 +169,7 @@ div#magane div.stickerWindow div.packs-toolbar {
   margin-bottom: -2px;
 }
 // GAMEACTIVITYTOGGLE - DEVILBRO
-%themeDark %accountPanelAvatarWrapper:has(+ div > button:nth-child(4)) {
+#{c(main dark)} #{c(sidebar panelAvatarWrapper)}:has(+ div > button:nth-child(4)) {
   min-width: 0px !important;
 }
 // OWNER TAG - DEVILBRO
@@ -179,11 +184,11 @@ div#magane div.stickerWindow div.packs-toolbar {
 }
 // DEVILBRO TOOLTIPS FIX
 .BDFDB-tooltip {
-  > %tooltipTop {
+  > #{c(tooltips top)} {
     position: relative;
     margin-top: -36px;
   }
-  > %tooltipRight {
+  > #{c(tooltips right)} {
     position: relative;
     margin-left: 10px;
   }

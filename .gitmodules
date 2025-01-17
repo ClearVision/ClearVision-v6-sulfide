@@ -1,0 +1,5 @@
+[submodule "classes"]
+	path = /classes/_classes.scss
+	url = https://github.com/LeafyLuigi/discord-themes.git
+	shallow = true
+	branch = master

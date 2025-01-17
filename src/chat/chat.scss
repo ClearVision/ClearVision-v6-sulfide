@@ -1,19 +1,24 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHAT */
-%base {
-  %chat {
+#{c(main base)} {
+  #{c(chat chat)} {
     background: transparent;
   }
-  %page {
+  #{c(membersPage page)} {
     background: transparent !important;
   }
 }
-%chatContent,
-%chatResize {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.5));
+#{c(chat chatContentInner)},
+#{c(threads resizeHandle)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.5));
 }
-%chat {
+#{c(chat chat)} {
   // CONTENT
-  %chatContentWrapper {
+  #{c(chat chatContent)} {
     background: transparent;
     &:before {
       box-shadow: none;
@@ -22,31 +27,31 @@
 }
 
 // GATED CHANNEL
-%chatContentWrapper > %scrollerWrap {
+#{c(chat chatContent)} > #{c(other cv scrollerWrap)} {
   background: rgba(0, 0, 0, 0.5);
 }
-%chatGatedContent {
-  %chatGatedImage {
+#{c(chat chatGatedContent)} {
+  #{c(chat chatGatedImage)} {
     filter: hue-rotate(-47deg) saturate(2);
     opacity: 0.5;
   }
-  %chatGatedTitle {
+  #{c(chat chatGatedTitle)} {
     color: cv('colors.danger');
     font-weight: 600;
     text-shadow: 0 0 3px #000;
   }
-  %chatGatedDescription {
+  #{c(chat chatGatedDescription)} {
     color: hsla(0, 0%, 100%, 0.7);
   }
 }
 
 // EMPTY CHANNEL
-%emptyChannelIcon {
-  background-color: $main-color;
+#{c(chat emptyChannelIcon)} {
+  background-color: cv('colors.main');
 }
-%emptyChannelRole {
+#{c(chat allowedRole2)} {
   background: transparent;
-  %emptyChannelRoleColor {
+  #{c(chat allowedRoleColor)} {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -58,48 +63,60 @@
   }
   &:hover {
     background-color: transparent;
-    %emptyChannelRoleColor {
+    #{c(chat allowedRoleColor)} {
       opacity: 0.3;
     }
   }
 }
 
 // NO CHANNEL
-%base {
-  %noChannel {
+#{c(main base)} {
+  #{c(chat noChannel)} {
     background: rgba(0, 0, 0, 0.5);
   }
 }
-%noChannel {
-  %noChannelImage {
+#{c(chat noChannel)} {
+  #{c(friends emptyImage)} {
     filter: grayscale(1) brightness(2);
     opacity: 0.3;
   }
-  %noChannelTitle {
+  #{c(friends emptyTitle)} {
     color: hsla(0, 0%, 100%, 0.5);
   }
-  %noChannelText {
+  #{c(friends emptyText)} {
     color: hsla(0, 0%, 100%, 0.3);
   }
 }
 
 // CHAT LOADING
-%chatLoadingWrapper,
-%chatLoadingWrapperCozy {
+#{c(chat chatLoadingWrapper)},
+#{c(chat messageLoadingWrapper)} {
   background-color: transparent;
+}
+
+// UPLOAD DROP MODAL
+#{c(modals upload drop modalIn)} {
+  #{c(modals upload drop modal)} {
+    #{c(modals upload drop bgScale)} {
+      background-color: cv('colors.main');
+    }
+    #{c(modals upload inner)} {
+      border: 2px dashed hsla(0, 0%, 100%, 0.5);
+    }
+  }
 }
 
 // REPLY MENTION TOGGLE
-div[aria-checked='true'] %replyMentionButton {
-  color: $main-color !important;
+div[aria-checked='true'] #{c(chatForm mentionButton)} {
+  color: cv('colors.main') !important;
 }
 
 // THREAD
-%createThreadContainer {
+#{c(threads newThreadContainer)} {
   background-color: transparent;
 }
-%threadIconWrapper {
-  background-color: $main-color;
+#{c(threads iconWrapper)} {
+  background-color: cv('colors.main');
   svg path {
     fill: #fff;
   }

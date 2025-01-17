@@ -1,26 +1,31 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 // PAGE CONTROL
-%themeDark {
-  %pageButton {
-    &%pageButtonActive,
-    &%pageButtonActive:hover {
-      background-color: $main-color;
+#{c(main dark)} {
+  #{c(search pageButton)} {
+    &#{c(search activeButton)},
+    &#{c(search activeButton)}:hover {
+      background-color: cv('colors.main');
     }
     &:hover {
-      background-color: $hover-color;
+      background-color: cv('colors.hover');
       &:disabled {
         background-color: transparent;
       }
     }
   }
 }
-%pageButtonEnd {
+#{c(search endButton)} {
   &:disabled {
-    border-color: $main-color;
+    border-color: cv('colors.main');
     color: #fff;
     opacity: 0.5;
     cursor: not-allowed;
   }
   &:not(:disabled):hover {
-    border-color: $hover-color;
+    border-color: cv('colors.hover');
   }
 }

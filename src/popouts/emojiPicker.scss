@@ -1,37 +1,42 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* EMOJI PICKER */
-%emojiPickerSizer {
+#{c(modals expressionPicker drawerSizingWrapper)} {
   min-width: 430px;
 }
-%emojiPickerWrapper {
+#{c(modals expressionPicker contentWrapper)} {
   background-color: cv('bg.general.popout');
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 // NAV BAR
-%emojiPickerNavButton {
-  background-color: $main-color;
+#{c(modals expressionPicker navButtonActive)} {
+  background-color: cv('colors.main');
 }
-%emojiPickerHeader {
+#{c(modals emoji header)} {
   background-color: cv('bg.general.popout');
 }
-%emojiPicker {
+#{c(modals emoji picker)} {
   background-color: cv('bg.general.popout');
   min-width: 430px;
   border-radius: 0;
-  %emojiPickerHeader {
+  #{c(modals emoji header)} {
     background: transparent;
   }
 }
 
 // SEARCH BAR
-%emojiPickerSearchBar {
+#{c(modals emoji searchBar)} {
   background-color: hsla(0, 0%, 100%, 0.07);
   box-shadow: 0 0 0 2px hsla(0, 0%, 100%, 0.09);
   margin-top: 2px;
   &:focus-within {
-    box-shadow: 0 0 2px 2px $main-color;
+    box-shadow: 0 0 2px 2px cv('colors.main');
     transition: all 0.15s ease-in-out;
-    %popoutInput {
+    #{c(modals searchBar input)} {
       color: #fff;
       &::placeholder {
         color: hsla(0, 0%, 100%, 0.3);
@@ -41,16 +46,16 @@
 }
 
 // SUPER REACTION BUTTON
-%emojiPickerSuperReactionButton {
+#{c(other cv emojiPickerSuperReactionButton)} {
   background-color: transparent;
 }
 
 // DIVERSITY SELECTOR
-%emojiPickerDiversitySelectorPopout {
+#{c(modals emoji skinOptions)} {
   border: none;
   padding: 2px;
   background-color: hsla(0, 0%, 0%, 0.8);
-  %emojiPickerDiversityItem {
+  #{c(modals emoji skinOptionsEmojiItem)} {
     border-radius: 3px;
     transition: all 0.15s ease-in-out;
     &:hover {
@@ -60,62 +65,62 @@
 }
 
 // EMOJI ITEM
-%emojiPickerCategoryHeaderWrapper {
+#{c(other cv emojiPickerCategoryHeaderWrapper)} {
   background-color: transparent;
-  %emojiPickerCategoryHeader {
+  #{c(other cv emojiPickerCategoryHeader)} {
     color: #fff;
   }
 }
-%emojiPickerItem {
+#{c(modals emoji item)} {
   border-radius: 3px;
   transition: all 0.15s ease-in-out, filter 0s;
-  &%emojiPickerItemSelected {
+  &#{c(modals emoji itemSelected)} {
     background-color: hsla(0, 0%, 100%, 0.07);
   }
-  &%emojiPickerItemDisabled {
+  &#{c(other cv emojiPickerItemDisabled)} {
     filter: grayscale(1);
   }
 }
-%emojiPickerItemLoading {
-  %themeDark & {
+#{c(modals emoji imageLoading)} {
+  #{c(main dark)} & {
     background-image: none;
   }
 }
-%emojiPickerInspector {
+#{c(modals expressionPicker inspector)} {
   background-color: transparent;
 }
 
 // CATEGORIES
-%emojiCategoryList,
-%emojiCategoryListWrapper {
+#{c(modals emoji categoryList)},
+#{c(modals sidebarList wrapper)} {
   background-color: transparent;
 }
-%emojiCategoryItem {
+#{c(modals emoji categoryItem)} {
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.07);
     border-radius: 4px;
   }
-  &%emojiCategoryItemSelected {
+  &#{c(modals emoji defaultCategorySelected)} {
     background-color: hsla(0, 0%, 100%, 0.07);
     border-radius: 4px;
   }
 }
-%emojiCategoryItemIcon {
+#{c(modals emoji categoryIcon)} {
   color: hsla(0, 0%, 100%, 0.7);
-  %emojiCategoryItemSelected & {
+  #{c(modals emoji defaultCategorySelected)} & {
     color: #fff;
   }
 }
-%emojiCategoryGuildIcon {
+#{c(modals sticker listGuildIcon)} {
   background-color: transparent;
 }
-%emojiCategoryUnicodeShortcut {
-  background-color: $main-color;
+#{c(modals emoji unicodeShortcut)} {
+  background-color: cv('colors.main');
   svg {
     color: hsla(0, 0%, 100%, 0.9);
   }
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.hover');
     svg {
       color: #fff;
     }
@@ -123,31 +128,31 @@
 }
 
 // NO NITRO
-%emojiPickerPremiumPromo {
+#{c(other cv emojiPickerPremiumPromo)} {
   background-color: hsla(0, 0%, 0%, 0.9);
 }
-%emojiPickerPremiumPromoClose {
+#{c(other cv emojiPickerPremiumPromoClose)} {
   filter: brightness(0) invert(1);
   opacity: 0.6;
   &:hover {
     opacity: 0.8;
   }
 }
-%emojiPickerPremiumPromoTitle {
+#{c(other cv emojiPickerPremiumPromoTitle)} {
   color: #fff;
 }
-%emojiPickerPremiumUpsell {
+#{c(modals sticker upsell)} {
   background-color: transparent;
 }
-%emojiCategoryLockIconContainer {
-  background: $main-color;
-  border-color: $main-color;
+#{c(other cv emojiCategoryLockIconContainer)} {
+  background: cv('colors.main');
+  border-color: cv('colors.main');
 }
-%emojiPickerPremiumUpsellContainer {
+#{c(modals emoji floating upsellContainer)} {
   background: var(--background-overlay);
-  border: 2px solid $main-color;
+  border: 2px solid cv('colors.main');
 }
 // NITRO EXPIRING NOTICE
-%emojiPickerPremiumRetentionNotice {
+#{c(modals emoji premiumRetention)} {
   background-color: hsla(0, 0%, 100%, 0.1);
 }

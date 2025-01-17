@@ -1,32 +1,37 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* Text Container */
-%textContainer {
+#{c(embeds textContainer)} {
   background-color: rgba(0, 0, 0, 0.42);
   border: 2px solid hsla(0, 0%, 100%, 0.05);
   border-radius: 8px 8px 0 0;
 }
-%textContainerFooter {
+#{c(embeds textFooter)} {
   background-color: hsla(0, 0%, 100%, 0.1);
   border: none;
 }
-%attachmentName {
+#{c(embeds attachmentName)} {
   color: hsla(0, 0%, 100%, 0.7);
   &:hover {
     color: hsla(0, 0%, 100%, 0.9);
   }
 }
-%attachmentSize {
+#{c(embeds attachmentSize)} {
   color: hsla(0, 0%, 100%, 0.5);
   margin: 0 5px;
   &:hover {
     color: hsla(0, 0%, 100%, 0.7);
   }
 }
-%textContainerModal {
+#{c(modals textFileExpanded container)} {
   background-color: hsla(0, 0%, 0%, 0.5);
   border: none;
 }
 
 // CHANGE LANGUAGE POPOUT
-%textContainerLanguageSelector {
+#{c(other cv textContainerLanguageSelector)} {
   background-color: cv('bg.general.popout');
 }

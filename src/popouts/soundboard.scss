@@ -1,38 +1,32 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* SOUNDBOARD */
 
-%soundboard {
+#{c(other cv soundboard)} {
   background-color: cv('bg.general.popout');
 }
-%soundboardButton {
-  background: $main-color;
-  %soundboardSoundHover:hover {
-    background: $hover-color;
-  }
-}
-
-// REDESIGN
-%soundboard%soundboardRefresh {
-  background-color: cv('bg.general.popout');
-}
-%soundboardButtonRefresh {
+#{c(other cv soundboardButton)} {
   background: transparent;
-  border: 1px solid $main-color;
-  box-shadow: inset 0 -4px $main-color;
+  border: 1px solid cv('colors.main');
+  box-shadow: inset 0 -4px cv('colors.main');
   transition: all 0.15s ease-in-out;
-  &%soundboardSoundHover:hover {
-    background: $hover-color;
+  &:hover {
+    background: cv('colors.hover');
   }
-  &%soundboardSoundHover:active:not(:focus-within) {
-    background: $hover-color;
-    border: 1px solid $main-color;
-    box-shadow: inset 0 -2px $main-color;
-    %soundboardSoundNameRefresh {
-      color: $text-normal;
+  &:active:not(:focus-within) {
+    background: cv('colors.hover');
+    border: 1px solid cv('colors.main');
+    box-shadow: inset 0 -2px cv('colors.main');
+    #{c(other cv soundboardSoundName)} {
+      color: cv('text.normal');
     }
   }
 }
-%soundboardSoundNameRefresh,
-%soundboardAddTextRefresh,
-%soundboardSecondaryButtonRefresh {
-  color: $text-normal;
+#{c(other cv soundboardSoundName)},
+#{c(other cv soundboardAddText)},
+#{c(other cv soundboardSecondaryButton)} {
+  color: cv('text.normal');
 }

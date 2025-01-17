@@ -1,36 +1,39 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* ACTIVITY INVITE */
-%themeDark {
-  %activityInvite {
-    background: rgba(0, 0, 0, 0.3);
-    border: none;
-  }
+#{c(main dark)} #{c(embeds gameInvite)} {
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
 }
-%activityInvite {
-  %activityInviteHeader {
+#{c(embeds gameInvite)} {
+  #{c(embeds gameHeader)} {
     color: hsla(0, 0%, 100%, 0.5);
   }
-  %activityInvitePartyStatus {
+  #{c(embeds gamePartyStatus)} {
     color: #fff;
   }
-  %activityInviteHelpIcon {
+  #{c(other cv activityInviteHelpIcon)} {
     display: flex;
     background: hsla(0, 0%, 100%, 0.07);
     transition: all 0.15s ease-in-out;
     opacity: 0;
   }
   &:hover {
-    %activityInviteHelpIcon {
+    #{c(other cv activityInviteHelpIcon)} {
       opacity: 0.7;
       &:hover {
         opacity: 1;
       }
     }
   }
-  %activityInviteArtworkSessionEnded {
+  #{c(other cv activityInviteArtworkSessionEnded)} {
     filter: grayscale(1) brightness(2);
     opacity: 0.3;
   }
-  %activityInvitePartyMemberEmpty {
+  #{c(other cv activityInvitePartyMemberEmpty)} {
     background: hsla(0, 0%, 100%, 0.07);
   }
 }

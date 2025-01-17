@@ -1,9 +1,14 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 //Voice Channel listening to or playing x game
-%voiceChannelListening {
+#{c(other cv voiceChannelListening)} {
   background: cv('bg.general.popout');
 }
-%voiceChannelListeningIcon {
-  background: $main-color;
+#{c(other cv voiceChannelListeningIcon)} {
+  background: cv('colors.main');
   > svg {
     color: #fff;
   }

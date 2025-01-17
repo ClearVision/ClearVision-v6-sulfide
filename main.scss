@@ -1,177 +1,177 @@
-$version: '6.9.0';
-
+@use "start/start" as *;
 /* ### ClearVision v#{$version} by the ClearVision team ### */
 
 // SELECTORS
-@import 'lib/selectors/selectorPlaceholders';
-
-// DEFAULT SETTINGS
-@import 'src/defaultSettings';
+@use 'classes' as *;
 
 // FUNCTIONS
-@import 'src/functions';
+@use 'backend/functions' as *;
 
 // VARIABLES
-@import 'src/variables';
+@use 'backend/variables' as *;
 
 // MIXINS
-@import 'src/mixins';
+@use 'backend/mixins' as *;
+
+// DEFAULT SETTINGS
+@forward 'src/defaultSettings';
+
+// SELECTORS
+@forward 'lib/selectors/selectorPlaceholders';
 
 // KEYFRAMES
-@import 'src/keyframes';
+@forward 'src/keyframes';
 
 // APP
-@import 'src/app/app';
+@forward 'src/app/app';
 
-@import 'src/app/notice';
-@import 'src/app/titlebar';
+@forward 'src/app/notice';
+@forward 'src/app/titlebar';
 
 // CHANNEL
-@import 'src/channels/specialChannels';
-@import 'src/channels/channels';
-@import 'src/channels/category';
-@import 'src/channels/indicators';
-@import 'src/channels/panels';
-@import 'src/channels/privateChannels';
+@forward 'src/channels/specialChannels';
+@forward 'src/channels/channels';
+@forward 'src/channels/category';
+@forward 'src/channels/indicators';
+@forward 'src/channels/panels';
+@forward 'src/channels/privateChannels';
 
 // CHAT
-@import 'src/chat/chat';
-@import 'src/chat/bars';
-@import 'src/chat/call';
-@import 'src/chat/divider';
-@import 'src/chat/stageCall';
-@import 'src/chat/textArea';
-@import 'src/chat/textAreaAutoComplete';
-@import 'src/chat/modView';
+@forward 'src/chat/chat';
+@forward 'src/chat/bars';
+@forward 'src/chat/call';
+@forward 'src/chat/divider';
+@forward 'src/chat/stageCall';
+@forward 'src/chat/textArea';
+@forward 'src/chat/textAreaAutoComplete';
+@forward 'src/chat/modView';
 
 // GENERAL ELEMENTS
-@import 'src/general/badge';
-@import 'src/general/button';
-@import 'src/general/checkbox';
-@import 'src/general/input';
-@import 'src/general/pageControl';
-@import 'src/general/radioGroup';
-@import 'src/general/scrollbar';
-@import 'src/general/slider';
-@import 'src/general/spinner';
-@import 'src/general/switch';
-@import 'src/general/tabBar';
-@import 'src/general/tooltip';
+@forward 'src/general/badge';
+@forward 'src/general/button';
+@forward 'src/general/checkbox';
+@forward 'src/general/input';
+@forward 'src/general/pageControl';
+@forward 'src/general/radioGroup';
+@forward 'src/general/scrollbar';
+@forward 'src/general/slider';
+@forward 'src/general/spinner';
+@forward 'src/general/switch';
+@forward 'src/general/tabBar';
+@forward 'src/general/tooltip';
 
 // GUILDS
-@import 'src/guilds/guilds';
+@forward 'src/guilds/guilds';
 
 // HEADER BAR
-@import 'src/headerBar/headerBar';
-@import 'src/headerBar/breadcrumbs';
-@import 'src/headerBar/searchBars';
-@import 'src/headerBar/toolbar';
+@forward 'src/headerBar/headerBar';
+@forward 'src/headerBar/breadcrumbs';
+@forward 'src/headerBar/searchBars';
+@forward 'src/headerBar/toolbar';
 
 // HOME
-@import 'src/home/friends';
-@import 'src/home/library';
-@import 'src/home/nitro';
-@import 'src/home/requests';
+@forward 'src/home/friends';
+@forward 'src/home/library';
+@forward 'src/home/nitro';
+@forward 'src/home/requests';
 
 // MEMBERS
-@import 'src/members/members';
-@import 'src/members/tags';
+@forward 'src/members/members';
+@forward 'src/members/tags';
 
 // MESSAGES
-@import 'src/messages/poll';
-@import 'src/messages/message';
-@import 'src/messages/activityInvite';
-@import 'src/messages/attachment';
-@import 'src/messages/blocked';
-@import 'src/messages/codeblock';
-@import 'src/messages/codeLanguages';
-@import 'src/messages/embed';
-@import 'src/messages/inviteLink';
-@import 'src/messages/mediaPlayer';
-@import 'src/messages/mention';
-@import 'src/messages/reaction';
-@import 'src/messages/textContainer';
+@forward 'src/messages/poll';
+@forward 'src/messages/message';
+@forward 'src/messages/activityInvite';
+@forward 'src/messages/attachment';
+@forward 'src/messages/blocked';
+@forward 'src/messages/codeblock';
+@forward 'src/messages/codeLanguages';
+@forward 'src/messages/embed';
+@forward 'src/messages/inviteLink';
+@forward 'src/messages/mediaPlayer';
+@forward 'src/messages/mention';
+@forward 'src/messages/reaction';
+@forward 'src/messages/textContainer';
 
 // MODALS
-@import 'src/modals/modal';
-@import 'src/modals/eventModal';
-@import 'src/modals/addServerModal';
-@import 'src/modals/keyboardShortcuts';
-@import 'src/modals/payments';
-@import 'src/modals/screenshare';
-@import 'src/modals/threadModal';
+@forward 'src/modals/modal';
+@forward 'src/modals/eventModal';
+@forward 'src/modals/addServerModal';
+@forward 'src/modals/keyboardShortcuts';
+@forward 'src/modals/payments';
+@forward 'src/modals/screenshare';
+@forward 'src/modals/threadModal';
 
 // PAGES
-@import 'src/pages/appDirectory';
-@import 'src/pages/discordShop';
-@import 'src/pages/discover';
-@import 'src/pages/forums';
-@import 'src/pages/login';
-@import 'src/pages/previewServer';
-@import 'src/pages/serverBoost';
-@import 'src/pages/studentHub';
+@forward 'src/pages/appDirectory';
+@forward 'src/pages/discordShop';
+@forward 'src/pages/discover';
+@forward 'src/pages/forums';
+@forward 'src/pages/login';
+@forward 'src/pages/previewServer';
+@forward 'src/pages/serverBoost';
+@forward 'src/pages/studentHub';
 
 // POPOUTS
-@import 'src/popouts/applicationPopout';
-@import 'src/popouts/connectionInfo';
-@import 'src/popouts/emojiPicker';
-@import 'src/popouts/gifPicker';
-@import 'src/popouts/groupInvite';
-@import 'src/popouts/mentionEveryone';
-@import 'src/popouts/menuPopout';
-@import 'src/popouts/regionSelectorPopout';
-@import 'src/popouts/inboxPopout';
-@import 'src/popouts/otherPopouts';
-@import 'src/popouts/searchPopout';
-@import 'src/popouts/soundboard';
-@import 'src/popouts/stickers';
-@import 'src/popouts/threadPopout';
-@import 'src/popouts/voiceChannelListeningTo';
+@forward 'src/popouts/applicationPopout';
+@forward 'src/popouts/connectionInfo';
+@forward 'src/popouts/emojiPicker';
+@forward 'src/popouts/gifPicker';
+@forward 'src/popouts/groupInvite';
+@forward 'src/popouts/mentionEveryone';
+@forward 'src/popouts/menuPopout';
+@forward 'src/popouts/regionSelectorPopout';
+@forward 'src/popouts/inboxPopout';
+@forward 'src/popouts/otherPopouts';
+@forward 'src/popouts/searchPopout';
+@forward 'src/popouts/soundboard';
+@forward 'src/popouts/stickers';
+@forward 'src/popouts/threadPopout';
+@forward 'src/popouts/voiceChannelListeningTo';
 
 // PROFILES
-@import 'src/profiles/userProfiles';
+@forward 'src/profiles/userProfiles';
 
 // SCREENS
-@import 'src/screens/crash';
-@import 'src/screens/loading';
+@forward 'src/screens/crash';
+@forward 'src/screens/loading';
 
 // SEARCH
-@import 'src/search/search';
+@forward 'src/search/search';
 
 // SETTINGS
-@import 'src/settings/appConnections';
-@import 'src/settings/channelSettings';
-@import 'src/settings/content';
-@import 'src/settings/icons';
-@import 'src/settings/onboarding';
-@import 'src/settings/serverSettings';
-@import 'src/settings/sidebar';
-@import 'src/settings/userSettings';
+@forward 'src/settings/appConnections';
+@forward 'src/settings/channelSettings';
+@forward 'src/settings/content';
+@forward 'src/settings/icons';
+@forward 'src/settings/onboarding';
+@forward 'src/settings/serverSettings';
+@forward 'src/settings/sidebar';
+@forward 'src/settings/userSettings';
 
 // USERS
-@import 'src/users/activity';
-@import 'src/users/avatar';
-@import 'src/users/botTag';
-@import 'src/users/role';
-@import 'src/users/status';
+@forward 'src/users/activity';
+@forward 'src/users/avatar';
+@forward 'src/users/botTag';
+@forward 'src/users/role';
+@forward 'src/users/status';
 
 // VENCORD
-@import 'src/injectors/ven/plugins';
-@import 'src/injectors/ven/venSettings';
-@import 'src/injectors/ven/icons';
+@forward 'src/injectors/ven/plugins';
+@forward 'src/injectors/ven/venSettings';
+@forward 'src/injectors/ven/icons';
 
 // REPLUGGED
-// @import 'src/injectors/rp/plugins';
-@import 'src/injectors/rp/rpSettings';
+// @forward 'src/injectors/rp/plugins';
+@forward 'src/injectors/rp/rpSettings';
 
 // BETTERDISCORD
-@import 'src/injectors/bd/bdSettings';
-@import 'src/injectors/bd/customCSS';
-@import 'src/injectors/bd/icons';
-@import 'src/injectors/bd/popouts';
-@import 'src/injectors/bd/sidebar';
-@import 'src/injectors/bd/sources';
-@import 'src/injectors/bd/plugins';
+@forward 'src/injectors/bd/bdSettings';
+@forward 'src/injectors/bd/customCSS';
+@forward 'src/injectors/bd/icons';
+@forward 'src/injectors/bd/popouts';
+@forward 'src/injectors/bd/sidebar';
+@forward 'src/injectors/bd/sources';
+@forward 'src/injectors/bd/plugins';
 
-// FIXES
-@import 'src/fixespt2';

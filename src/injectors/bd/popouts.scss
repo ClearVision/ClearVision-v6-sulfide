@@ -1,3 +1,8 @@
+@use "../../../_classes" as *;
+@use "../../../backend/functions" as *;
+@use "../../../backend/mixins" as *;
+@use "../../../backend/variables" as *;
+
 /* Plugin & Theme Content Error */
 .bd-modal-root {
   .bd-modal-footer,

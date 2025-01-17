@@ -1,19 +1,24 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* BUTTON */
-%button {
+#{c(button button)} {
   border-radius: 3px;
   transition: background-color 0.3s ease-in-out;
 }
 
 // BUTTON FILLED
-%buttonFilled {
-  &%buttonColorBrand,
-  &%buttonColorGreen,
-  &%buttonCallInvite,
-  &%buttonColorPrimary {
-    background: $main-color;
+#{c(button lookFilled)} {
+  &#{c(button colorBrand)},
+  &#{c(button colorGreen)},
+  &#{c(call inviteButton)},
+  &#{c(button colorPrimary)} {
+    background: cv('colors.main');
     color: #fff;
     &:hover {
-      background: $hover-color;
+      background: cv('colors.hover');
     }
     &:disabled {
       background: cv('colors.danger');
@@ -22,25 +27,25 @@
       background: cv('colors.success');
     }
   }
-  &%buttonColorRed {
+  &#{c(button colorRed)} {
     background-color: cv('colors.danger');
   }
-  &%buttonColorBrandInverted,
-  &%buttonColorWhite {
+  &#{c(button colorBrandInverted)},
+  &#{c(button colorWhite)} {
     background: #fff;
-    color: $main-color;
+    color: cv('colors.main');
     &:hover,
     &:active {
       background: hsla(0, 0%, 100%, 0.95);
-      color: $hover-color;
+      color: cv('colors.hover');
     }
     &:disabled {
       background: hsla(0, 0%, 100%, 0.3);
     }
   }
   // EMBED BUTTON
-  %embedContainer & {
-    &%buttonColorGreen {
+  #{c(chat messageAttachmentsContainer)} & {
+    &#{c(button colorGreen)} {
       background-color: cv('colors.success');
       &:hover,
       &:active {
@@ -51,20 +56,20 @@
 }
 
 // BUTTON OUTLINED
-%buttonOutlined {
-  &%buttonColorWhite,
-  &%buttonColorPrimary,
-  &%buttonColorGreen,
-  &%buttonColorBrand {
-    border-color: $main-color;
+#{c(button lookOutlined)} {
+  &#{c(button colorWhite)},
+  &#{c(button colorPrimary)},
+  &#{c(button colorGreen)},
+  &#{c(button colorBrand)} {
+    border-color: cv('colors.main');
     color: hsla(0, 0%, 100%, 0.8);
     &:hover {
       background-color: transparent;
-      border-color: $hover-color;
+      border-color: cv('colors.hover');
       color: #fff;
     }
   }
-  &%buttonColorRed {
+  &#{c(button colorRed)} {
     border-color: cv('colors.danger');
     color: hsla(0, 0%, 100%, 0.8);
     &:hover {
@@ -75,36 +80,36 @@
 }
 
 // BUTTON LINK
-%buttonLink {
-  &%buttonColorWhite,
-  &%buttonColorPrimary {
+#{c(button lookLink)} {
+  &#{c(button colorWhite)},
+  &#{c(button colorPrimary)} {
     color: #fff;
   }
-  &%buttonColorBrand {
-    color: $main-color;
+  &#{c(button colorBrand)} {
+    color: cv('colors.main');
   }
-  &%buttonColorLink {
+  &#{c(button colorLink)} {
     color: var(--url-color);
-    &:disabled:hover %buttonContents {
+    &:disabled:hover #{c(button contents)} {
       text-decoration: none;
     }
   }
-  &%buttonColorRed {
+  &#{c(button colorRed)} {
     color: cv('colors.danger');
   }
-  &:hover %buttonContents {
+  &:hover #{c(button contents)} {
     background-image: none;
     text-decoration: underline;
   }
 }
 
 // CIRCLE
-%buttonCircle {
+#{c(modals inbox roundButton)} {
   background-color: hsla(0, 0%, 0%, 0.6);
   color: #fff;
   &:hover {
-    &:not(%buttonCircleDisabled) {
-      background-color: $hover-color;
+    &:not(#{c(modals inbox buttonDisabled)}) {
+      background-color: cv('colors.hover');
       color: #fff;
     }
   }

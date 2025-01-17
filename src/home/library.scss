@@ -1,27 +1,32 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* GAME LIBRARY */
 
 // BODY
-%libraryScroller {
+#{c(other cv libraryScroller)} {
   background: transparent;
 }
-%libraryTableHeader {
+#{c(other cv libraryTableHeader)} {
   background-color: transparent;
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.07);
-  > %libraryTableHeaderCell {
+  > #{c(other cv libraryTableHeaderCell)} {
     border-left-color: hsla(0, 0%, 100%, 0.07);
     color: hsla(0, 0%, 100%, 0.3);
     transition: all 0.3s ease-in-out;
     &:hover {
-      &:not(%libraryTableHeaderCellSorted) {
+      &:not(#{c(other cv libraryTableHeaderCellSorted)}) {
         color: hsla(0, 0%, 100%, 0.5);
       }
     }
   }
-  > %libraryTableHeaderCellSorted {
+  > #{c(other cv libraryTableHeaderCellSorted)} {
     color: hsla(0, 0%, 100%, 0.7);
   }
 }
-%libraryTableRowWrapper {
+#{c(other cv libraryTableRowWrapper)} {
   background-color: transparent;
   border-radius: 0;
   transition: all 0.15s ease-in-out;
@@ -29,8 +34,8 @@
   &:hover {
     margin: 0 20px;
     padding: 0;
-    + %libraryTableRowWrapper {
-      > %libraryTableRow {
+    + #{c(other cv libraryTableRowWrapper)} {
+      > #{c(other cv libraryTableRow)} {
         margin-top: -1px;
         border-top: 1px solid hsla(0, 0%, 100%, 0.04);
       }
@@ -40,30 +45,30 @@
     background-color: rgba(0, 0, 0, 0.3);
   }
 }
-%libraryTableRow {
+#{c(other cv libraryTableRow)} {
   margin: 0;
   color: hsla(0, 0%, 100%, 0.7);
-  %libraryTableActionsCell {
-    %button {
+  #{c(other cv libraryTableActionsCell)} {
+    #{c(button button)} {
       background-color: hsla(0, 0%, 100%, 0.07);
       color: hsla(0, 0%, 100%, 0.7);
       transition: all 0.15s ease-in-out;
     }
     &:hover {
-      %button:hover {
-        background-color: $main-color;
+      #{c(button button)}:hover {
+        background-color: cv('colors.main');
         color: #fff;
       }
     }
   }
 }
-%libraryTableTextCell {
+#{c(other cv libraryTableTextCell)} {
   color: hsla(0, 0%, 100%, 0.5);
 }
-%libraryTableLastPlayedCellNew {
-  color: $main-color;
+#{c(other cv libraryTableLastPlayedCellNew)} {
+  color: cv('colors.main');
 }
-%libraryTableSettingIcon {
+#{c(other cv libraryTableSettingIcon)} {
   color: #fff;
   opacity: 0.5;
   transition: all 0.15s ease-in-out;
@@ -71,32 +76,32 @@
     opacity: 1;
   }
 }
-%libraryTableRowWrapperDim {
-  %libraryTableNameCell,
-  %libraryTableTextCell,
-  %libraryTableSettingIcon {
+#{c(other cv libraryTableRowWrapperDim)} {
+  #{c(other cv libraryTableNameCell)},
+  #{c(other cv libraryTableTextCell)},
+  #{c(other cv libraryTableSettingIcon)} {
     transition: all 0.15s ease-in-out;
   }
 }
-%libraryGameDownloadContainer {
+#{c(other cv libraryGameDownloadContainer)} {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
 // SETTINGS
-%librarySettingsScroller {
+#{c(other cv librarySettingsScroller)} {
   background: transparent;
 }
-%themeDark {
-  %libraryInstallationPath {
+#{c(main dark)} {
+  #{c(other cv libraryInstallationPath)} {
     box-shadow: 0 1px 0 0 hsla(0, 0%, 100%, 0.06);
   }
-  %libraryUsageBackground {
+  #{c(other cv libraryUsageBackground)} {
     stroke: hsla(0, 0%, 0%, 0.6);
   }
-  %libraryUsageForeground {
-    stroke: $main-color;
+  #{c(other cv libraryUsageForeground)} {
+    stroke: cv('colors.main');
   }
-  %libraryDefaultIndicator {
-    background-color: $main-color;
+  #{c(other cv libraryDefaultIndicator)} {
+    background-color: cv('colors.main');
   }
 }

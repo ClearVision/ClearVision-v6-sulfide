@@ -1,59 +1,65 @@
+
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* POLL */
-%poll {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.4));
+#{c(embeds poll container)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.4));
 }
-%pollAnswerInner {
-  background-color: hsla(0, 0%, 100%, 0.07);
+/* selection */
+#{c(embeds poll answerSelectionIcon)} #{c(other cv pollRadioForeground)} {
+  fill: cv('colors.main');
 }
-%pollAnswer {
-  %pollAnswerInner%pollAnswerCurrentlyVoting%pollAnswerSelected {
-    outline: 2px solid $main-color;
-  }
-  &:hover %pollAnswerInner%pollAnswerCurrentlyVoting {
-    outline: 2px solid $hover-color;
-  }
+
+#{c(embeds poll answer)} #{c(embeds poll answerInner)}#{c(embeds poll currentlyVoting)}#{c(embeds poll selected)} {
+  outline: 2px solid cv('colors.main');
 }
-%pollCheckbox {
-  border: 2px solid hsla(0, 0%, 100%, 0.5);
-  &%pollCheckboxSelected {
-    background-color: transparent;
-    border: 2px solid $main-color;
-  }
+#{c(embeds poll answer)}:hover #{c(embeds poll answerInner)}#{c(embeds poll currentlyVoting)} {
+  outline: 2px solid cv('colors.hover');
 }
-%pollSecondaryButton {
-  background-color: $main-color;
+#{c(embeds poll secondaryButtonPresentation)} {
+  background-color: cv('colors.main');
   color: #fff;
 }
 
+#{c(embeds poll answerInner)} {
+  background-color: hsla(0, 0%, 100%, 0.07);
+}
+
+#{c(other cv pollCheckbox)} {
+  border: 2px solid hsla(0, 0%, 100%, 0.5);
+  &#{c(other cv pollCheckboxSelected)} {
+    background-color: transparent;
+    border: 2px solid cv('colors.main');
+  }
+}
 // VIEW VOTES
-%pollVotesPopoutAnswerScroller,
-%pollVotesPopoutVoters {
+#{c(other cv pollVotesPopoutAnswerScroller)},
+#{c(other cv pollVotesPopoutVoters)} {
   background-color: transparent;
 }
 
 // CREATE POLL
-%pollCreatePopoutAnswerInputWrapper {
+#{c(other cv pollCreatePopoutAnswerInputWrapper)} {
   background: none;
   border: none;
 }
-%pollCreatePopoutAddAnswer {
-  background-color: $main-color;
+#{c(other cv pollCreatePopoutAddAnswer)} {
+  background-color: cv('colors.main');
   &:hover {
-    background-color: $hover-color;
+    background-color: cv('colors.main');
   }
 }
-%pollCreatePopoutAddAnswerIcon {
+#{c(other cv pollCreatePopoutAddAnswerIcon)} {
   color: #fff;
 }
-%pollCreatePopoutAddAnswerLabel {
+#{c(other cv pollCreatePopoutAddAnswerLabel)} {
   color: #fff !important;
 }
 
 // POLL ENDED
-%pollEndContainer {
+#{c(embeds poll finished container)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-
-
-
-

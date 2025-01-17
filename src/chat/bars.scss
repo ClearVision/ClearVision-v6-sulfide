@@ -1,6 +1,11 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHAT BARS */
 // NEW MESSAGES BAR
-%newMessagesBar {
+#{c(chat newMessagesBar)} {
   z-index: 999;
   background: transparent;
   transition: all 0.15s ease-in-out;
@@ -8,7 +13,7 @@
     content: '';
     position: absolute;
     @include stretch;
-    background: $main-color;
+    background: cv('colors.main');
     border-radius: 0 0 3px 3px;
     opacity: 0.8;
     z-index: -1;
@@ -31,7 +36,7 @@
 }
 
 // JUMP TO PRESENT BAR
-%jumpToPresentBar {
+#{c(chatForm jumpToPresentBar)} {
   background: rgba(0, 0, 0, 0.7);
   border-radius: 3px;
   transition: all 0.15s ease-in-out;
@@ -42,7 +47,7 @@
     transition: inherit;
   }
   &:hover {
-    background: $main-color;
+    background: cv('colors.main');
     > button {
       color: #fff;
     }
@@ -53,26 +58,24 @@
 }
 
 // HAS MORE BAR
-%messages {
-  %hasMore {
-    background: hsla(0, 0%, 100%, 0.07);
-    border: none;
-    border-radius: 3px;
-    box-shadow: none;
-    color: hsla(0, 0%, 100%, 0.7);
-    transition: all 0.15s ease-in-out;
-    &:hover {
-      background: $main-color;
-      color: #fff;
-    }
-    &:active {
-      transform: scale(0.99);
-    }
+#{c(chatForm hasMore)} {
+  background: hsla(0, 0%, 100%, 0.07);
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  color: hsla(0, 0%, 100%, 0.7);
+  transition: all 0.15s ease-in-out;
+  &:hover {
+    background: cv('colors.main');
+    color: #fff;
+  }
+  &:active {
+    transform: scale(0.99);
   }
 }
 
 // MESSAGE ERROR BAR
-%messagesErrorBar {
+#{c(chatForm messagesErrorBar)} {
   background: cv('colors.danger');
   border-radius: 3px;
   transition: all 0.15s ease-in-out;
@@ -80,8 +83,8 @@
 }
 
 // BRAND
-%barBrand {
-  background-color: $main-color;
+#{c(serverList unreadMention2Bar)} {
+  background-color: cv('colors.main');
   > * {
     color: #fff !important;
   }

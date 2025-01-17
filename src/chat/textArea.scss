@@ -1,5 +1,10 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHAT CHANNEL TEXT AREA */
-%chatForm {
+#{c(chatForm form)} {
   margin-top: 1px;
   &:before,
   &:after {
@@ -9,41 +14,41 @@
     color: hsla(0, 0%, 100%, 0.3);
   }
 }
-%channelTextArea {
+#{c(chatForm channelTextAreaBase)} {
   background: rgba(0, 0, 0, 0.6);
   transition: all 0.15s ease-in-out;
   &:focus-within {
-    box-shadow: 0 0 2px 2px $main-color;
+    box-shadow: 0 0 2px 2px cv('colors.main');
   }
 
-  %channelTextAreaScrollable {
+  #{c(chatForm scrollableContainer)} {
     background: transparent;
     border: 2px solid transparent;
   }
-  %channelTextAreaAttachButton {
+  #{c(chatForm attachButton)} {
     padding: 10px 10px 10px 12px;
 
-    %channelTextAreaAttachButtonPlus {
+    #{c(chatForm attachButtonPlus)} {
       color: hsla(0, 0%, 100%, 0.7);
       transition: all 0.15s ease-in-out;
     }
     &:hover {
-      %channelTextAreaAttachButtonPlus {
+      #{c(chatForm attachButtonPlus)} {
         color: hsla(0, 0%, 100%, 0.9);
       }
     }
   }
-  %textArea {
-    %textAreaPlaceholder {
+  #{c(chatForm textArea)} {
+    #{c(chatForm placeholder)} {
       color: hsla(0, 0%, 100%, 0.4);
     }
-    &%slateTextArea {
+    &#{c(chatForm textAreaSlate)} {
       margin-left: 10px;
     }
   }
 
   // BUTTONS
-  %channelTextAreaButton {
+  #{c(chatForm buttonInner)} {
     color: hsla(0, 0%, 100%, 0.7);
     transition: all 0.15s ease-in-out;
     &:hover {
@@ -52,9 +57,9 @@
   }
 
   // TYPING
-  %channelTextAreaTyping {
+  #{c(chatForm typing)} {
     background: transparent;
-    %channelTextAreaTypingText {
+    #{c(chatForm typingText)} {
       color: hsla(0, 0%, 100%, 0.5);
       > strong {
         color: hsla(0, 0%, 100%, 0.7);
@@ -65,91 +70,91 @@
 }
 
 // LINK
-%fakeLink {
+#{c(chatForm inlineLink)} {
   color: var(--url-color);
 }
 
 // FOLLOW CHANNEL
-%channelInfo {
+#{c(chatForm followWrapper)} {
   background-color: hsla(0, 0%, 0%, 0.6);
 }
 
 // ATTACHED BARS
-%channelTextAreAttachedBar {
+#{c(chatForm stackedBars)} {
   background: transparent;
 }
-%channelTextAreaStackedAttachedBar {
+#{c(chatForm stackedAttachedBar)} {
   border-bottom: 1px solid hsla(0, 0%, 100%, 0.07);
 }
 
 // REPLY
-%replyBar,
-%replySuggestion {
+#{c(chatForm replyBar)},
+#{c(chatForm threadSuggestionBar)} {
   background: transparent;
   border: 2px solid transparent;
   box-shadow: none;
 }
-%replyCloseButton {
+#{c(other cv replyCloseButton)} {
   padding: 8px 16px 8px 4px;
   margin-left: 4px;
 }
-%replySeperator {
+#{c(other cv replySeperator)} {
   visibility: hidden;
   height: 0px;
   width: 0px;
 }
 
 // SLASH COMMANDS
-%themeDark {
-  %autocompleteOptionPill {
+#{c(main dark)} {
+  #{c(other cv autocompleteOptionPill)} {
     background-color: hsla(0, 0%, 100%, 0.05);
     border-color: hsla(0, 0%, 100%, 0.07);
-    &%autocompleteOptionPillSelected {
-      border-color: $main-color !important;
+    &#{c(other cv autocompleteOptionPillSelected)} {
+      border-color: cv('colors.main') !important;
     }
   }
-  %autocompleteOptionPillKey {
+  #{c(other cv autocompleteOptionPillKey)} {
     background-color: hsla(0, 0%, 100%, 0.07);
   }
 }
 
 // UPLOADER
-%channelTextAreaUpload {
+#{c(chatForm inlineUpload)} {
   background-color: transparent;
 }
 
 // TIMEOUT
-%timeoutBar {
+#{c(modals timedOut spamBanner)} {
   background: rgba(0, 0, 0, 0.6);
 }
-%timeoutPopup {
+#{c(modals timedOut container)} {
   background: rgba(0, 0, 0, 0.5);
-  %timeoutIcon {
+  #{c(modals timedOut iconContainer)} {
     background: rgba(0, 0, 0, 0.2);
   }
 }
 
 // INLINE CODE PREVIEW
-%inlineCodeBefore,
-%inlineCodeAfter {
+#{c(chatForm beforeInlineCode)},
+#{c(chatForm afterInlineCode)} {
   background: rgba(255, 255, 255, 0.05);
   padding: 3.5px 0.5px;
 }
-%inlineCode {
+#{c(chatForm inlineCode)} {
   background: rgba(255, 255, 255, 0.1);
   padding: 3.5px 0.5px;
 }
 
 // CHAT TOOLBAR
-%chatToolbar {
+#{c(modals formattingToolbar toolbar)} {
   background-color: cv('bg.general.popout');
   &::before {
     border-top: 8px solid hsla(0, 0%, 0%, 0.8);
   }
 }
-%chatToolbarButton:hover {
+#{c(other cv chatToolbarButton)}:hover {
   background-color: hsla(0, 0%, 100%, 0.05);
 }
-%chatToolbarIcon {
+#{c(other cv chatToolbarIcon)} {
   color: hsla(0, 0%, 100%, 0.7);
 }

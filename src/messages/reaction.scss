@@ -1,33 +1,38 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* MESSAGE REACTIONS */
-%reaction {
+#{c(forums reactions reaction)} {
   background-color: hsla(0, 0%, 100%, 0.05);
   border-radius: 3px;
   transition: all 0.15s ease-in-out;
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.2);
-    %reactionCount {
+    #{c(forums reactions count)} {
       color: hsla(0, 0%, 100%, 0.9);
     }
   }
-  %reactionCount {
+  #{c(forums reactions count)} {
     color: hsla(0, 0%, 100%, 0.4);
   }
-  &%reactionMe {
+  &#{c(forums reactions me)} {
     background-color: hsla(0, 0%, 100%, 0.1);
     border-color: transparent;
-    %reactionCount {
-      color: $main-color;
+    #{c(forums reactions count)} {
+      color: cv('colors.main');
     }
     &:hover {
       background-color: hsla(0, 0%, 100%, 0.2);
-      %reactionCount {
-        color: $hover-color;
+      #{c(forums reactions count)} {
+        color: cv('colors.hover');
       }
     }
   }
 }
-%reactionAdd {
-  &%reactionAddForceShow {
+#{c(forums reactions reactionBtn)} {
+  &#{c(other cv reactionAddForceShow)} {
     background-color: transparent;
     color: hsla(0, 0%, 100%, 0.7);
     &:hover {
@@ -37,39 +42,39 @@
     }
   }
 }
-%superReactionGlow {
+#{c(other cv superReactionGlow)} {
   border-radius: 3px;
 }
 
 /* FORUM REACTIONS */
-%forumReaction {
+#{c(reaction reaction)} {
   background-color: hsla(0, 0%, 100%, 0.05);
   border-radius: 3px;
   transition: all 0.15s ease-in-out;
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.2);
-    %forumReactionCount {
+    #{c(reaction count)} {
       color: hsla(0, 0%, 100%, 0.9);
     }
   }
-  %forumReactionCount {
+  #{c(reaction count)} {
     color: hsla(0, 0%, 100%, 0.4);
   }
-  &%forumReactionMe {
+  &#{c(reaction me)} {
     background-color: hsla(0, 0%, 100%, 0.1);
     border-color: transparent;
-    %forumReactionCount {
-      color: $main-color;
+    #{c(reaction count)} {
+      color: cv('colors.main');
     }
     &:hover {
       background-color: hsla(0, 0%, 100%, 0.2);
-      %forumReactionCount {
-        color: $hover-color;
+      #{c(reaction count)} {
+        color: cv('colors.hover');
       }
     }
   }
 }
-%forumReactAdd {
+#{c(forums open topBar addReactButton)} {
   background-color: hsla(0, 0%, 100%, 0.05);
   border-radius: 3px;
   transition: all 0.15s ease-in-out;
@@ -81,29 +86,29 @@
 }
 
 // EMOJI INFO POPOUT
-%reactionInfoContainer {
+#{c(modals emojiStickerPopout container)} {
   background-color: cv('bg.general.popout');
 }
-%reactionInfoTip {
+#{c(modals emojiStickerPopout emojiSection)} {
   background-color: transparent;
 }
-%reactionInfoGuild {
+#{c(modals emojiStickerPopout guildSection)} {
   background-color: transparent;
 }
 
 // REACTIONS LIST
-%themeDark {
-  %reactionModalScroller,
-  %reactionModalReactors {
+#{c(main dark)} {
+  #{c(modals reactions sidebar)},
+  #{c(modals reactions reactors)} {
     background-color: transparent;
   }
-  %reactionModalDefault {
+  #{c(modals reactions default)} {
     margin-bottom: 10px;
   }
-  %reactionModalSelected {
-    background-color: $main-color;
+  #{c(modals reactions selected)} {
+    background-color: cv('colors.main');
     margin-bottom: 10px;
-    %reactionModalColorStandard {
+    #{c(other cv reactionModalColorStandard)} {
       color: #fff;
     }
   }

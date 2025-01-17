@@ -1,32 +1,38 @@
+@use "sass:map";
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* APP */
-%appMount {
+#{c(main appMount)} {
   background: cv('bg.app.overlay');
 }
-%shakeable,
+#{c(main appInner)},
 body {
   background: transparent;
 }
-%bg {
+#{c(main bg)} {
   background: cv('bg.app.img') cv('bg.app.pos') / cv('bg.app.size') cv('bg.app.repeat') cv('bg.app.attach');
   @include filters(cv('bg.app'));
   z-index: -9999;
 }
-%appMount {
-  %layers,
-  %layer {
+#{c(main appMount)} {
+  #{c(main appLayers)},
+  #{c(main appLayer)} {
     background: transparent;
   }
 }
-%containerMain {
-  %base {
+#{c(main container)} {
+  #{c(main base)} {
     border-radius: 0;
   }
 }
-%backdrop {
+#{c(main backdrop)} {
   background: cv('bg.backdrop.overlay') !important;
 }
 
-%loading {
+#{c(other cv loading)} {
   background-color: transparent;
   &:before,
   &:after {
@@ -36,20 +42,20 @@ body {
     border: 3px solid transparent;
     border-radius: 50%;
     margin: auto;
-    filter: drop-shadow(0 0 3px $main-color);
+    filter: drop-shadow(0 0 3px cv('colors.main'));
     animation: cv-spin 1s ease-in-out infinite;
   }
   &:before {
     height: 26px;
     width: 26px;
-    border-left-color: $main-color;
-    border-right-color: $main-color;
+    border-left-color: cv('colors.main');
+    border-right-color: cv('colors.main');
   }
   &:after {
     height: 16px;
     width: 16px;
-    border-top-color: $main-color;
-    border-bottom-color: $main-color;
+    border-top-color: cv('colors.main');
+    border-bottom-color: cv('colors.main');
     animation-direction: reverse;
   }
 }
@@ -67,5 +73,5 @@ textarea,
 // SELECTION
 ::selection {
   color: #fff;
-  background: $main-color;
+  background: cv('colors.main');
 }

@@ -1,4 +1,9 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* AVATAR */
-%avatarMask {
+#{c(memberList avatarMask)} {
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
 }

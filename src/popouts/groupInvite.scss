@@ -1,51 +1,56 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* GROUP INVITE POPOUT */
-%themeDark {
-  %groupInvitePopout {
-    &%modalRoot {
+#{c(main dark)} {
+  #{c(modals groupDm popout)} {
+    &#{c(modals root)} {
       background-color: cv('bg.general.popout');
     }
   }
 }
 
 // SEARCH
-%groupInvitePopoutSearchBar {
-  %groupInvitePopoutSearchContainer {
+#{c(modals groupDm searchBar)} {
+  #{c(modals groupDm searchBarComponent)} {
     background-color: hsla(0, 0%, 100%, 0.07);
     box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.09);
   }
 }
-%groupInvitePopoutSearchTag {
-  background: $main-color;
+#{c(modals searchBar tag)} {
+  background: cv('colors.main');
   color: #fff;
 }
 
 // FRIEND
-%groupInvitePopoutFriend {
+#{c(other cv groupInvitePopoutFriend)} {
   transition: all 0.15s ease-in-out;
-  %themeDark &%groupInvitePopoutFriendSelected {
+  #{c(main dark)} &#{c(other cv groupInvitePopoutFriendSelected)} {
     background: hsla(0, 0%, 100%, 0.1);
-    %groupInvitePopoutNickname {
+    #{c(other cv groupInvitePopoutNickname)} {
       color: #fff;
     }
-    %groupInvitePopoutDiscordTag {
+    #{c(other cv groupInvitePopoutDiscordTag)} {
       color: hsla(0, 0%, 100%, 0.5);
     }
-    %groupInvitePopoutCheckbox {
-      background: hsla(0, 0%, 100%, 0.1);
-    }
+    // #{c(other cv groupInvitePopoutCheckbox)} {
+    //   background: hsla(0, 0%, 100%, 0.1);
+    // }
   }
 }
-%groupInvitePopoutNickname {
+#{c(other cv groupInvitePopoutNickname)} {
   color: hsla(0, 0%, 100%, 0.7);
   transition: all 0.15s ease-in-out;
 }
-%groupInvitePopoutDiscordTag {
+#{c(other cv groupInvitePopoutDiscordTag)} {
   color: hsla(0, 0%, 100%, 0.3);
   opacity: 1;
   transition: all 0.15s ease-in-out;
 }
 
 // FOOTER
-%groupInvitePopoutFooterSeparator {
+#{c(modals groupDm footerSeparator)} {
   box-shadow: 0 -1px 0 hsla(0, 0%, 100%, 0.04);
 }

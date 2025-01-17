@@ -1,41 +1,46 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* MENU POPOUT */
-%menuPopout {
+#{c(modals menus menu)} {
   background-color: cv('bg.general.popout');
   animation: cv-menu-fold-y 0.2s cubic-bezier(0.2, 0.6, 0.5, 1.1);
   transform-origin: 50% 0;
-  %menuPopoutItem {
+  #{c(modals menus item)} {
     color: hsla(0, 0%, 100%, 0.7);
     transition: all 0.15s ease-in-out;
-    &%menuPopoutItemHover {
-      background-color: $hover-color;
+    &#{c(modals menus itemFocused)} {
+      background-color: cv('colors.hover');
       color: #fff;
-      %menuPopoutCheckbox,
-      %menuPopoutRadio {
+      #{c(modals menus checkbox)},
+      #{c(modals menus radioSelection)} {
         color: #fff;
       }
-      %menuPopoutCheck {
-        fill: $main-color;
+      #{c(modals menus checkboxCheck)} {
+        fill: cv('colors.main');
       }
     }
-    &%menuPopoutSelected:active:not(%menuPopoutHideInteraction) {
-      background-color: $hover-color;
+    &#{c(modals menus colorDefault)}:active:not(#{c(modals menus itemHideInteraction)}) {
+      background-color: cv('colors.hover');
       color: #fff;
-      border-color: $hover-color;
+      border-color: cv('colors.hover');
     }
-    %menuPopoutCheckbox,
-    %menuPopoutRadio {
-      color: $main-color;
+    #{c(modals menus checkbox)},
+    #{c(modals menus radioSelection)} {
+      color: cv('colors.main');
     }
   }
-  %menuPopoutItemInvite {
-    color: $main-color;
+  #{c(modals menus colorBrand)} {
+    color: cv('colors.main');
   }
-  %menuPopoutItemDanger {
+  #{c(modals menus colorDanger)} {
     color: var(--danger-color);
-    &%menuPopoutItemHover {
+    &#{c(modals menus itemFocused)} {
       background-color: var(--danger-color);
       color: #fff;
-      %menuPopoutIcon {
+      #{c(modals menus icon)} {
         transform: rotateY(180deg);
         transition: all 0.15s ease-in-out;
       }
@@ -44,84 +49,84 @@
 }
 
 // QUICK REACTIONS
-%quickReactButton {
+#{c(modals menus quickReactionButton)} {
   background-color: transparent;
-  &%quickReactButtonFocused,
+  &#{c(other cv quickReactButtonFocused)},
   &:hover {
     background-color: transparent;
   }
-  &%quickReactButtonFocused {
-    box-shadow: 0 0 2px 2px $hover-color;
+  &#{c(other cv quickReactButtonFocused)} {
+    box-shadow: 0 0 2px 2px cv('colors.hover');
   }
 }
-%quickReactPremiumUpsell {
+#{c(other cv quickReactPremiumUpsell)} {
   background-color: transparent;
 }
 
 // CHANNEL THREAD MENU
-%channelThreadPopout {
+#{c(modals openThreadsPopout popout)} {
   background-color: hsla(0, 0%, 0%, 0.8);
-  %channelThreadPopoutRow:hover {
-    background-color: $hover-color;
+  #{c(other cv channelThreadPopoutRow)}:hover {
+    background-color: cv('colors.hover');
   }
-  %channelThreadPopoutMore {
-    color: $main-color;
+  #{c(other cv channelThreadPopoutMore)} {
+    color: cv('colors.main');
   }
 }
 
 // STATUS PICKER
-%menuPopoutItem {
+#{c(modals menus item)} {
   &#account-status-picker--online {
-    &:not(%menuPopoutItemHover) {
-      %statusPickerIcon {
+    &:not(#{c(modals menus itemFocused)}) {
+      #{c(modals menus status)} {
         background-color: var(--online-color);
       }
     }
-    &%menuPopoutItemHover {
+    &#{c(modals menus itemFocused)} {
       background-color: var(--online-color);
     }
   }
   &#account-status-picker--idle {
-    &:not(%menuPopoutItemHover) {
-      %statusPickerIcon {
+    &:not(#{c(modals menus itemFocused)}) {
+      #{c(modals menus status)} {
         background-color: var(--idle-color);
       }
     }
-    &%menuPopoutItemHover {
+    &#{c(modals menus itemFocused)} {
       background-color: var(--idle-color);
     }
   }
   &#account-status-picker--dnd {
-    &:not(%menuPopoutItemHover) {
-      %statusPickerIcon {
+    &:not(#{c(modals menus itemFocused)}) {
+      #{c(modals menus status)} {
         background-color: var(--dnd-color);
       }
     }
-    &%menuPopoutItemHover {
+    &#{c(modals menus itemFocused)} {
       background-color: var(--dnd-color);
     }
   }
   &#account-status-picker--invisible {
-    &:not(%menuPopoutItemHover) {
-      %statusPickerIcon {
+    &:not(#{c(modals menus itemFocused)}) {
+      #{c(modals menus status)} {
         background-color: var(--offline-color);
       }
     }
-    &%menuPopoutItemHover {
+    &#{c(modals menus itemFocused)} {
       background-color: var(--offline-color);
     }
   }
-  %userPopoutBodyInnerWrapper {
-    background-color: transparent;
-  }
+  // #{c(other cv userPopoutBodyInnerWrapper)} {
+  //   background-color: transparent;
+  // }
 }
 
 // ACCOUNT SWITCHER
-%switchAccountsActive {
+#{c(profile status accountSwitcher activeIcon)} {
   path {
-    fill: $main-color;
+    fill: cv('colors.main');
   }
-  %menuPopoutItemHover & circle {
-    fill: $main-color;
+  #{c(modals menus itemFocused)} & circle {
+    fill: cv('colors.main');
   }
 }

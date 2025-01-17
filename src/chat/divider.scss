@@ -1,42 +1,47 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CHAT DIVIDER */
 
 // UNREAD
 // -6px is to account for the 1px height of the divider
-%dividerUnread %dividerDate {
-  color: $main-color;
+#{c(chat dividerUnread)} #{c(chat dividerContent)} {
+  color: cv('colors.main');
 }
-%unreadPill {
-  background-color: $main-color;
+#{c(chat unreadPill)} {
+  background-color: cv('colors.main');
   top: -6px;
 }
-%unreadPillCapStroke {
-  fill: $main-color;
-  color: $main-color;
+#{c(chat unreadPillCapStroke)} {
+  fill: cv('colors.main');
+  color: cv('colors.main');
 }
 // DATE
-%dividerDate {
+#{c(chat dividerContent)} {
   background: transparent;
-  color: $main-color;
+  color: cv('colors.main');
 }
 // change to no border / bg system
-%divider {
+#{c(chat divider)} {
   border: none;
   height: 1px;
   background: var(--background-modifier-accent);
   // change color for when read
-  &%dividerUnread {
+  &#{c(chat dividerUnread)} {
     border: none;
     height: 1px;
-    background: $main-color;
+    background: cv('colors.main');
     // create gap when date is there
-    &:has(%dividerDate) {
+    &:has(#{c(chat dividerContent)}) {
       border: none;
       height: 1px;
-      background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 55px, $main-color 55px);
+      background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 55px, cv('colors.main') 55px);
     }
   }
   // create gap when date is there
-  &:has(%dividerDate) {
+  &:has(#{c(chat dividerContent)}) {
     border: none;
     height: 1px;
     background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 55px, var(--background-modifier-accent) 55px);

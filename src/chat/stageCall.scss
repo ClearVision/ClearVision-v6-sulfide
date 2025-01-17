@@ -1,38 +1,43 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* STAGE CALL */
 
 // POPOUT
-%stageIconBackground {
-  background-color: $main-color;
+#{c(other cv stageIconBackground)} {
+  background-color: cv('colors.main');
 }
 
 // STAGE
-%stageContainer {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.5));
+#{c(stage container)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.5));
 }
-%stageCallContainer,
-%stageScroller {
+#{c(stage callContainer)},
+#{c(stage scroller)} {
   background-color: transparent;
 }
-%stageGradientContainer {
+#{c(stage gradientContainer)} {
   background-image: none;
 }
-%stageSeparator {
-  background-color: $main-color;
+#{c(other cv stageSeparator)} {
+  background-color: cv('colors.main');
 }
-%stageParticipants {
+#{c(stage controlsParticipants)} {
   background-color: transparent;
 }
-%stageSpeakers {
+#{c(stage rowContainer)} {
   background: transparent;
 }
-%stageParticipant {
+#{c(stage tileContainer)} {
   background-color: hsla(0, 0%, 0%, 0.4);
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.05);
   }
 }
-%stageMessageToast {
-  %stageMessageToastWrapper {
+#{c(other cv stageMessageToast)} {
+  #{c(other cv stageMessageToastWrapper)} {
     background-color: hsla(0, 0%, 0%, 0.8);
     &:hover {
       background-color: hsla(0, 0%, 0%, 0.6);
@@ -41,69 +46,69 @@
 }
 
 // THE AUDIENCE CONTAINER IN VC CHANNELS
-%stageVoiceUser {
+#{c(sidebar voiceUser)} {
   padding-top: 4px;
 }
-%stageVoiceUserOverlap {
-  %stageVoiceUserAvatar {
+#{c(sidebar voiceUserOverlap)} {
+  #{c(sidebar voiceAvatar)} {
     border: none;
   }
 }
-%stageAudienceContainer {
+#{c(stage audienceContainer)} {
   background-color: hsla(0, 0%, 0%, 0.8);
   border: hsla(0, 0%, 0%, 0.8);
-  %stageAudienceIconContainer {
-    background: $main-color;
+  #{c(stage audienceVoiceIconContainer)} {
+    background: cv('colors.main');
   }
-  %stageAudienceIcon {
+  #{c(stage audienceIcon)} {
     color: #fff;
   }
-  %textSmallMedium {
-    color: rgba(255, 255, 255, 0.9) !important;
+  // #{c(other cv textSmallMedium)} {
+  //   color: rgba(255, 255, 255, 0.9) !important;
+  // }
+}
+#{c(stage openStageContainer)} {
+  background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
+  &:hover {
+    background: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
   }
 }
-%stageOptionContainer {
-  background: rgba(0, 0, 0, calc($bg-shading * 0.3));
+#{c(stage leaveStageButton)} {
+  background: cv('colors.main');
   &:hover {
-    background: rgba(0, 0, 0, calc($bg-shading * 0.6));
-  }
-}
-%stageLeaveButton {
-  background: $main-color;
-  &:hover {
-    background: $hover-color;
+    background: cv('colors.hover');
   }
 }
 
 // ICON WHEN HOVERING SERVER
-%stageGuildListenerIcon {
-  background: $main-color;
-  %textExtraSmallNormal {
-    color: #fff !important;
-  }
+#{c(tooltips stageListenerPill)} {
+  background: cv('colors.main');
+  // #{c(other cv textExtraSmallNormal)} {
+  //   color: #fff !important;
+  // }
   > svg {
     color: #fff;
   }
 }
 
 // STARTING A STAGE CALL
-%stageTopicForm {
-  %input {
+#{c(other cv stageTopicForm)} {
+  #{c(other cv input)} {
     background: rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 0 2px $main-color;
+    box-shadow: 0 0 0 2px cv('colors.main');
   }
-  %stageTopicInput {
+  #{c(other cv stageTopicInput)} {
     background: transparent;
   }
 }
 
 // REQUESTS
-%stageRequestContainer {
-  background-color: rgba(0, 0, 0, calc($bg-shading * 0.6));
+#{c(stage requestToSpeakContainer)} {
+  background-color: rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.6));
 }
-%stageIconBigBackground {
-  background-color: $main-color;
-  %stageIconBigForeground {
+#{c(other cv stageIconBigBackground)} {
+  background-color: cv('colors.main');
+  #{c(other cv stageIconBigForeground)} {
     color: #fff;
   }
 }

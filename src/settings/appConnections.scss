@@ -1,3 +1,8 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* CONNECTIONS */
 $colours: (
   'Reddit': #ff4500,
@@ -12,33 +17,33 @@ $colours: (
   'YouTube': #ff0000,
 );
 
-%connections {
+#{c(userSettings connection)} {
   background-color: hsla(0, 0%, 0%, 0.4);
 }
-%connectionsHeader {
+#{c(userSettings connectionHeader)} {
   background-color: transparent;
 }
 
-%connections {
+#{c(userSettings connection)} {
   @each $i, $u in $colours {
-    &:has(%connectionsIcon[alt*='#{$i}']) {
+    &:has(#{c(userSettings connectionIcon)}[alt*='#{$i}']) {
       background-color: rgba($u, 0.5);
     }
   }
 }
-%connectionsHeader {
+#{c(userSettings connectionHeader)} {
   @each $i, $u in $colours {
-    &:has(%connectionsIcon[alt*='#{$i}']) {
+    &:has(#{c(userSettings connectionIcon)}[alt*='#{$i}']) {
       background-color: rgba($u, 0.2);
     }
   }
 }
-%connectionsAccountLabel {
+#{c(userSettings connectionAccountLabel)} {
   color: hsla(0, 0%, 100%, 0.7) !important;
 }
-%connectionsDelete {
+#{c(userSettings connectionDelete)} {
   color: hsla(0, 0%, 100%, 0.7);
 }
-%connectionsMetadataContainer {
+#{c(userSettings addAccountMetadataContainer)} {
   background-color: hsla(0, 0%, 100%, 0.1);
 }

@@ -1,79 +1,84 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* TOOLTIP */
-%tooltip {
+#{c(tooltips tooltip)} {
   padding: 5px 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   font-size: 13px;
   font-weight: 600;
-  %tooltipContent {
+  #{c(tooltips content)} {
     padding: 0;
     color: hsla(0, 0%, 100%, 0.9);
   }
-  &%tooltipPrimary,
-  &%tooltipNested {
+  &#{c(tooltips primary)},
+  &#{c(other cv tooltipNested)} {
     background: rgba(0, 0, 0, 0.9);
-    > %tooltipPointer {
+    > #{c(tooltips pointer)} {
       border-top-color: rgba(0, 0, 0, 0.9);
     }
   }
-  &%tooltipBrand {
-    background: $main-color;
-    > %tooltipPointer {
-      border-top-color: $main-color;
+  &#{c(tooltips brand)} {
+    background: cv('colors.main');
+    > #{c(tooltips pointer)} {
+      border-top-color: cv('colors.main');
     }
   }
-  &%tooltipRed {
+  &#{c(tooltips red)} {
     background: cv('colors.danger');
-    > %tooltipPointer {
+    > #{c(tooltips pointer)} {
       border-top-color: cv('colors.danger');
     }
   }
-  &%tooltipGreen {
+  &#{c(tooltips green)} {
     background: cv('colors.success');
-    > %tooltipPointer {
+    > #{c(tooltips pointer)} {
       border-top-color: cv('colors.success');
     }
   }
-  &%tooltipTop {
+  &#{c(tooltips top)} {
     animation: cv-menu-fold-y 0.15s cubic-bezier(0.2, 0.6, 0.5, 1.1);
     transform-origin: 50% 100%;
   }
-  &%tooltipBottom {
+  &#{c(tooltips bottom)} {
     animation: cv-menu-fold-y 0.15s cubic-bezier(0.2, 0.6, 0.5, 1.1);
     transform-origin: 50% 0;
   }
-  &%tooltipRight {
+  &#{c(tooltips right)} {
     animation: cv-menu-fold-x 0.15s cubic-bezier(0.2, 0.6, 0.5, 1.1);
     transform-origin: 0 50%;
   }
-  &%tooltipLeft {
+  &#{c(tooltips left)} {
     animation: cv-menu-fold-x 0.15s cubic-bezier(0.2, 0.6, 0.5, 1.1);
     transform-origin: 100% 50%;
   }
-  %tooltipHub > %tooltipHubIcon > circle {
-    fill: $main-color;
+  #{c(other cv tooltipHub)} > #{c(other cv flowerStarIcon)} > circle {
+    fill: cv('colors.main');
   }
 }
-%commandTooltip {
+#{c(other cv commandTooltip)} {
   background: rgba(0, 0, 0, 0.9);
-  > %commandTooltipPointer {
+  > #{c(other cv commandTooltipPointer)} {
     border-top-color: rgba(0, 0, 0, 0.9);
   }
 }
 
 // UPSELL
-%upsellTooltip {
+#{c(other cv upsellTooltipText)} {
   background-color: hsla(0, 0%, 0%, 0.8);
-  &%upsellTooltipCaretTopCenter:after {
+  &#{c(other cv upsellTooltipCaretTopCenter)}:after {
     border-bottom-color: hsla(0, 0%, 0%, 0.8);
   }
-  &%upsellTooltipCaretRightCenter:after {
+  &#{c(other cv upsellTooltipCaretRightCenter)}:after {
     border-left-color: hsla(0, 0%, 0%, 0.8);
   }
 }
 
 // REACTION
-%reactionTooltip {
+#{c(forums reactions tooltip tooltip)} {
   background: rgba(0, 0, 0, 0.9);
   padding: 5px 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -82,12 +87,12 @@
 }
 
 // NEW GUILD TOOLTIP
-%newGuildTooltip {
+#{c(other cv newGuildTooltip)} {
   background: rgba(0, 0, 0, 0.9);
 }
-%newGuildTooltipPointer {
+#{c(other cv newGuildTooltipPointer)} {
   border-right-color: rgba(0, 0, 0, 0.9);
 }
-%newGuildTooltipCard {
+#{c(other cv newGuildTooltipCard)} {
   background-color: hsla(0, 0%, 100%, 0.1);
 }

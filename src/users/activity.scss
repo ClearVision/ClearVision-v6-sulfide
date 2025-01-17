@@ -1,20 +1,25 @@
+@use "../../_classes" as *;
+@use "../../backend/functions" as *;
+@use "../../backend/mixins" as *;
+@use "../../backend/variables" as *;
+
 /* USER ACTIVITY */
-%activity {
-  %activityNameNormal {
-    color: $main-color;
+:is(#{c(profile activity activity userPopoutV2)},#{c(profile activity activity profileV2)}) {
+  #{c(profile activity nameNormal)} {
+    color: cv('colors.main');
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     font-weight: 600;
-    > %activityName {
+    > #{c(profile activity activityName)} {
       color: inherit;
-      &%activityBodyLink:hover {
+      &#{c(profile activity bodyLink)}:hover {
         text-shadow: 0 0 5px rgba(0, 0, 0, 0.5), 0 0 1px;
       }
     }
   }
-  %activityTimestamp {
+  #{c(profile activity timestamp)} {
     font-style: italic;
   }
-  %activityBodyLink {
+  #{c(profile activity bodyLink)} {
     @include hover-shadow;
   }
 }
