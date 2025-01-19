@@ -1,8 +1,5 @@
 
-@use "../../classes/_classes" as *;
-@use "../../backend/functions" as *;
-@use "../../backend/mixins" as *;
-@use "../../backend/variables" as *;
+@use "backend" as *;
 
 /* POLL */
 #{c(embeds poll container)} {
