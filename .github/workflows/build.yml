@@ -12,6 +12,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 18
+          submodules: true
       - name: Install
         run: npm ci
       - name: Build
