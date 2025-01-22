@@ -50,7 +50,6 @@ $preivewMsg: "1189957093676032070";
   );
   $list: map.keys($order);
   #{c(chat nonMediaAttachmentItem)} {
-    --preview-overlay: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARwAAACgCAYAAADei9NaAAAABHNCSVQICAgIfAhkiAAABUlJREFUeF7t1kFqVVEURNEothyEjtuJ2tY5JLAPt1Yg3XdurYLif/v4+Pjz//+r/n5/1YcOfOfXgTd4AoGnBL4/lUYYAgROCxic0/V4HIG3BAzOW31KQ+C0gME5XY/HEXhLwOC81ac0BE4LGJzT9XgcgbcEDM5bfUpD4LSAwTldj8cReEvA4LzVpzQETgsYnNP1eByBtwQMzlt9SkPgtIDBOV2PxxF4S8DgvNWnNAROCxic0/V4HIG3BAzOW31KQ+C0gME5XY/HEXhLwOC81ac0BE4LGJzT9XgcgbcEDM5bfUpD4LSAwTldj8cReEvA4LzVpzQETgsYnNP1eByBtwQMzlt9SkPgtIDBOV2PxxF4S8DgvNWnNAROCxic0/V4HIG3BH68FedL0/z90q/5GIHPC/z8/CfaL/iF0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AV+AdDcwMYZM+UzQAAAA5lWElmTU0AKgAAAAgAAAAAAAAA0lOTAAAAAElFTkSuQmCC");
     @each $img, $col in $order {
       // this is done SOLELY because :fist-child and :last-child are shorter than :nth-child(#)
       @if list.index($list,$img) == 1 {
@@ -94,7 +93,7 @@ $preivewMsg: "1189957093676032070";
       background: var(--local-image) center/ cover no-repeat;
     }
 		&::after {
-      background: var(--preview-overlay) center/ cover no-repeat;
+      background: var(--preview-overlay,url(https://clearvision.github.io/images/preview_overlay.png)) center/ cover no-repeat;
     }
 	}
 	#{c(embeds textFooter)} {
@@ -102,7 +101,7 @@ $preivewMsg: "1189957093676032070";
 		width: 300px;
 	}
   #{c(embeds textContainerDownload)} {
-    color: var(--local-color);
+    color: var(--local-color,inherit);
   }
 	:is(
 		#{c(embeds toggleExpandedPreview)},
