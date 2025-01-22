@@ -1,3 +1,5 @@
+@use 'sass:list';
+@use 'sass:map';
 @use "backend" as *;
 
 /* Text Container */
@@ -31,4 +33,84 @@
 // CHANGE LANGUAGE POPOUT
 #{c(other cv textContainerLanguageSelector)} {
   background-color: cv('bg.general.popout');
+}
+
+// DEFAULT THEME PREVIEWS
+$preivewMsg: "1189957093676032070";
+#message-accessories-#{$preivewMsg} {
+  // Preview images + main colors
+  $order: (
+    'sapphire': #2780e6,
+    'halloween': #e67a27,
+    'emerald': #33e627,
+    'amethyst': #da27e6,
+    'amber': #e67a27,
+    'winter': #66aacc,
+    'ruby': #e62727
+  );
+  $list: map.keys($order);
+  #{c(chat nonMediaAttachmentItem)} {
+    --preview-overlay: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARwAAACgCAYAAADei9NaAAAABHNCSVQICAgIfAhkiAAABUlJREFUeF7t1kFqVVEURNEothyEjtuJ2tY5JLAPt1Yg3XdurYLif/v4+Pjz//+r/n5/1YcOfOfXgTd4AoGnBL4/lUYYAgROCxic0/V4HIG3BAzOW31KQ+C0gME5XY/HEXhLwOC81ac0BE4LGJzT9XgcgbcEDM5bfUpD4LSAwTldj8cReEvA4LzVpzQETgsYnNP1eByBtwQMzlt9SkPgtIDBOV2PxxF4S8DgvNWnNAROCxic0/V4HIG3BAzOW31KQ+C0gME5XY/HEXhLwOC81ac0BE4LGJzT9XgcgbcEDM5bfUpD4LSAwTldj8cReEvA4LzVpzQETgsYnNP1eByBtwQMzlt9SkPgtIDBOV2PxxF4S8DgvNWnNAROCxic0/V4HIG3BH68FedL0/z90q/5GIHPC/z8/CfaL/iF0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AVMDitv+sEpgQMzlTdwhJoBQxO6+86gSkBgzNVt7AEWgGD0/q7TmBKwOBM1S0sgVbA4LT+rhOYEjA4U3ULS6AV+AdDcwMYZM+UzQAAAA5lWElmTU0AKgAAAAgAAAAAAAAA0lOTAAAAAElFTkSuQmCC");
+    @each $img, $col in $order {
+      // this is done SOLELY because :fist-child and :last-child are shorter than :nth-child(#)
+      @if list.index($list,$img) == 1 {
+        &:first-child {
+          --local-image: url("https://clearvision.github.io/images/#{$img}.jpg");
+          --local-color: #{$col};
+        }
+      } @else if list.index($list,$img) == list.length($order) {
+        &:last-child {
+          --local-image: url("https://clearvision.github.io/images/#{$img}.jpg");
+          --local-color: #{$col};
+        }
+      } @else {
+        &:nth-child(#{list.index($list,$img)}) {
+          --local-image: url("https://clearvision.github.io/images/#{$img}.jpg");
+          --local-color: #{$col};
+        }
+      }
+    }
+  }
+
+  #{c(embeds textContainerUp)} {
+		transform: rotate(0deg);
+		border: none;
+		background-color: transparent;
+	}
+	#{c(embeds textContainer)} {
+    background: transparent;
+    border: none;
+    &::before,&::after {
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+    }
+		&::before {
+      background: var(--local-image) center/ cover no-repeat;
+    }
+		&::after {
+      background: var(--preview-overlay) center/ cover no-repeat;
+    }
+	}
+	#{c(embeds textFooter)} {
+    background: none;
+		width: 300px;
+	}
+  #{c(embeds textContainerDownload)} {
+    color: var(--local-color);
+  }
+	:is(
+		#{c(embeds toggleExpandedPreview)},
+		#{c(embeds attachmentName)},
+		#{c(embeds attachmentSize)},
+		#{c(embeds codeIcon)},
+		pre
+	) {
+		display: none;
+	}
 }
