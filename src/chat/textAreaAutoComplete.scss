@@ -66,12 +66,12 @@
   color: hsla(0, 0%, 100%, 0.7);
 }
 // REMOVE AUTOCOMPLETE NITRO AD
-#{c(other cv autocompleteUpsellDividerContainer)},
+#{c(modals soundboard nitro topDivider container)},
 #{c(other cv autocompleteUpsellEmoji)},
 #{c(other cv autocompleteUpsellHeader)} {
   display: none;
 }
 // REMOVE ENTIRE BOX IF ONLY CONTAINS NITRO AD
-#{c(modals autocomplete modal)}:has(#{c(modals autocomplete base)} + #{c(other cv autocompleteUpsellDividerContainer)}) {
+#{c(modals autocomplete modal)}:has(#{c(modals autocomplete base)} + #{c(modals soundboard nitro topDivider container)}) {
   display: none;
 }

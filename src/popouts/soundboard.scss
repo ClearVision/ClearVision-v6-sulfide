@@ -2,10 +2,13 @@
 
 /* SOUNDBOARD */
 
-#{c(other cv soundboard)} {
-  background-color: cv('bg.general.popout');
+#{c(modals soundboard modal)} {
+  &,
+  &#{c(modals soundboard refresh)} {
+    background-color: cv('bg.general.popout');
+  }
 }
-#{c(other cv soundboardButton)} {
+#{c(modals soundboard sound button button)} {
   background: transparent;
   border: 1px solid cv('colors.main');
   box-shadow: inset 0 -4px cv('colors.main');
@@ -17,13 +20,13 @@
     background: cv('colors.hover');
     border: 1px solid cv('colors.main');
     box-shadow: inset 0 -2px cv('colors.main');
-    #{c(other cv soundboardSoundName)} {
+    #{c(modals soundboard sound button name)} {
       color: cv('text.normal');
     }
   }
 }
-#{c(other cv soundboardSoundName)},
-#{c(other cv soundboardAddText)},
-#{c(other cv soundboardSecondaryButton)} {
+#{c(modals soundboard sound button name)},
+#{c(modals soundboard sound add text)},
+#{c(modals soundboard sound secondary button)} {
   color: cv('text.normal');
 }
