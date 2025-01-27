@@ -43,11 +43,11 @@
 }
 
 // THE AUDIENCE CONTAINER IN VC CHANNELS
-#{c(sidebar voiceUser)} {
+#{c(sidebar server channel voice user)} {
   padding-top: 4px;
 }
-#{c(sidebar voiceUserOverlap)} {
-  #{c(sidebar voiceAvatar)} {
+#{c(sidebar server channel voice overlap)} {
+  #{c(sidebar server channel voice avatar)} {
     border: none;
   }
 }

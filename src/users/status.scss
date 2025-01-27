@@ -21,7 +21,7 @@
 }
 
 /*member list, profile*/
-:is(#{c(other cv avatarCursorDefault)}, #{c(memberList avatarMask)}, #{c(other cv userSettingsProfilesPreviewStatus)}) rect {
+:is(#{c(avatar cursorDefault)}, #{c(avatar mask)}, #{c(other cv userSettingsProfilesPreviewStatus)}) rect {
   &[fill*='#80848e'] {
     fill: var(--offline-color);
   }

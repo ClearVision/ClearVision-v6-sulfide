@@ -111,10 +111,10 @@
   background: url(https://clearvision.github.io/icons/verified.svg) center/18px no-repeat;
   opacity: 0.5;
   z-index: 1;
-  #{c(other cv flowerStar)} {
+  #{c(flowerStar flowerStar)} {
     opacity: 0;
   }
-  #{c(other cv flowerStarChild)} {
+  #{c(flowerStar childContainer)} {
     display: none;
   }
 }

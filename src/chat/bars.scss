@@ -80,7 +80,7 @@
 }
 
 // BRAND
-#{c(serverList unreadMention2Bar)} {
+#{c(sidebar server unreadBar bar)} {
   background-color: cv('colors.main');
   > * {
     color: #fff !important;

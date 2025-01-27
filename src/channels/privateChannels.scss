@@ -1,15 +1,15 @@
 @use "backend" as *;
 
 /* PRIVATE CHANNELS */
-#{c(sidebar privateChannels)} {
+#{c(sidebar private channels)} {
   background: transparent;
-  #{c(sidebar scroller)} {
+  #{c(sidebar private scroller)} {
     background: transparent;
   }
 }
 
 // HEADER
-#{c(sidebar privateChannelsHeaderContainer)} {
+#{c(sidebar private headerContainer)} {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -35,10 +35,10 @@
     background: linear-gradient(to right, cv('colors.main') 50%, transparent);
     margin-left: 5px;
   }
-  #{c(sidebar privateChannelsHeader)} {
+  #{c(sidebar private headerText)} {
     overflow: visible;
   }
-  #{c(sidebar privateChannelRecipientsInviteButtonIcon)} {
+  #{c(sidebar private inviteButtonIcon)} {
     color: cv('colors.main');
     transition: all 0.1s ease-in-out;
     &:hover {
@@ -48,10 +48,10 @@
 }
 
 // PRIVATE CHANNEL
-#{c(sidebar privateChannel)} {
+#{c(sidebar private channel)} {
   max-width: none;
 }
-#{c(sidebar privateChannelInteractive2)} {
+#{c(sidebar private interactive)} {
   position: relative;
   z-index: 1;
   &:before {
@@ -73,21 +73,21 @@
     z-index: -1;
     pointer-events: none;
   }
-  #{c(other cv privateChannelIcon)},
-  #{c(sidebar privateChannelName)} {
+  #{c(sidebar private linkButtonIcon)},
+  #{c(sidebar private name)} {
     color: rgba(255, 255, 255, 0.4);
     font-size: 14px;
     transition: all 0.15s ease-in-out;
     overflow: hidden;
   }
-  #{c(other cv privateChannelActivityText)} {
+  #{c(sidebar private activityText)} {
     strong {
       color: cv('colors.main');
       font-weight: 700;
       transition: all 0.15s ease-in-out;
     }
   }
-  #{c(other cv privateChannelCloseButton)} {
+  #{c(sidebar private closeButton)} {
     color: #fff;
   }
 
@@ -97,11 +97,11 @@
     &:before {
       background: hsla(0, 0%, 100%, 0.1);
     }
-    #{c(other cv privateChannelIcon)},
-    #{c(sidebar privateChannelName)} {
+    #{c(sidebar private linkButtonIcon)},
+    #{c(sidebar private name)} {
       color: hsla(0, 0%, 100%, 0.7);
     }
-    #{c(other cv privateChannelCloseButton)} {
+    #{c(sidebar private closeButton)} {
       opacity: 0.3;
       &:hover {
         opacity: 0.7;
@@ -110,7 +110,7 @@
   }
 
   // SELECTED
-  &#{c(sidebar privateChannelInteractiveSelected)} {
+  &#{c(sidebar private interactiveSelected)} {
     background: transparent;
     &:before {
       background: hsla(0, 0%, 100%, 0.1);
@@ -120,20 +120,20 @@
       background: cv('colors.main');
       animation: cv-channel-select 0.3s ease-in-out;
     }
-    #{c(other cv privateChannelIcon)},
-    #{c(sidebar privateChannelName)} {
+    #{c(sidebar private linkButtonIcon)},
+    #{c(sidebar private name)} {
       color: #fff;
     }
-    #{c(other cv privateChannelActivityEmoji)},
+    #{c(sidebar private activityEmoji)},
     #{c(other cv privateChannelActivityIcon)} {
       filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.7));
     }
-    #{c(other cv privateChannelActivityText)} {
+    #{c(sidebar private activityText)} {
       strong {
         color: #fff;
       }
     }
-    #{c(other cv privateChannelCloseButton)} {
+    #{c(sidebar private closeButton)} {
       opacity: 0.7;
       &:hover {
         opacity: 1;
@@ -142,8 +142,8 @@
   }
 
   // HIGHLIGHT
-  #{c(sidebar privateChannelHighlighted)} {
-    #{c(sidebar privateChannelName)} {
+  #{c(sidebar private highlighted)} {
+    #{c(sidebar private name)} {
       color: #fff;
     }
   }
@@ -155,13 +155,13 @@
 }
 
 // EMPTY PRIVATE CHANNEL
-#{c(sidebar privateChannelLoadingEmpty)} {
+#{c(sidebar private loadingEmpty)} {
   fill: hsla(0, 0%, 100%, 0.15);
 }
 
 // PRIVATE CHANNELS SEARCH BAR
-#{c(sidebar searchBar)} {
-  #{c(sidebar searchBarComponent)} {
+#{c(sidebar private searchBar)} {
+  #{c(sidebar private searchBarComponent)} {
     background: hsla(0, 0%, 100%, 0.1);
     color: hsla(0, 0%, 100%, 0.3);
   }

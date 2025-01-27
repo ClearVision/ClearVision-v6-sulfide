@@ -14,8 +14,8 @@
   font-size: 12px;
   line-height: 12px;
 }
-#{c(sidebar channelModeSelected)},
-#{c(sidebar privateChannelInteractiveSelected)},
+#{c(sidebar server channel modeSelected)},
+#{c(sidebar private interactiveSelected)},
 #{c(tab selected)} {
   #{c(serverList numberBadge)},
   #{c(other cv textBadge)} {
@@ -27,12 +27,12 @@
 }
 
 // FLOWER STAR BADGE
-#{c(other cv flowerStarContainer)} {
+#{c(flowerStar container)} {
   color: cv('colors.main');
   #{c(other cv flowerStarIcon)} {
     color: #fff;
   }
-  #{c(other cv flowerStarChild)} {
+  #{c(flowerStar childContainer)} {
     > svg {
       color: #fff;
     }
@@ -44,7 +44,7 @@
 }
 
 // COMMUNITY GUILD BADGE
-#{c(other cv guildIconChildContainer)} path[fill='var(--primary-500)'] {
+#{c(flowerStar redesignIconChildContainer)} path[fill='var(--primary-500)'] {
   fill: hsla(0, 0%, 0%, 0.9);
 }
 

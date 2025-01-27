@@ -10,12 +10,12 @@
     border-radius: 0;
   }
 }
-#{c(main dark)} #{c(sidebar channelsContainer)} {
+#{c(main dark)} #{c(sidebar server container)} {
   background: transparent;
 }
 
 // CHANNELS HEADER
-#{c(sidebar channelsHeader)} {
+#{c(sidebar server header header)} {
   height: 48px;
   color: #fff;
   font-family: cv('font.main');
@@ -27,11 +27,11 @@
 }
 
 // GUILD BANNER
-#{c(sidebar animatedContainer)} {
+#{c(sidebar server header bannerContainer)} {
   background: transparent;
   box-shadow: none;
 }
-#{c(sidebar bannerImage)} {
+#{c(sidebar server header bannerImage)} {
   width: cv('channels-width');
   -webkit-mask: linear-gradient(to bottom, #000, transparent);
   mask: linear-gradient(to bottom, #000, transparent);
@@ -49,10 +49,10 @@
 }
 
 // CHANNEL CONTENT
-#{c(sidebar channelLink)} {
+#{c(sidebar server channel link)} {
   transition: all 0.15s ease-in-out;
 }
-#{c(sidebar channelLink)} {
+#{c(sidebar server channel link)} {
   position: relative;
   background: transparent !important;
   &:before {
@@ -74,7 +74,7 @@
     pointer-events: none;
     border-radius: 4px;
   }
-  #{c(sidebar channelIcon)} {
+  #{c(sidebar server channel icon)} {
     width: 18px;
     height: 18px;
     margin-right: 3px;
@@ -88,16 +88,16 @@
       opacity: 1;
     }
   }
-  #{c(sidebar channelName)} {
+  #{c(sidebar server channel name)} {
     color: var(--channel-color);
     transition: all 0.15s ease-in-out;
   }
 }
-#{c(sidebar channelChildren)} {
+#{c(sidebar server channel children)} {
   margin-left: 1px;
   animation: cv-fade-to-3 0.15s ease-in-out;
 }
-#{c(sidebar channelActionIcon)} {
+#{c(sidebar server channel actionIcon)} {
   color: #fff;
   opacity: 0.3;
   transition: all 0.15s ease-in-out;
@@ -108,26 +108,26 @@
     opacity: 0.7;
   }
 }
-#{c(sidebar channelStatusText)},
-#{c(sidebar channelStatusPencilIcon)} {
+#{c(sidebar server channel statusText)},
+#{c(sidebar server channel pencilIcon)} {
   color: hsla(0, 0%, 100%, 0.7);
 }
-#{c(sidebar channelWrapper)} {
+#{c(sidebar server channel wrapper)} {
   // HOVER
   &:hover {
-    #{c(sidebar channelName)},
-    #{c(sidebar channelIcon)} {
+    #{c(sidebar server channel name)},
+    #{c(sidebar server channel icon)} {
       color: #fff;
     }
-    #{c(sidebar channelLink)} {
+    #{c(sidebar server channel link)} {
       background: var(--bg-overlay-hover, var(--background-modifier-hover));
       &:before {
         background: hsla(0, 0%, 100%, 0.1);
       }
-      #{c(sidebar channelLinkTop)} {
-        #{c(sidebar channelContainerDefault)} & {
-          #{c(sidebar channelIcon)},
-          #{c(sidebar channelName)} {
+      #{c(sidebar server channel linkTop)} {
+        #{c(sidebar server channel container)} & {
+          #{c(sidebar server channel icon)},
+          #{c(sidebar server channel name)} {
             color: hsla(0, 0%, 100%, 0.7);
           }
         }
@@ -135,14 +135,14 @@
     }
   }
   // UNREAD
-  &#{c(sidebar channelModeUnreadImportant)} {
-    #{c(sidebar channelLink)} {
-      #{c(sidebar channelLinkTop)} {
-        #{c(sidebar channelName)} {
+  &#{c(sidebar server channel modeUnreadImportant)} {
+    #{c(sidebar server channel link)} {
+      #{c(sidebar server channel linkTop)} {
+        #{c(sidebar server channel name)} {
           color: var(--channel-unread);
           text-shadow: 0 0 3px;
         }
-        #{c(sidebar channelIcon)} {
+        #{c(sidebar server channel icon)} {
           color: var(--channel-unread);
           filter: drop-shadow(0 0 3px);
           opacity: 1;
@@ -150,12 +150,12 @@
       }
     }
     &:hover {
-      #{c(sidebar channelLink)} {
-        #{c(sidebar channelLinkTop)} {
-          #{c(sidebar channelName)} {
+      #{c(sidebar server channel link)} {
+        #{c(sidebar server channel linkTop)} {
+          #{c(sidebar server channel name)} {
             color: var(--channel-text-selected);
           }
-          #{c(sidebar channelIcon)} {
+          #{c(sidebar server channel icon)} {
             color: var(--channel-text-selected);
           }
         }
@@ -163,12 +163,12 @@
     }
   }
   // SELECTED
-  &#{c(sidebar channelModeSelected)} {
-    #{c(sidebar channelName)},
-    #{c(sidebar channelIcon)} {
+  &#{c(sidebar server channel modeSelected)} {
+    #{c(sidebar server channel name)},
+    #{c(sidebar server channel icon)} {
       color: #fff;
     }
-    #{c(sidebar channelLink)} {
+    #{c(sidebar server channel link)} {
       &:before {
         background: hsla(0, 0%, 100%, 0.1);
       }
@@ -177,16 +177,16 @@
         background: cv('colors.main');
         animation: cv-channel-select 0.3s ease-in-out;
       }
-      #{c(sidebar channelContainerDefault)} & {
-        #{c(sidebar channelIcon)},
-        #{c(sidebar channelName)} {
+      #{c(sidebar server channel container)} & {
+        #{c(sidebar server channel icon)},
+        #{c(sidebar server channel name)} {
           color: var(--channel-text-selected);
         }
         #{c(friends live)} {
           color: var(--channel-text-selected) !important;
         }
       }
-      #{c(sidebar channelActionIcon)} {
+      #{c(sidebar server channel actionIcon)} {
         opacity: 0.7;
         &:hover {
           opacity: 1;
@@ -200,14 +200,14 @@
   }
 
   // CONNECTED
-  &#{c(sidebar channelModeConnected)} {
-    #{c(sidebar channelLink)} {
-      #{c(sidebar channelLinkTop)} {
-        #{c(sidebar channelName)} {
+  &#{c(sidebar server channel modeConnected)} {
+    #{c(sidebar server channel link)} {
+      #{c(sidebar server channel linkTop)} {
+        #{c(sidebar server channel name)} {
           color: cv('colors.main');
           text-shadow: 0 0 3px;
         }
-        #{c(sidebar channelIcon)} {
+        #{c(sidebar server channel icon)} {
           color: cv('colors.main');
           filter: drop-shadow(0 0 3px);
         }
@@ -215,24 +215,24 @@
     }
   }
   // MUTED
-  &#{c(sidebar channelModeMuted)} {
-    #{c(sidebar channelLink)} {
-      #{c(sidebar channelLinkTop)} {
-        #{c(sidebar channelIcon)},
-        #{c(sidebar channelName)} {
+  &#{c(sidebar server channel modeMuted)} {
+    #{c(sidebar server channel link)} {
+      #{c(sidebar server channel linkTop)} {
+        #{c(sidebar server channel icon)},
+        #{c(sidebar server channel name)} {
           color: var(--muted-color);
         }
       }
     }
     &:hover {
-      #{c(sidebar channelLink)} {
-        #{c(sidebar channelLinkTop)} {
+      #{c(sidebar server channel link)} {
+        #{c(sidebar server channel linkTop)} {
           &:before {
             background: hsla(0, 0%, 100%, 0.07);
           }
-          #{c(sidebar channelContainerDefault)} & {
-            #{c(sidebar channelIcon)},
-            #{c(sidebar channelName)} {
+          #{c(sidebar server channel container)} & {
+            #{c(sidebar server channel icon)},
+            #{c(sidebar server channel name)} {
               color: var(--channel-color);
             }
           }
@@ -243,7 +243,7 @@
 }
 
 // UNREAD & MENTIONS INDICATION
-#{c(sidebar channelUnreadBlob)} {
+#{c(sidebar server channel unreadBlob)} {
   display: none;
 }
 
@@ -253,19 +253,19 @@
 }
 
 // USER LIMIT
-#{c(sidebar channelUsers)},
-#{c(sidebar channelTotal)} {
+#{c(sidebar server channel voiceLimitUsers)},
+#{c(sidebar server channel voiceLimitTotal)} {
   width: 24px;
   color: hsla(0, 0%, 100%, 0.3);
   font-weight: 600;
   text-align: right;
   transition: all 0.15s ease-in-out;
 }
-#{c(sidebar channelUsers)} {
+#{c(sidebar server channel voiceLimitUsers)} {
   padding: 0 4px 0 6px;
   background: rgba(0, 0, 0, 0.15);
 }
-#{c(sidebar channelTotal)} {
+#{c(sidebar server channel voiceLimitTotal)} {
   padding: 0 6px 0 4px;
   background: hsla(0, 0%, 100%, 0.04);
   box-shadow: inset 1px 0 hsla(0, 0%, 100%, 0.07);
@@ -273,40 +273,40 @@
     display: none;
   }
 }
-#{c(sidebar channelModeConnected)} {
-  #{c(sidebar channelUsers)} {
+#{c(sidebar server channel modeConnected)} {
+  #{c(sidebar server channel voiceLimitUsers)} {
     color: cv('colors.main');
     text-shadow: 0 0 1px;
   }
 }
 
 // VOICE USER LIST
-#{c(sidebar voiceListDefault)} {
+#{c(sidebar server channel voice listDefault)} {
   padding-left: 24px;
-  #{c(sidebar voiceUserClickable)}:hover #{c(sidebar voiceUserContent)} {
+  #{c(sidebar server channel voice clickable)}:hover #{c(sidebar server channel voice userContent)} {
     background: rgba(0, 0, 0, 0.04);
   }
 }
 
-#{c(sidebar voiceUser)} {
+#{c(sidebar server channel voice user)} {
   z-index: 1;
-  #{c(sidebar voiceUserContent)} {
+  #{c(sidebar server channel voice userContent)} {
     border-radius: 3px;
     transition: all 0.15s ease-in-out;
   }
   &:hover,
   &:active,
-  &#{c(sidebar voiceUserSelected)} {
-    #{c(sidebar voiceListDefault)} & {
-      #{c(sidebar voiceUserContent)} {
+  &#{c(sidebar server channel voice selected)} {
+    #{c(sidebar server channel voice listDefault)} & {
+      #{c(sidebar server channel voice userContent)} {
         background: hsla(0, 0%, 100%, 0.04);
       }
-      #{c(sidebar voiceUsername)} {
+      #{c(sidebar server channel voice username)} {
         color: hsla(0, 0%, 100%, 0.7);
       }
     }
   }
-  #{c(sidebar voiceSpeaking)} {
+  #{c(sidebar server channel voice avatarSpeaking)} {
     position: relative;
     transition: all 0.1s ease-in-out;
     &:after {
@@ -323,22 +323,22 @@
       border-bottom-right-radius: 0;
     }
   }
-  #{c(sidebar voiceSpeaking)} {
+  #{c(sidebar server channel voice avatarSpeaking)} {
     box-shadow: 0 0 0 2px cv('colors.main'), inset 0 0 3px rgba(0, 0, 0, 0.5);
     &:after {
       @include pos($top: -2px, $bottom: -2px);
       width: 150px;
     }
   }
-  #{c(sidebar voiceUsername)} {
+  #{c(sidebar server channel voice username)} {
     color: hsla(0, 0%, 100%, 0.5);
     transition: all 0.1s ease-in-out;
   }
-  #{c(sidebar voiceUsernameSpeaking)} {
+  #{c(sidebar server channel voice usernameSpeaking)} {
     color: #fff !important;
   }
 }
-#{c(other cv voiceChannelsButton)} {
+#{c(sidebar server category voiceChannelsButton)} {
   border: 1px solid cv('colors.main');
   &:hover {
     background: cv('colors.hover');
@@ -361,15 +361,15 @@
 }
 
 // DRAG INDICATORS
-:is(#{c(sidebar containerDragAfter)}, #{c(sidebar containerDragBefore)}),
-:is(#{c(sidebar channelDragBefore)},#{c(sidebar channelDragAfter)}) {
+:is(#{c(sidebar server dragAfter)}, #{c(sidebar server dragBefore)}),
+:is(#{c(sidebar server channel dragBefore)},#{c(sidebar server channel dragAfter)}) {
   &:before,
   &:after {
     background: cv('colors.main');
     border-radius: 0;
   }
 }
-#{c(sidebar channelDragOver)} {
+#{c(sidebar server channel userOver)} {
   &:after {
     background: cv('colors.main');
     border-color: transparent;

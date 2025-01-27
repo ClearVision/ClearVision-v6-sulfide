@@ -1,8 +1,8 @@
 @use "backend" as *;
 
 /* CHANNEL INDICATORS */
-#{c(serverList unreadMention)},
-#{c(serverList mentionBar)} {
+#{c(sidebar server unreadBar old unread)},
+#{c(sidebar server unreadBar old mention)} {
   position: relative;
   background: transparent;
   &:after {
