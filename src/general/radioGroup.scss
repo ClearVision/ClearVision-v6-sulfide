@@ -5,7 +5,7 @@
   background-color: transparent;
   color: #fff;
   &:hover {
-    &:not([aria-checked='true']):not(#{c(other cv radioItemDisabled)}) {
+    &:not([aria-checked='true'],#{c(other cv radioItemDisabled)}) {
       background-color: transparent;
       color: #fff;
     }

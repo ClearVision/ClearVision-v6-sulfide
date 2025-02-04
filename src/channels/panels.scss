@@ -1,18 +1,18 @@
 @use "backend" as *;
 
 /* CHANNEL LIST PANELS */
-#{c(sidebar panels)} {
+#{c(sidebar server panel panels)} {
   background: transparent;
   > :first-child {
     box-shadow: 0 -2px 10px rgba(0, 0, 0, calc(cv('bg.app.shading') * 0.3));
   }
 }
-#{c(main dark)} #{c(sidebar panelStreaming)} {
+#{c(main dark)} #{c(sidebar server panel activity panel)} {
   background-color: transparent;
 }
 
 // ACCOUNT & CONNECTION PANELS
-#{c(sidebar panelContainer)} {
+#{c(sidebar server panel container)} {
   > #{c(other cv flex)} {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
@@ -33,7 +33,7 @@
 }
 /* Account for account panel width scaling under
   new design */
-#{c(main dark)} #{c(sidebar panelAvatarWrapper)} {
+#{c(main dark)} #{c(sidebar server panel avatarWrapper)} {
   min-width: calc(var(--channels-width) - 120px);
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.1);
@@ -41,7 +41,7 @@
 }
 
 // BUTTONS
-button#{c(sidebar panelButton)} {
+button#{c(sidebar server panel buttons button)} {
   width: 32px;
   height: 32px;
   opacity: 1;
@@ -55,33 +55,33 @@ button#{c(sidebar panelButton)} {
     }
   }
   &:hover {
-    &#{c(sidebar panelButtonEnabled)} {
+    &#{c(sidebar server panel buttons enabled)} {
       background: transparent;
     }
     > #{c(button contents)} > svg {
       opacity: 0.7;
     }
   }
-  &#{c(sidebar panelButtonDisabled)} {
+  &#{c(sidebar server panel buttons disabled)} {
     > #{c(button contents)} > svg {
       opacity: 0.1;
     }
   }
 }
-#{c(sidebar panelActionButtons)} {
+#{c(sidebar server panel voice actionButtons actionButtons)} {
   grid-gap: 6px;
 }
-#{c(sidebar panelActionButton)} {
-  &#{c(sidebar panelButtonColor)} {
+#{c(sidebar server panel voice actionButtons button)} {
+  &#{c(sidebar server panel voice actionButtons color)} {
     padding: 0;
-    &#{c(sidebar panelButtonActive)} {
+    &#{c(sidebar server panel voice actionButtons active)} {
       background-color: #fff;
       color: cv('colors.main');
       &:hover {
         background: hsla(0, 0%, 100%, 0.95);
         color: cv('colors.hover');
       }
-      #{c(sidebar panelLottieIcon)} {
+      #{c(sidebar server panel buttons lottieIcon)} {
         --__lottieIconColor: currentcolor !important;
       }
     }
@@ -89,7 +89,7 @@ button#{c(sidebar panelButton)} {
 }
 
 // ACCOUNT PANEL
-#{c(main dark)} #{c(sidebar panelContainer)} {
+#{c(main dark)} #{c(sidebar server panel container)} {
   position: relative;
   background: transparent;
   // SOME POSITIONING
@@ -103,7 +103,7 @@ button#{c(sidebar panelButton)} {
     }
   }
   // AVATAR
-  #{c(sidebar panelAvatar)} {
+  #{c(sidebar server panel avatar)} {
     width: 32px !important;
     height: 32px !important;
     transition: all 0.15s ease-in-out;
@@ -136,13 +136,13 @@ button#{c(sidebar panelButton)} {
     }
   }
   // NAME TAG
-  #{c(sidebar panelUsername)} {
+  #{c(sidebar server panel username)} {
     color: #fff;
   }
 }
 
 // CONNECTION PANEL
-#{c(sidebar panelVoiceContainer)} {
+#{c(sidebar server panel voice container)} {
   > #{c(other cv flex)} {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
@@ -150,7 +150,7 @@ button#{c(sidebar panelButton)} {
   }
   border-color: transparent;
   background: transparent;
-  #{c(sidebar panelInner)} {
+  #{c(sidebar server panel voice inner)} {
     #{c(other cv rtcConnectionStatus)} {
       #{c(other cv rtcConnectionPing)} {
         width: 16px;
@@ -160,7 +160,7 @@ button#{c(sidebar panelButton)} {
       }
     }
   }
-  #{c(sidebar panelChannel)} {
+  #{c(sidebar server panel voice channel)} {
     color: hsla(0, 0%, 100%, 0.3);
     opacity: 1;
     transition: all 0.15s ease-in-out;
@@ -172,9 +172,9 @@ button#{c(sidebar panelButton)} {
 }
 
 // ACTIVITY PANEL
-#{c(sidebar panelActivityContainer)} {
+#{c(sidebar server panel activity activityPanel)} {
   border-color: transparent;
-  #{c(sidebar panelActivityActions)} {
+  #{c(sidebar server panel activityActions)} {
     background: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
     > :nth-child(n + 2) {
@@ -199,7 +199,7 @@ button#{c(sidebar panelButton)} {
 }
 
 // NOISE CANCELLATION POPOUT
-#{c(sidebar noiseCancellationPopout)} {
+#{c(sidebar server panel voice noiseCancellationPopout)} {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
@@ -228,7 +228,7 @@ button#{c(sidebar panelButton)} {
 // SPOTIFY/YT MUSIC MAYBE?/IDK
 #{c(other cv listeningAlongPanel)} {
   background: transparent;
-  #{c(sidebar panelUsername)} {
+  #{c(sidebar server panel username)} {
     color: cv('colors.main');
   }
 }

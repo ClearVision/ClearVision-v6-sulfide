@@ -33,7 +33,6 @@
 }
 #{c(sidebar server header bannerImage)} {
   width: cv('channels-width');
-  -webkit-mask: linear-gradient(to bottom, #000, transparent);
   mask: linear-gradient(to bottom, #000, transparent);
 }
 #{c(sidebar threadsSpine)} {

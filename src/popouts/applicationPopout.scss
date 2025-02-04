@@ -61,7 +61,6 @@
   visibility: hidden;
 }
 #{c(other cv appPopoutBanner)} {
-  -webkit-mask: linear-gradient(to bottom, #000, transparent);
   mask: linear-gradient(to bottom, #000, transparent);
 }
 #{c(other cv appPopoutAppIcon)} {

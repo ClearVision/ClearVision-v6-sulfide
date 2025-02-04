@@ -120,7 +120,7 @@
     }
     &#{c(memberList selected)} {
       #{c(other cv memberUsername)} > span {
-        -webkit-text-fill-color: #fff;
+        color: #fff;
         text-shadow: 0 0 3px rgba(0, 0, 0, 0.7);
         &:after {
           right: 0;
